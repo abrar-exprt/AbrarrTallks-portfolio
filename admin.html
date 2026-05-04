@@ -287,7 +287,12 @@ try {
   db   = getFirestore(app);
   auth = getAuth(app);
 } catch(e) { console.error("Firebase init:", e); }
-if (!db) document.getElementById('fbb').style.display = 'block';
+if (!db || !auth) document.getElementById('fbb').style.display = 'block';
+
+// ── STARTUP CHECK ───────────────────────────────────────────
+console.log('[Admin] Firebase DB ready:', !!db);
+console.log('[Admin] Firebase Auth ready:', !!auth);
+if (!db || !auth) console.error('[Admin] Firebase failed to init — check credentials');
 
 // ── HELPERS ─────────────────────────────────────────────────
 function e(s){ return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
@@ -352,13 +357,23 @@ async function doLogin(){
   const email=v('lemail'),pass=document.getElementById('lpass').value;
   setAlert('');
   if(!email||!pass) return setAlert('Enter email and password.');
-  if(!READY||!auth) return setAlert('Firebase not configured. Check firebase-config.js.');
+  if(!auth) return setAlert('Firebase not configured — check credentials in admin.html.');
   if(!ADMIN_EMAILS.includes(email)) return setAlert('This email is not authorised as admin.');
   const btn=document.getElementById('loginBtn');btn.textContent='Signing in…';btn.disabled=true;
   try{ await signInWithEmailAndPassword(auth,email,pass); }
   catch(err){
     const c=err.code||'';
-    setAlert((c.includes('invalid-credential')||c.includes('wrong-password'))?'Incorrect email or password.':c.includes('too-many')?'Too many attempts — wait a few minutes.':err.message||'Login failed.');
+    console.error('[Admin] Login error:', err.code, err.message);
+    let msg = err.message || 'Login failed.';
+    if(c.includes('invalid-credential')||c.includes('wrong-password')||c.includes('user-not-found'))
+      msg='Incorrect email or password. Check your Firebase Auth console has this user created.';
+    else if(c.includes('too-many-requests'))
+      msg='Too many failed attempts — wait a few minutes then try again.';
+    else if(c.includes('network-request-failed'))
+      msg='Network error — check your internet connection.';
+    else if(c.includes('auth/configuration-not-found')||c.includes('operation-not-allowed'))
+      msg='Email/Password sign-in is not enabled. Go to Firebase Console → Authentication → Sign-in method → Enable Email/Password.';
+    setAlert(msg);
   }finally{btn.textContent='Sign In';btn.disabled=false;}
 }
 document.getElementById('loginBtn').addEventListener('click',doLogin);
