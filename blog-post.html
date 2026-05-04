@@ -276,8 +276,7 @@ let _sanitize = null;
 async function loadDOMPurify() {
   return new Promise((resolve) => {
     const s = document.createElement('script');
-    s.src = 'https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.1.6/purify.min.js';
-    s.integrity = 'sha512-jB0TkTBeQC9ZSkBqDhdmfTv1qdfbWpFE27GR+Q7p5P7GtN9wMCFNFTC3zvYaAZnNiQNWA5y0kDzPCcHfM6A==';
+    s.src = 'https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.2.4/purify.min.js';
     s.crossOrigin = 'anonymous';
     s.onload  = () => { _sanitize = (html) => window.DOMPurify.sanitize(html, {
         USE_PROFILES: { html: true },
@@ -293,11 +292,23 @@ async function loadDOMPurify() {
       resolve(true);
     };
     s.onerror = () => {
-      // Fallback: strip all HTML, render as plain text (safe but lossy)
+      // Fallback: basic manual sanitiser — removes dangerous tags/attrs, keeps formatting
       _sanitize = (html) => {
         const div = document.createElement('div');
-        div.textContent = html;
-        return `<p>${div.innerHTML}</p>`;
+        div.innerHTML = html;
+        // Remove dangerous elements
+        div.querySelectorAll('script,iframe,object,embed,form,input,button,textarea,select,meta,link,style').forEach(el => el.remove());
+        // Remove dangerous attributes from all elements
+        div.querySelectorAll('*').forEach(el => {
+          ['onerror','onload','onclick','onmouseover','onmouseout','onfocus','onblur',
+           'onchange','onsubmit','onkeydown','onkeyup','onkeypress','onreset'].forEach(attr => el.removeAttribute(attr));
+          // Remove javascript: hrefs
+          if (el.getAttribute('href') && el.getAttribute('href').trim().toLowerCase().startsWith('javascript:'))
+            el.removeAttribute('href');
+          if (el.getAttribute('src') && el.getAttribute('src').trim().toLowerCase().startsWith('javascript:'))
+            el.removeAttribute('src');
+        });
+        return div.innerHTML;
       };
       resolve(false);
     };
