@@ -80,11 +80,23 @@
     .fbb{background:#fef3c7;border:1px solid #fcd34d;color:#92400e;padding:12px 16px;border-radius:10px;font-size:13.5px;margin-bottom:16px;}
     .ht2{font-size:12px;color:var(--slate-2);margin-top:4px;}
     .ht2 code{background:var(--bg-2);border:1px solid var(--line);padding:1px 5px;border-radius:4px;font-size:11px;}
-    .blog-content-wrap{border:1.5px solid var(--line);border-radius:10px;overflow:hidden;}
-    .blog-toolbar{display:flex;gap:6px;padding:10px;background:var(--bg-2);border-bottom:1px solid var(--line);flex-wrap:wrap;}
-    .blog-toolbar button{padding:5px 10px;border:1px solid var(--line);border-radius:6px;background:#fff;font-size:12.5px;font-family:inherit;cursor:pointer;transition:var(--transition);}
-    .blog-toolbar button:hover{background:var(--sky-50);border-color:var(--sky-300);}
-    #blogContent{min-height:180px;padding:14px;font-size:14.5px;line-height:1.7;outline:none;font-family:'Inter',sans-serif;}
+    .blog-editor-wrap{border:1.5px solid var(--line);border-radius:10px;overflow:hidden;background:#fff;}
+    .blog-editor-wrap:focus-within{border-color:var(--sky-400);box-shadow:0 0 0 3px rgba(14,165,233,.12);}
+    .blog-toolbar{display:flex;gap:4px;padding:10px 10px 8px;background:var(--bg-2);border-bottom:1px solid var(--line);flex-wrap:wrap;align-items:center;}
+    .blog-toolbar button{padding:5px 11px;border:1px solid var(--line);border-radius:6px;background:#fff;font-size:12.5px;font-family:inherit;cursor:pointer;transition:var(--transition);color:var(--navy);line-height:1.4;}
+    .blog-toolbar button:hover{background:var(--sky-50);border-color:var(--sky-400);color:var(--sky-700);}
+    .blog-toolbar .sep{width:1px;height:20px;background:var(--line);margin:0 4px;flex-shrink:0;}
+    #blogContent{min-height:220px;padding:16px;font-size:15px;line-height:1.8;outline:none;font-family:'Inter',sans-serif;color:var(--navy);}
+    #blogContent:empty::before{content:attr(data-placeholder);color:var(--slate-3);pointer-events:none;}
+    #blogContent h2{font-size:22px;font-weight:700;margin:20px 0 10px;color:var(--navy);}
+    #blogContent h3{font-size:18px;font-weight:600;margin:16px 0 8px;color:var(--navy);}
+    #blogContent p{margin-bottom:12px;}
+    #blogContent ul,#blogContent ol{padding-left:22px;margin-bottom:12px;}
+    #blogContent li{margin-bottom:4px;}
+    #blogContent blockquote{border-left:4px solid var(--sky-400);background:var(--sky-50);padding:10px 16px;border-radius:0 8px 8px 0;margin:12px 0;font-style:italic;}
+    #blogContent a{color:var(--sky-600);}
+    #blogContent strong{font-weight:700;}
+    .char-count{font-size:11px;color:var(--slate-2);padding:6px 14px;text-align:right;background:var(--bg-2);border-top:1px solid var(--line);}
   </style>
 </head>
 <body>
@@ -229,19 +241,29 @@
     <div class="fg"><label>Excerpt (shown on blog listing)</label><textarea id="bExcerpt" style="min-height:64px" placeholder="Short summary of the post (1–2 sentences)…"></textarea></div>
     <div class="fg">
       <label>Content *</label>
-      <div class="blog-content-wrap">
+      <div class="blog-editor-wrap">
         <div class="blog-toolbar">
-          <button onclick="fmt('bold')"><strong>B</strong></button>
-          <button onclick="fmt('italic')"><em>I</em></button>
-          <button onclick="fmt('underline')"><u>U</u></button>
-          <button onclick="insH('h2')">H2</button>
-          <button onclick="insH('h3')">H3</button>
-          <button onclick="fmt('insertUnorderedList')">• List</button>
-          <button onclick="fmt('insertOrderedList')">1. List</button>
-          <button onclick="insLink()">🔗 Link</button>
-          <button onclick="ins('&lt;blockquote&gt;Your quote here&lt;/blockquote&gt;')">❝ Quote</button>
+          <button type="button" onclick="fmt('bold')" title="Bold (Ctrl+B)"><strong>B</strong></button>
+          <button type="button" onclick="fmt('italic')" title="Italic (Ctrl+I)"><em>I</em></button>
+          <button type="button" onclick="fmt('underline')" title="Underline"><u>U</u></button>
+          <div class="sep"></div>
+          <button type="button" onclick="insH('h2')" title="Heading 2">H2</button>
+          <button type="button" onclick="insH('h3')" title="Heading 3">H3</button>
+          <div class="sep"></div>
+          <button type="button" onclick="fmt('insertUnorderedList')" title="Bullet List">• List</button>
+          <button type="button" onclick="fmt('insertOrderedList')" title="Numbered List">1. List</button>
+          <div class="sep"></div>
+          <button type="button" onclick="insBlockquote()" title="Blockquote">❝ Quote</button>
+          <button type="button" onclick="insLink()" title="Insert Link">🔗 Link</button>
+          <div class="sep"></div>
+          <button type="button" onclick="clearEditor()" title="Clear all" style="color:var(--danger)">✕ Clear</button>
         </div>
-        <div id="blogContent" contenteditable="true" aria-label="Blog post content"></div>
+        <div id="blogContent" contenteditable="true"
+             data-placeholder="Start writing your blog post here... Use the toolbar above to format text.
+&#10;&#10;Tip: Type your content first, then select text and click B / I / H2 etc. to format it."
+             aria-label="Blog post content"
+             role="textbox" aria-multiline="true"></div>
+        <div class="char-count" id="charCount">0 characters</div>
       </div>
     </div>
     <div class="mf"><button class="btn btn-ghost btn-s" id="cancelBlog">Cancel</button><button class="btn btn-primary btn-s" id="saveBlog">Publish Post</button></div>
@@ -287,7 +309,12 @@ try {
   db   = getFirestore(app);
   auth = getAuth(app);
 } catch(e) { console.error("Firebase init:", e); }
-if (!db) document.getElementById('fbb').style.display = 'block';
+if (!db || !auth) document.getElementById('fbb').style.display = 'block';
+
+// ── STARTUP CHECK ───────────────────────────────────────────
+console.log('[Admin] Firebase DB ready:', !!db);
+console.log('[Admin] Firebase Auth ready:', !!auth);
+if (!db || !auth) console.error('[Admin] Firebase failed to init — check credentials');
 
 // ── HELPERS ─────────────────────────────────────────────────
 function e(s){ return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
@@ -352,13 +379,23 @@ async function doLogin(){
   const email=v('lemail'),pass=document.getElementById('lpass').value;
   setAlert('');
   if(!email||!pass) return setAlert('Enter email and password.');
-  if(!READY||!auth) return setAlert('Firebase not configured. Check firebase-config.js.');
+  if(!auth) return setAlert('Firebase not configured — check credentials in admin.html.');
   if(!ADMIN_EMAILS.includes(email)) return setAlert('This email is not authorised as admin.');
   const btn=document.getElementById('loginBtn');btn.textContent='Signing in…';btn.disabled=true;
   try{ await signInWithEmailAndPassword(auth,email,pass); }
   catch(err){
     const c=err.code||'';
-    setAlert((c.includes('invalid-credential')||c.includes('wrong-password'))?'Incorrect email or password.':c.includes('too-many')?'Too many attempts — wait a few minutes.':err.message||'Login failed.');
+    console.error('[Admin] Login error:', err.code, err.message);
+    let msg = err.message || 'Login failed.';
+    if(c.includes('invalid-credential')||c.includes('wrong-password')||c.includes('user-not-found'))
+      msg='Incorrect email or password. Check your Firebase Auth console has this user created.';
+    else if(c.includes('too-many-requests'))
+      msg='Too many failed attempts — wait a few minutes then try again.';
+    else if(c.includes('network-request-failed'))
+      msg='Network error — check your internet connection.';
+    else if(c.includes('auth/configuration-not-found')||c.includes('operation-not-allowed'))
+      msg='Email/Password sign-in is not enabled. Go to Firebase Console → Authentication → Sign-in method → Enable Email/Password.';
+    setAlert(msg);
   }finally{btn.textContent='Sign In';btn.disabled=false;}
 }
 document.getElementById('loginBtn').addEventListener('click',doLogin);
@@ -478,6 +515,7 @@ function openBM(id){
   document.getElementById('bCat').value='SEO';
   document.getElementById('bDate').value=new Date().toISOString().slice(0,10);
   document.getElementById('blogContent').innerHTML='';
+  updateCharCount();
   if(id){lB().then(list=>{const b=list.find(x=>x.id===id);if(!b)return;
     document.getElementById('bTitle').value=b.title||'';document.getElementById('bCat').value=b.category||'SEO';
     document.getElementById('bDate').value=b.date||'';document.getElementById('bRead').value=b.readtime||'';
@@ -489,16 +527,26 @@ document.getElementById('addBlogBtn').addEventListener('click',()=>openBM(null))
 document.getElementById('cancelBlog').addEventListener('click',()=>closeMo('blogMo'));
 document.getElementById('saveBlog').addEventListener('click',async()=>{
   if(!db) return toast('Firebase not configured','e');
-  const title=v('bTitle'),content=document.getElementById('blogContent').innerHTML.trim();
+  const title=v('bTitle');
+  // Get raw innerHTML from the editor
+  let editorHTML = document.getElementById('blogContent').innerHTML.trim();
+  // Remove empty trailing <br> or empty divs
+  editorHTML = editorHTML.replace(/(<br\s*\/?>)+$/gi, '').replace(/<div><br\s*\/?><\/div>$/gi, '').trim();
+  // If user typed plain text (no block tags), wrap in <p>
+  const hasBlockTags = /<(p|h[1-6]|ul|ol|li|blockquote|div|pre)[^>]*>/i.test(editorHTML);
+  const content = hasBlockTags ? editorHTML : (editorHTML ? `<p>${editorHTML}</p>` : '');
   if(!title) return toast('Title required','e');
-  if(!content||content==='<br>') return toast('Content required','e');
+  if(!content) return toast('Content required — write something!','e');
   const data={title,content,category:v('bCat'),date:v('bDate'),readtime:v('bRead'),
     image:v('bImg'),excerpt:v('bExcerpt'),isDynamic:true,updatedAt:serverTimestamp()};
   const btn=document.getElementById('saveBlog');btn.textContent='Publishing…';btn.disabled=true;
   try{
     if(_bid){await updateDoc(doc(db,'blogs',_bid),data);toast('Post updated ✓','ok');}
     else{data.createdAt=serverTimestamp();await addDoc(collection(db,'blogs'),data);toast('Post published ✓','ok');}
-    closeMo('blogMo');rB();
+    closeMo('blogMo');
+    document.getElementById('blogContent').innerHTML='';
+    updateCharCount();
+    rB();
   }catch(err){toast(err.message||'Save failed','e');}
   finally{btn.textContent='Publish Post';btn.disabled=false;}
 });
@@ -511,10 +559,69 @@ window.__db=async(id,title)=>{
 };
 
 // Blog rich text helpers (exposed globally for inline onclick)
-window.fmt=(cmd,val=null)=>{document.getElementById('blogContent').focus();document.execCommand(cmd,false,val);};
-window.insH=(tag)=>{const s=window.getSelection();const t=s.toString()||'Heading text';document.getElementById('blogContent').focus();document.execCommand('insertHTML',false,`<${tag}>${t}</${tag}><p></p>`);};
-window.insLink=()=>{const url=prompt('URL:','https://');if(url){const txt=window.getSelection().toString()||url;document.getElementById('blogContent').focus();document.execCommand('insertHTML',false,`<a href="${url}" target="_blank" rel="noopener">${txt}</a>`);}};
-window.ins=(html)=>{document.getElementById('blogContent').focus();document.execCommand('insertHTML',false,html);};
+// ── BLOG EDITOR HELPERS ─────────────────────────────────────
+window.fmt = (cmd, val=null) => {
+  const el = document.getElementById('blogContent');
+  el.focus();
+  document.execCommand(cmd, false, val);
+  updateCharCount();
+};
+window.insH = (tag) => {
+  const el = document.getElementById('blogContent');
+  el.focus();
+  const sel = window.getSelection();
+  const selectedText = sel.toString() || 'Heading Text';
+  document.execCommand('insertHTML', false, `<${tag}>${selectedText}</${tag}><p><br></p>`);
+  updateCharCount();
+};
+window.insLink = () => {
+  const url = prompt('Enter URL:', 'https://');
+  if (!url || !url.startsWith('http')) return;
+  const el = document.getElementById('blogContent');
+  el.focus();
+  const sel = window.getSelection();
+  const txt = sel.toString() || url;
+  document.execCommand('insertHTML', false,
+    `<a href="${url.replace(/"/g,'&quot;')}" target="_blank" rel="noopener">${txt}</a>`);
+  updateCharCount();
+};
+window.insBlockquote = () => {
+  const el = document.getElementById('blogContent');
+  el.focus();
+  const sel = window.getSelection();
+  const txt = sel.toString() || 'Your quote here';
+  document.execCommand('insertHTML', false,
+    `<blockquote>${txt}</blockquote><p><br></p>`);
+  updateCharCount();
+};
+window.ins = (html) => {
+  document.getElementById('blogContent').focus();
+  document.execCommand('insertHTML', false, html);
+  updateCharCount();
+};
+window.clearEditor = () => {
+  if (!confirm('Clear all content? This cannot be undone.')) return;
+  document.getElementById('blogContent').innerHTML = '';
+  updateCharCount();
+};
+function updateCharCount() {
+  const el = document.getElementById('blogContent');
+  const cc = document.getElementById('charCount');
+  if (!el || !cc) return;
+  const text = el.innerText || el.textContent || '';
+  const words = text.trim().split(/\s+/).filter(Boolean).length;
+  cc.textContent = `${text.length} characters · ${words} words`;
+}
+// Character counter on input
+document.getElementById('blogContent')?.addEventListener('input', updateCharCount);
+// Keyboard shortcut hint
+document.getElementById('blogContent')?.addEventListener('keydown', (e) => {
+  // Allow Ctrl+B, Ctrl+I, Ctrl+U to work naturally via browser
+  if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
+    e.preventDefault();
+    document.getElementById('saveBlog')?.click();
+  }
+});
 
 // ─────────────────────────────────────────────────────────────
 // HERO IMAGES
