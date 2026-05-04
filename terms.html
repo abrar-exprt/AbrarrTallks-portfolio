@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terms & Conditions | Abrarr Tallks</title>
+<meta name="description" content="Terms and Conditions of Abrarr Tallks website and services.">
+<link rel="canonical" href="https://abrartallks-portfolio.co.in/terms-and-conditions.html">
+<link rel="icon" href="favicon.png">
+<style>
+body{font-family:Inter,system-ui,sans-serif;background:#f6f6f6;color:#222;line-height:1.8;margin:0}
+.container{max-width:900px;margin:auto;padding:60px 20px}
+h1{font-size:36px}
+h2{margin-top:35px}
+/* ===== NAVBAR ===== */
+.navbar{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:#ffffff;
+  box-shadow:0 6px 12px rgba(0,0,0,0.08); /* 👈 HALF SHADOW DOWN */
+}
+
+.nav-container{
+  max-width:1200px;
+  margin:auto;
+  padding:14px 20px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+/* BRAND */
+.brand-name{
+  font-size:20px;
+  font-weight:700;
+  color:#111;
+}
+
+/* LINKS */
+.nav-links{
+  display:flex;
+  gap:22px;
+}
+
+.nav-links a{
+  text-decoration:none;
+  color:#333;
+  font-size:15px;
+  font-weight:500;
+}
+
+.nav-links a:hover{
+  color:#000;
+}
+
+/* MOBILE MENU */
+.menu-btn{
+  display:none;
+  color: black;
+  font-size:24px;
+  cursor:pointer;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  .menu-btn{
+    display:block;
+  }
+
+  .nav-links{
+    position:absolute;
+    top:64px;
+    left:0;
+    width:100%;
+    background:#fff;
+    flex-direction:column;
+    gap:16px;
+    padding:20px;
+    display:none;
+    box-shadow:0 8px 16px rgba(0,0,0,0.08); /* soft dropdown shadow */
+  }
+
+  .nav-links.show{
+    display:flex;
+  }
+}
+</style>
+</head>
+<body>
+<!-- NAVBAR -->
+<header class="navbar">
+  <div class="nav-container">
+
+    <div class="brand">
+      <span class="brand-name">Abrarr Tallks</span>
+    </div>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="about.html">About me</a>
+      <a href="service.html">Services</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
+    <div class="menu-btn" id="menuBtn">
+      ☰
+    </div>
+
+  </div>
+</header>
+<script>
+const menuBtn = document.getElementById("menuBtn");
+const navLinks = document.getElementById("navLinks");
+
+menuBtn.addEventListener("click", () => {
+  navLinks.classList.toggle("show");
+});
+</script>
+<main class="container">
+<h1>Terms & Conditions</h1>
+
+<p>Welcome to <strong>Abrarr Tallks</strong>. By accessing this website, you agree to these Terms & Conditions.</p>
+
+<h2>1. Services</h2>
+<p>Abrarr Tallks provides website design, development, templates, and digital services. All services are subject to availability and agreement.</p>
+
+<h2>2. Payments</h2>
+<p>All payments must be made in advance or as agreed. Prices may change without prior notice.</p>
+
+<h2>3. Intellectual Property</h2>
+<p>All designs, code, content, and templates are the property of Abrarr Tallks unless stated otherwise. Unauthorized copying is prohibited.</p>
+
+<h2>4. Client Responsibilities</h2>
+<p>Clients must provide accurate project details, content, and approvals on time. Delays from the client side may affect delivery timelines.</p>
+
+<h2>5. Limitation of Liability</h2>
+<p>Abrarr Tallks is not responsible for business losses, revenue loss, or damages caused by website downtime or third-party services.</p>
+
+<h2>6. Termination</h2>
+<p>We reserve the right to terminate services if misuse, abuse, or illegal activity is detected.</p>
+
+<h2>7. Changes</h2>
+<p>These terms may be updated anytime without notice.</p>
+
+<h2>8. Contact</h2>
+<p>Email: <strong>contact.abrarrtallks@gmail.com</strong></p>
+
+</main>
+</body>
+</html>
