@@ -4,28 +4,35 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="theme-color" content="#0ea5e9">
-  <title>Blog — Web Design &amp; SEO Tips | Abrarr Tallks | Srinagar, Kashmir, India</title>
-  <meta name="description" content="Free web design, SEO and digital marketing tips by Abrar Ali (Abrarr Tallks) — CEO of rebrar.in &amp; MBP. Helping businesses in Srinagar, J&amp;K and across India rank on Google and grow online.">
+  <title>Blog — Web Design &amp; SEO Tips | Abrarr Tallks | Abrar Ali | Srinagar, Kashmir</title>
+  <meta name="description" content="Free web design, SEO and digital marketing tips by Abrar Ali (Abrarr Tallks) — CEO of rebrar.in &amp; MakeMe Top Business Profile. Helping businesses in J&amp;K and across India rank on Google and grow online.">
   <meta name="author" content="Abrar Ali">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
   <link rel="canonical" href="https://abrartallks-portfolio.co.in/blog.html">
-  <meta name="keywords" content="web design blog India, SEO tips Kashmir, website tips Srinagar, how to rank on Google India, local SEO blog J&K, web development tips India, Abrarr Tallks blog, MBP blog, digital marketing Kashmir">
+  <meta name="keywords" content="web design blog India, SEO tips Kashmir, website tips Srinagar, how to rank on Google India, local SEO blog J&K, web development tips India, Abrarr Tallks blog, MakeMe Top blog, digital marketing Kashmir, web designer blog Srinagar">
   <meta name="geo.region" content="IN-JK">
   <meta name="geo.placename" content="Srinagar, Jammu &amp; Kashmir, India">
   <meta name="geo.position" content="34.0837;74.7973">
+  <meta name="ICBM" content="34.0837, 74.7973">
   <meta property="og:title" content="Blog — Web Design &amp; SEO Tips | Abrarr Tallks | Srinagar Kashmir">
-  <meta property="og:description" content="Free tips on web design, local SEO and Google ranking for Indian businesses. By Abrar Ali — CEO rebrar.in &amp; MBP.">
+  <meta property="og:description" content="Free tips on web design, local SEO and Google ranking. By Abrar Ali — CEO rebrar.in &amp; MakeMe Top Business Profile.">
   <meta property="og:image" content="https://abrartallks-portfolio.co.in/og-home.jpg">
   <meta property="og:url" content="https://abrartallks-portfolio.co.in/blog.html">
   <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_IN">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+
+  <!-- Schema: Blog + Breadcrumb -->
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"Blog","name":"Abrarr Tallks Blog","url":"https://abrartallks-portfolio.co.in/blog.html","author":{"@type":"Person","name":"Abrar Ali","url":"https://abrartallks-portfolio.co.in/"},"description":"Web design, SEO and digital marketing tips for Indian businesses."}
+  {"@context":"https://schema.org","@type":"Blog","name":"Abrarr Tallks Blog",
+   "url":"https://abrartallks-portfolio.co.in/blog.html",
+   "author":{"@type":"Person","name":"Abrar Ali","url":"https://abrartallks-portfolio.co.in/"},
+   "description":"Web design, SEO and digital marketing tips for businesses in India and globally."}
   </script>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
@@ -33,67 +40,112 @@
     {"@type":"ListItem","position":2,"name":"Blog","item":"https://abrartallks-portfolio.co.in/blog.html"}
   ]}
   </script>
+
   <style>
+  /* ── PAGE HERO ── */
   .page-hero{padding:132px 24px 64px;background:radial-gradient(900px 400px at 50% 0%,var(--sky-100) 0%,transparent 60%),linear-gradient(180deg,var(--bg) 0%,var(--bg-2) 100%);text-align:center;position:relative;overflow:hidden;}
   .page-hero .breadcrumb{display:flex;justify-content:center;gap:8px;font-size:13px;color:var(--slate-2);margin-bottom:14px;opacity:0;animation:bang-in 500ms .1s forwards;}
   .page-hero .breadcrumb a{color:var(--sky-600);font-weight:500;}
-  .page-hero h1{font-size:clamp(34px,5vw,58px);font-weight:800;margin-bottom:16px;letter-spacing:-.03em;opacity:0;transform:translateY(14px);animation:bang-in 700ms .22s forwards;}
+  .page-hero h1{font-size:clamp(32px,5vw,56px);font-weight:800;margin-bottom:16px;letter-spacing:-.03em;opacity:0;transform:translateY(14px);animation:bang-in 700ms .22s forwards;}
   .page-hero h1 span{color:var(--sky-500);}
-  .page-hero p{font-size:17px;color:var(--slate);max-width:580px;margin:0 auto;line-height:1.7;opacity:0;transform:translateY(10px);animation:bang-in 600ms .38s forwards;}
+  .page-hero .hero-sub{font-size:17px;color:var(--slate);max-width:580px;margin:0 auto;line-height:1.7;opacity:0;transform:translateY(10px);animation:bang-in 600ms .38s forwards;}
   @keyframes bang-in{to{opacity:1;transform:translate(0,0);}}
 
-  .blog-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:28px;}
-  .blog-card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius-lg);overflow:hidden;transition:var(--transition);display:flex;flex-direction:column;}
+  /* ── BLOG GRID ── */
+  .blog-section{padding:56px 0 80px;}
+  .blog-inner{max-width:1200px;margin:0 auto;padding:0 24px;}
+  .blog-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:26px;}
+  @media(max-width:600px){.blog-grid{grid-template-columns:1fr;}}
+
+  .blog-card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius-lg);overflow:hidden;transition:var(--transition);display:flex;flex-direction:column;text-decoration:none;}
   .blog-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);border-color:var(--sky-300);}
-  .blog-thumb{aspect-ratio:16/9;overflow:hidden;background:var(--sky-50);}
-  .blog-thumb img{width:100%;height:100%;object-fit:cover;transition:transform 400ms;}
+  .blog-thumb{aspect-ratio:16/9;overflow:hidden;background:var(--sky-50);display:block;}
+  .blog-thumb img{width:100%;height:100%;object-fit:cover;transition:transform 400ms;display:block;}
   .blog-card:hover .blog-thumb img{transform:scale(1.04);}
-  .blog-body{padding:24px;flex-grow:1;display:flex;flex-direction:column;}
-  .blog-cat{display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--sky-700);background:var(--sky-100);border:1px solid var(--sky-200);padding:3px 10px;border-radius:100px;margin-bottom:12px;align-self:flex-start;}
-  .blog-body h2{font-size:19px;margin-bottom:10px;line-height:1.35;}
-  .blog-body h2 a{color:var(--navy);}
+  .blog-body{padding:22px;flex-grow:1;display:flex;flex-direction:column;}
+  .blog-cat{align-self:flex-start;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--sky-700);background:var(--sky-100);border:1px solid var(--sky-200);padding:3px 10px;border-radius:100px;margin-bottom:12px;}
+  .blog-body h2{font-size:18px;font-weight:700;margin-bottom:10px;line-height:1.35;color:var(--navy);}
+  .blog-body h2 a{color:var(--navy);text-decoration:none;}
   .blog-body h2 a:hover{color:var(--sky-600);}
-  .blog-body p{font-size:14px;color:var(--slate);line-height:1.7;margin-bottom:18px;flex-grow:1;}
-  .blog-meta{display:flex;align-items:center;gap:12px;font-size:12px;color:var(--slate-2);}
-  .blog-read{color:var(--sky-600);font-weight:700;font-size:13.5px;margin-top:16px;display:inline-flex;align-items:center;gap:5px;}
-  .blog-read:hover{gap:9px;}
-  .author-chip{display:flex;align-items:center;gap:6px;}
-  .author-chip .ava{width:28px;height:28px;background:var(--sky-500);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:11px;font-weight:700;}
+  .blog-excerpt{font-size:14px;color:var(--slate);line-height:1.7;margin-bottom:16px;flex-grow:1;}
+  .blog-meta{display:flex;align-items:center;gap:10px;font-size:12px;color:var(--slate-2);margin-bottom:14px;}
+  .author-ava{width:26px;height:26px;background:var(--sky-500);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:11px;font-weight:700;flex-shrink:0;}
+  .blog-read{display:inline-flex;align-items:center;gap:6px;color:var(--sky-600);font-size:13.5px;font-weight:700;align-self:flex-start;text-decoration:none;transition:gap var(--transition);}
+  .blog-read:hover{gap:10px;}
+
+  /* skeleton */
+  .blog-skel .skel-thumb{aspect-ratio:16/9;border-radius:var(--radius-lg) var(--radius-lg) 0 0;}
+  .blog-skel-body{padding:22px;}
+  .blog-skel-line{height:13px;border-radius:6px;margin-bottom:10px;}
+
+  /* empty */
+  .blog-empty{grid-column:1/-1;text-align:center;padding:60px 20px;color:var(--slate-2);}
+  .blog-empty h3{font-size:20px;margin-bottom:10px;color:var(--navy);}
+
+  /* section divider */
+  .section-divider{display:flex;align-items:center;gap:14px;margin:48px 0 32px;}
+  .section-divider h3{font-size:15px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--slate-2);white-space:nowrap;}
+  .section-divider::before,.section-divider::after{content:"";flex:1;height:1px;background:var(--line);}
   </style>
 </head>
-<body data-page="blog">
-<nav class="navbar" role="navigation">
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar" role="navigation" aria-label="Main Navigation">
   <div class="nav-container">
-    <a href="index.html" class="brand-logo"><span class="brand-main">Abrarr <span>Tallks</span></span><span class="brand-sub">Web Design · Srinagar, J&amp;K</span></a>
+    <a href="index.html" class="brand-logo">
+      <span class="brand-main">Abrarr <span>Tallks</span></span>
+      <span class="brand-sub">Web Design · Srinagar, J&amp;K</span>
+    </a>
     <div class="nav-links" id="navLinks">
-      <a href="index.html">Home</a><a href="services.html">Services</a><a href="portfolio.html">Portfolio</a><a href="pricing.html">Pricing</a>
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="pricing.html">Pricing</a>
       <a href="blog.html" class="active">Blog</a>
-      <a href="about.html">About</a><a href="contact.html">Contact</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
       <a href="https://wa.me/917051078832?text=Hi%20Abrar%2C%20I%20want%20to%20build%20a%20website." target="_blank" rel="noopener" class="nav-cta">Get Quote</a>
     </div>
     <button class="menu-btn" id="menuBtn" aria-label="Toggle Menu" aria-expanded="false">☰</button>
   </div>
 </nav>
 
+<!-- PAGE HERO -->
 <header class="page-hero">
-  <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span>›</span><span>Blog</span></nav>
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="index.html">Home</a><span>›</span><span>Blog</span>
+  </nav>
   <p class="eyebrow" style="justify-content:center">Tips &amp; Insights</p>
   <h1>Web Design &amp; <span>SEO Blog</span></h1>
-  <p>Free tips on web design, local SEO and Google ranking — by <strong>Abrar Ali</strong> (Abrarr Tallks), CEO of rebrar.in &amp; MBP. Helping businesses in J&amp;K and across India grow online.</p>
+  <p class="hero-sub">Free tips on web design, local SEO and Google ranking — by <strong>Abrar Ali</strong> (Abrarr Tallks), CEO of <a href="https://rebrar.in" target="_blank" rel="noopener" style="color:var(--sky-600);font-weight:700">rebrar.in</a> &amp; MakeMe Top Business Profile.</p>
 </header>
 
-<section class="section-pad">
-  <div class="container">
-    <div class="blog-grid">
+<!-- BLOG POSTS -->
+<section class="blog-section">
+  <div class="blog-inner">
+
+    <!-- Firebase posts appear here (admin-created) -->
+    <div id="dynamicBlogsWrap" style="display:none">
+      <div class="section-divider"><h3>Latest Posts</h3></div>
+      <div class="blog-grid" id="dynamicGrid"><!-- filled by JS --></div>
+    </div>
+
+    <!-- Static posts (always shown) -->
+    <div class="section-divider" id="staticDivider"><h3>Featured Articles</h3></div>
+    <div class="blog-grid" id="staticGrid">
 
       <article class="blog-card">
-        <div class="blog-thumb"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=700&q=80" alt="Local SEO tips for Kashmir businesses — how to rank on Google in Srinagar" loading="lazy"></div>
+        <a href="blog-local-seo-kashmir.html" class="blog-thumb">
+          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=700&q=80"
+               alt="Local SEO guide for businesses in Srinagar Kashmir — rank on Google" loading="lazy">
+        </a>
         <div class="blog-body">
           <span class="blog-cat">Local SEO</span>
           <h2><a href="blog-local-seo-kashmir.html">How to Rank Your Business on Google in Srinagar, Kashmir (2025 Guide)</a></h2>
-          <p>A complete step-by-step guide to ranking your local business on Google in Srinagar, J&K — covering GMB, local keywords, schema markup and geo-tags.</p>
+          <p class="blog-excerpt">Complete step-by-step guide — Google My Business, local keywords, schema markup and geo-tags for J&amp;K businesses.</p>
           <div class="blog-meta">
-            <div class="author-chip"><div class="ava">A</div><span>Abrar Ali</span></div>
+            <div class="author-ava">A</div><span>Abrar Ali</span>
             <span>·</span><span>Sep 2025</span><span>·</span><span>8 min read</span>
           </div>
           <a href="blog-local-seo-kashmir.html" class="blog-read">Read Article →</a>
@@ -101,13 +153,16 @@
       </article>
 
       <article class="blog-card">
-        <div class="blog-thumb"><img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=700&q=80" alt="What makes a great travel agency website in Kashmir" loading="lazy"></div>
+        <a href="blog-travel-website-kashmir.html" class="blog-thumb">
+          <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=700&q=80"
+               alt="What every Kashmir travel agency website needs to get more bookings" loading="lazy">
+        </a>
         <div class="blog-body">
           <span class="blog-cat">Web Design</span>
           <h2><a href="blog-travel-website-kashmir.html">What Every Kashmir Travel Website Must Have to Get More Bookings</a></h2>
-          <p>A practical guide for tour operators and travel agencies in J&K — covering design, SEO, WhatsApp booking and the features that convert visitors into customers.</p>
+          <p class="blog-excerpt">Design, SEO, WhatsApp booking and the exact features that convert website visitors into paying customers for tour operators.</p>
           <div class="blog-meta">
-            <div class="author-chip"><div class="ava">A</div><span>Abrar Ali</span></div>
+            <div class="author-ava">A</div><span>Abrar Ali</span>
             <span>·</span><span>Aug 2025</span><span>·</span><span>7 min read</span>
           </div>
           <a href="blog-travel-website-kashmir.html" class="blog-read">Read Article →</a>
@@ -115,13 +170,16 @@
       </article>
 
       <article class="blog-card">
-        <div class="blog-thumb"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=700&q=80" alt="Website cost India 2025 - how much does a website cost" loading="lazy"></div>
+        <a href="blog-website-cost-india.html" class="blog-thumb">
+          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=700&q=80"
+               alt="How much does a website cost in India 2025 — honest price breakdown" loading="lazy">
+        </a>
         <div class="blog-body">
           <span class="blog-cat">Pricing</span>
           <h2><a href="blog-website-cost-india.html">How Much Does a Website Cost in India in 2025? (Honest Breakdown)</a></h2>
-          <p>A transparent, no-fluff breakdown of website design and development costs in India — from landing pages to full e-commerce stores. Real prices, no hidden fees.</p>
+          <p class="blog-excerpt">Transparent breakdown of web design costs — landing pages to full e-commerce. Real prices, no hidden fees.</p>
           <div class="blog-meta">
-            <div class="author-chip"><div class="ava">A</div><span>Abrar Ali</span></div>
+            <div class="author-ava">A</div><span>Abrar Ali</span>
             <span>·</span><span>Jul 2025</span><span>·</span><span>6 min read</span>
           </div>
           <a href="blog-website-cost-india.html" class="blog-read">Read Article →</a>
@@ -129,20 +187,23 @@
       </article>
 
       <article class="blog-card">
-        <div class="blog-thumb"><img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=700&q=80" alt="SEO mistakes small businesses in India make" loading="lazy"></div>
+        <a href="blog-seo-mistakes-india.html" class="blog-thumb">
+          <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=700&q=80"
+               alt="7 SEO mistakes small businesses in India are making — how to fix them" loading="lazy">
+        </a>
         <div class="blog-body">
           <span class="blog-cat">SEO</span>
           <h2><a href="blog-seo-mistakes-india.html">7 SEO Mistakes Small Businesses in India Are Making (And How to Fix Them)</a></h2>
-          <p>From ignoring local SEO to missing schema markup — these are the most common SEO mistakes costing Indian small businesses Google rankings every day.</p>
+          <p class="blog-excerpt">Common errors costing Indian businesses Google rankings every day — and how to fix every single one.</p>
           <div class="blog-meta">
-            <div class="author-chip"><div class="ava">A</div><span>Abrar Ali</span></div>
+            <div class="author-ava">A</div><span>Abrar Ali</span>
             <span>·</span><span>Jun 2025</span><span>·</span><span>9 min read</span>
           </div>
           <a href="blog-seo-mistakes-india.html" class="blog-read">Read Article →</a>
         </div>
       </article>
 
-    </div>
+    </div><!-- /staticGrid -->
   </div>
 </section>
 
@@ -150,25 +211,130 @@
 <section style="background:var(--bg-2);padding:64px 24px;text-align:center;border-top:1px solid var(--line)">
   <p class="eyebrow" style="justify-content:center">Need a Website?</p>
   <h2 class="section-title">Ready to <span>Build &amp; Rank?</span></h2>
-  <p class="section-sub" style="margin-left:auto;margin-right:auto">Turn your idea into a fast, SEO-ranked website. Get a free quote today.</p>
+  <p class="section-sub" style="margin-left:auto;margin-right:auto">Turn your idea into a fast, SEO-ranked website. Free quote today.</p>
   <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
     <a href="https://wa.me/917051078832?text=Hi%20Abrar%2C%20I%20read%20your%20blog%20and%20want%20a%20website%20quote" target="_blank" rel="noopener" class="btn btn-primary">💬 WhatsApp for Quote</a>
     <a href="pricing.html" class="btn btn-secondary">View Pricing →</a>
   </div>
 </section>
 
+<!-- FOOTER -->
 <footer class="main-footer">
   <div class="footer-grid">
-    <div class="footer-col"><h4>Abrarr Tallks</h4><p>Web design &amp; SEO blog by <strong>Abrar Ali</strong> — CEO of <a href="https://rebrar.in" target="_blank" rel="noopener" class="external">rebrar.in</a> &amp; MBP. Based in Srinagar, J&amp;K.</p></div>
+    <div class="footer-col"><h4>Abrarr Tallks</h4><p>Web design &amp; SEO blog by <strong>Abrar Ali</strong> — CEO of <a href="https://rebrar.in" target="_blank" rel="noopener" class="external">rebrar.in</a> &amp; MakeMe Top Business Profile. Srinagar, J&amp;K.</p></div>
     <div class="footer-col"><h4>Site Map</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="portfolio.html">Portfolio</a></li><li><a href="services.html">Services</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="blog.html">Blog</a></li><li><a href="contact.html">Contact</a></li></ul></div>
-    <div class="footer-col"><h4>Blog Posts</h4><ul><li><a href="blog-local-seo-kashmir.html">Local SEO Kashmir Guide</a></li><li><a href="blog-travel-website-kashmir.html">Kashmir Travel Website</a></li><li><a href="blog-website-cost-india.html">Website Cost India</a></li><li><a href="blog-seo-mistakes-india.html">SEO Mistakes India</a></li></ul></div>
-    <div class="footer-col"><h4>Verified Profiles</h4><ul><li><a href="https://www.instagram.com/_abrarrtallks_" target="_blank" rel="noopener" class="external">Instagram</a></li><li><a href="https://youtube.com/@abrarrtallks" target="_blank" rel="noopener" class="external">YouTube</a></li></ul></div>
-    <div class="footer-col"><h4>Contact</h4><ul><li>📍 Srinagar, J&amp;K — 191101</li><li>📞 <a href="tel:+917051078832">+91 7051078832</a></li></ul></div>
+    <div class="footer-col"><h4>Blog Posts</h4><ul>
+      <li><a href="blog-local-seo-kashmir.html">Local SEO Kashmir Guide</a></li>
+      <li><a href="blog-travel-website-kashmir.html">Kashmir Travel Website</a></li>
+      <li><a href="blog-website-cost-india.html">Website Cost India 2025</a></li>
+      <li><a href="blog-seo-mistakes-india.html">SEO Mistakes India</a></li>
+    </ul></div>
+    <div class="footer-col"><h4>Verified Profiles</h4><ul>
+      <li><a href="https://www.instagram.com/_abrarrtallks_" target="_blank" rel="noopener" class="external">Instagram</a></li>
+      <li><a href="https://youtube.com/@abrarrtallks" target="_blank" rel="noopener" class="external">YouTube</a></li>
+      <li><a href="https://www.facebook.com/share/1DxT8PXbkd/" target="_blank" rel="noopener" class="external">Facebook</a></li>
+    </ul></div>
+    <div class="footer-col"><h4>Contact</h4><ul>
+      <li>📍 Srinagar, J&amp;K — 191101</li>
+      <li>📞 <a href="tel:+917051078832">+91 7051078832</a></li>
+      <li>📧 <a href="mailto:abrar@abrartallks-portfolio.co.in">abrar@abrartallks...</a></li>
+    </ul></div>
   </div>
-  <div class="footer-bottom"><p>© 2025 Abrarr Tallks — Abrar Ali. All Rights Reserved.</p></div>
+  <div class="footer-bottom">
+    <p>© 2025 Abrarr Tallks — Abrar Ali. All Rights Reserved.</p>
+    <p>Web design &amp; SEO blog · CEO: <a href="https://rebrar.in" target="_blank" rel="noopener">rebrar.in</a> &amp; MakeMe Top · 📍 Srinagar, J&amp;K</p>
+  </div>
 </footer>
-<a href="https://wa.me/917051078832" class="whatsapp-float" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg></a>
+
+<a href="https://wa.me/917051078832" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+</a>
+
+<!-- SCRIPTS -->
+<script>
+  /* Inline nav — no module dependency needed for blog.html */
+  const _mb = document.getElementById('menuBtn');
+  const _nl = document.getElementById('navLinks');
+  _mb.addEventListener('click', () => {
+    const o = _nl.classList.toggle('open');
+    _mb.setAttribute('aria-expanded', o);
+    _mb.textContent = o ? '✕' : '☰';
+  });
+  _nl.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    _nl.classList.remove('open'); _mb.textContent = '☰';
+  }));
+  window.addEventListener('scroll', () =>
+    document.querySelector('.navbar').classList.toggle('scrolled', scrollY > 8),
+  { passive: true });
+</script>
+
+<!-- Load Firebase posts dynamically (admin-created posts) -->
 <script src="firebase-config.js"></script>
-<script type="module">import "./js/main.js";</script>
+<script type="module">
+import { initializeApp, getApps } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+function esc(s) {
+  return String(s ?? '').replace(/[&<>"']/g,
+    c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+function truncate(s, n) { const t = String(s||''); return t.length > n ? t.slice(0,n)+'…' : t; }
+function normImg(url) {
+  if (!url) return '';
+  const m = url.match(/drive\.google\.com\/file\/d\/([^\/\?]+)/);
+  return m ? `https://drive.google.com/uc?export=view&id=${m[1]}` : url;
+}
+
+const CFG = {
+  apiKey:"AIzaSyCe-nA6VroEVYsrFjRTAb9z-Gl7xFM7cTo",
+  authDomain:"abrarrtallks-portfolio.firebaseapp.com",
+  projectId:"abrarrtallks-portfolio",
+  storageBucket:"abrarrtallks-portfolio.firebasestorage.app",
+  messagingSenderId:"608768794442",
+  appId:"1:608768794442:web:4990ae2ded872a203b6bb3"
+};
+
+(async () => {
+  try {
+    const app = getApps().length ? getApps()[0] : initializeApp(CFG);
+    const db  = getFirestore(app);
+    const snap = await getDocs(collection(db, 'blogs'));
+    if (snap.empty) return;
+
+    const posts = snap.docs
+      .map(d => ({ id: d.id, ...d.data() }))
+      .sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+
+    const fallback = 'https://images.unsplash.com/photo-1487014679447-9f8336841d58?w=700&q=80';
+    const grid = document.getElementById('dynamicGrid');
+    grid.innerHTML = posts.map(p => `
+      <article class="blog-card">
+        <a href="blog-post.html?id=${esc(p.id)}" class="blog-thumb">
+          <img src="${esc(normImg(p.image) || fallback)}"
+               alt="${esc(p.title)}" loading="lazy"
+               onerror="this.src='${fallback}'">
+        </a>
+        <div class="blog-body">
+          <span class="blog-cat">${esc(p.category || 'Blog')}</span>
+          <h2><a href="blog-post.html?id=${esc(p.id)}">${esc(p.title)}</a></h2>
+          <p class="blog-excerpt">${esc(truncate(p.excerpt || p.body || '', 130))}</p>
+          <div class="blog-meta">
+            <div class="author-ava">A</div><span>Abrar Ali</span>
+            <span>·</span><span>${esc(p.date || '')}</span>
+            ${p.readtime ? `<span>·</span><span>${esc(p.readtime)}</span>` : ''}
+          </div>
+          <a href="blog-post.html?id=${esc(p.id)}" class="blog-read">Read Article →</a>
+        </div>
+      </article>`).join('');
+
+    document.getElementById('dynamicBlogsWrap').style.display = 'block';
+    // Update the static section label
+    document.getElementById('staticDivider').querySelector('h3').textContent = 'More Articles';
+  } catch(e) {
+    // Firebase failed — static posts still show, so silently ignore
+    console.warn('[blog.html] Firebase load failed, showing static posts only:', e.message);
+  }
+})();
+</script>
 </body>
 </html>
