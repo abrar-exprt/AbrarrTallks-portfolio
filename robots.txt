@@ -1,3 +1,234 @@
+# ================================================================
+# robots.txt — Abrarr Tallks Portfolio
+# Website : https://abrartallks-portfolio.co.in/
+# Owner   : Abrar Ali — CEO rebrar.in & MakeMe Top Business Profile
+# Updated : 2026-05-05
+# ================================================================
+# This file tells search engine crawlers which pages to index
+# and which to skip. It also blocks harmful scraper bots.
+# ================================================================
+
+
+# ----------------------------------------------------------------
+# GOOGLE — Full access, block admin only
+# ----------------------------------------------------------------
+User-agent: Googlebot
+Allow: /
+Allow: /blog-post.html
+Allow: /blog.html
+Allow: /portfolio.html
+Allow: /services.html
+Allow: /pricing.html
+Allow: /about.html
+Allow: /contact.html
+Allow: /blog-local-seo-kashmir.html
+Allow: /blog-travel-website-kashmir.html
+Allow: /blog-website-cost-india.html
+Allow: /blog-seo-mistakes-india.html
+Allow: /privacy.html
+Allow: /refund.html
+Disallow: /admin.html
+Disallow: /js/
+Disallow: /firebase-config.js
+Disallow: /firebase-data.js
+
+# ----------------------------------------------------------------
+# GOOGLE IMAGE BOT
+# ----------------------------------------------------------------
+User-agent: Googlebot-Image
+Allow: /
+Disallow: /admin.html
+
+# ----------------------------------------------------------------
+# BING
+# ----------------------------------------------------------------
+User-agent: Bingbot
+Allow: /
+Disallow: /admin.html
+Disallow: /js/
+Disallow: /firebase-config.js
+Disallow: /firebase-data.js
+
+# ----------------------------------------------------------------
+# YAHOO (Slurp)
+# ----------------------------------------------------------------
+User-agent: Slurp
+Allow: /
+Disallow: /admin.html
+Disallow: /js/
+Disallow: /firebase-config.js
+
+# ----------------------------------------------------------------
+# DUCKDUCKGO
+# ----------------------------------------------------------------
+User-agent: DuckDuckBot
+Allow: /
+Disallow: /admin.html
+Disallow: /js/
+Disallow: /firebase-config.js
+
+# ----------------------------------------------------------------
+# BAIDU
+# ----------------------------------------------------------------
+User-agent: Baiduspider
+Allow: /
+Disallow: /admin.html
+Disallow: /js/
+Disallow: /firebase-config.js
+
+# ----------------------------------------------------------------
+# YANDEX
+# ----------------------------------------------------------------
+User-agent: YandexBot
+Allow: /
+Disallow: /admin.html
+Disallow: /js/
+Disallow: /firebase-config.js
+
+# ----------------------------------------------------------------
+# SOCIAL CRAWLERS (Open Graph previews)
+# ----------------------------------------------------------------
+User-agent: facebot
+Allow: /
+Disallow: /admin.html
+
+User-agent: Twitterbot
+Allow: /
+Disallow: /admin.html
+
+User-agent: LinkedInBot
+Allow: /
+Disallow: /admin.html
+
+User-agent: WhatsApp
+Allow: /
+Disallow: /admin.html
+
+User-agent: Slackbot
+Allow: /
+Disallow: /admin.html
+
+User-agent: TelegramBot
+Allow: /
+Disallow: /admin.html
+
+# ----------------------------------------------------------------
+# DEFAULT — All other crawlers: allow site, block admin + config
+# ----------------------------------------------------------------
 User-agent: *
 Allow: /
-Sitemap: https://abratallks-portfolio.co.in/sitemap.xml
+Disallow: /admin.html
+Disallow: /js/
+Disallow: /firebase-config.js
+Disallow: /firebase-data.js
+Crawl-delay: 1
+
+# ----------------------------------------------------------------
+# BLOCK HARMFUL / SCRAPER BOTS
+# These bots scrape content, steal data or create spam traffic.
+# ----------------------------------------------------------------
+
+# SEO tool scrapers (high volume, no ranking benefit)
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: SemrushBot-SA
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+User-agent: BLEXBot
+Disallow: /
+
+User-agent: PetalBot
+Disallow: /
+
+User-agent: DataForSeoBot
+Disallow: /
+
+User-agent: serpstatbot
+Disallow: /
+
+User-agent: SEOkicks
+Disallow: /
+
+User-agent: linkdexbot
+Disallow: /
+
+User-agent: Sistrix
+Disallow: /
+
+# AI training scrapers
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: Claude-Web
+Disallow: /
+
+User-agent: cohere-ai
+Disallow: /
+
+User-agent: PerplexityBot
+Disallow: /
+
+User-agent: YouBot
+Disallow: /
+
+# Generic bad bots
+User-agent: SiteAuditBot
+Disallow: /
+
+User-agent: sogou
+Disallow: /
+
+User-agent: ia_archiver
+Disallow: /
+
+# ----------------------------------------------------------------
+# SITEMAP LOCATION
+# Submit this URL in Google Search Console and Bing Webmaster Tools
+# ----------------------------------------------------------------
+Sitemap: https://abrartallks-portfolio.co.in/sitemap.xml
+
+# ================================================================
+# QUICK REFERENCE — Page Index Status
+# ================================================================
+# INDEXED (in sitemap):
+#   /                               — Home
+#   /portfolio.html                 — Portfolio
+#   /services.html                  — Services
+#   /pricing.html                   — Pricing
+#   /about.html                     — About
+#   /contact.html                   — Contact
+#   /blog.html                      — Blog Index
+#   /blog-post.html                 — Dynamic Blog Reader
+#   /blog-local-seo-kashmir.html    — Blog Post
+#   /blog-travel-website-kashmir.html — Blog Post
+#   /blog-website-cost-india.html   — Blog Post
+#   /blog-seo-mistakes-india.html   — Blog Post
+#   /privacy.html                   — Privacy Policy
+#   /refund.html                    — Refund Policy
+#
+# NOT INDEXED (excluded):
+#   /admin.html      — Login-gated admin panel (noindex,nofollow)
+#   /js/shared.js    — JavaScript module
+#   /js/main.js      — JavaScript module
+#   /firebase-config.js — Firebase credentials
+#   /firebase-data.js   — Firebase data layer
+# ================================================================
