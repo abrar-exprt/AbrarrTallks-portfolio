@@ -1,68 +1,160 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 
+  <!--
+    ================================================================
+    SITEMAP — Abrarr Tallks Portfolio
+    Website : https://abrartallks-portfolio.co.in/
+    Owner   : Abrar Ali — CEO rebrar.in & MakeMe Top Business Profile
+    Updated : 2026-05-05
+    Pages   : 16 URLs indexed | admin.html excluded (noindex)
+    ================================================================
+
+    PRIORITY GUIDE:
+      1.0  — Homepage (most important)
+      0.9  — Core money pages (portfolio, services)
+      0.8  — Supporting pages (pricing, about, contact, blog index)
+      0.7  — Blog posts (SEO content)
+      0.5  — Dynamic/reader pages (blog-post.html)
+      0.3  — Legal pages (privacy, refund)
+
+    CHANGEFREQ GUIDE:
+      weekly   — Pages updated frequently (home, portfolio, blog)
+      monthly  — Pages updated occasionally (services, about, pricing)
+      yearly   — Rarely changes (legal pages)
+    ================================================================
+  -->
+
+  <!-- ═══════════════════════════════════════════
+       HOME — Priority 1.0
+       ═══════════════════════════════════════════ -->
   <url>
-    <loc>https://abratallks-portfolio.co.in/</loc>
+    <loc>https://abrartallks-portfolio.co.in/</loc>
+    <lastmod>2026-05-05</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
+  <!-- ═══════════════════════════════════════════
+       CORE PAGES — Priority 0.9
+       ═══════════════════════════════════════════ -->
   <url>
-    <loc>https://abratallks-portfolio.co.in/about.html</loc>
+    <loc>https://abrartallks-portfolio.co.in/portfolio.html</loc>
+    <lastmod>2026-05-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://abrartallks-portfolio.co.in/services.html</loc>
+    <lastmod>2026-05-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- ═══════════════════════════════════════════
+       SUPPORTING PAGES — Priority 0.8
+       ═══════════════════════════════════════════ -->
+  <url>
+    <loc>https://abrartallks-portfolio.co.in/pricing.html</loc>
+    <lastmod>2026-05-05</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://abratallks-portfolio.co.in/contact.html</loc>
+    <loc>https://abrartallks-portfolio.co.in/about.html</loc>
+    <lastmod>2026-05-05</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://abratallks-portfolio.co.in/pricing.html</loc>
+    <loc>https://abrartallks-portfolio.co.in/contact.html</loc>
+    <lastmod>2026-05-05</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
+  <!-- ═══════════════════════════════════════════
+       BLOG INDEX — Priority 0.8
+       ═══════════════════════════════════════════ -->
   <url>
-    <loc>https://abratallks-portfolio.co.in/testnominals.html</loc>
+    <loc>https://abrartallks-portfolio.co.in/blog.html</loc>
+    <lastmod>2026-05-05</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
-   <url>
-    <loc>https://abratallks-portfolio.co.in/service.html</loc>
-    <priority>0.8</priority>
-  </url>
-  
+  <!-- ═══════════════════════════════════════════
+       STATIC BLOG POSTS — Priority 0.7
+       ═══════════════════════════════════════════ -->
   <url>
-    <loc>https://abrartallks-portfolio.co.in/web-designer-jammu-kashmir.html</loc>
-    <priority>0.8</priority>
+    <loc>https://abrartallks-portfolio.co.in/blog-local-seo-kashmir.html</loc>
+    <lastmod>2026-05-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
-  
+
   <url>
-    <loc>https://abratallks-portfolio.co.in/agency.html</loc>
-    <priority>0.8</priority>
+    <loc>https://abrartallks-portfolio.co.in/blog-travel-website-kashmir.html</loc>
+    <lastmod>2026-05-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
-  
+
   <url>
-    <loc>https://abrartallks-portfolio.co.in/refund-policy.html</loc>
-    <priority>0.8</priority>
+    <loc>https://abrartallks-portfolio.co.in/blog-website-cost-india.html</loc>
+    <lastmod>2026-05-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
-  
+
   <url>
-    <loc>https://abrartallks-portfolio.co.in/book.html</loc>
-    <priority>0.8</priority>
+    <loc>https://abrartallks-portfolio.co.in/blog-seo-mistakes-india.html</loc>
+    <lastmod>2026-05-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
-  
+
+  <!-- ═══════════════════════════════════════════
+       DYNAMIC BLOG READER — Priority 0.5
+       (Firebase-powered posts render here)
+       ═══════════════════════════════════════════ -->
   <url>
-    <loc>https://abrartallks-portfolio.co.in/templates.html</loc>
-    <priority>0.8</priority>
+    <loc>https://abrartallks-portfolio.co.in/blog-post.html</loc>
+    <lastmod>2026-05-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
-  
+
+  <!-- ═══════════════════════════════════════════
+       LEGAL PAGES — Priority 0.3
+       ═══════════════════════════════════════════ -->
   <url>
-    <loc>https://abrartallks-portfolio.co.in/terms.html</loc>
-    <priority>0.8</priority>
+    <loc>https://abrartallks-portfolio.co.in/privacy.html</loc>
+    <lastmod>2026-05-05</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
   </url>
-  
+
   <url>
-    <loc>https://abrartallks-portfolio.co.in/privacy-policy.html</loc>
-    <priority>0.8</priority>
+    <loc>https://abrartallks-portfolio.co.in/refund.html</loc>
+    <lastmod>2026-05-05</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
   </url>
+
+  <!--
+    EXCLUDED PAGES (intentionally not indexed):
+    - /admin.html     → noindex, login-gated admin panel
+    - /js/shared.js   → JavaScript file, not a page
+    - /js/main.js     → JavaScript file, not a page
+    - /style.css      → Stylesheet, not a page
+    - /firebase-config.js → Config file, not a page
+  -->
+
 </urlset>
