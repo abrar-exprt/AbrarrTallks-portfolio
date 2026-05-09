@@ -227,10 +227,14 @@
 <div class="mo" id="blogMo">
   <div class="mbox" style="max-width:780px">
     <h3 id="bmTitle">New Blog Post</h3>
-    <div class="fg"><label>Title *</label><input type="text" id="bTitle" placeholder="e.g. How to Rank on Google in Kashmir"></div>
+
+    <!-- ── CONTENT FIELDS ── -->
+    <div class="fg"><label>Post Title * <span style="font-weight:400;color:var(--slate-2)">(used as default SEO title if SEO title is blank)</span></label>
+      <input type="text" id="bTitle" placeholder="e.g. How to Rank Google Business Profile in Kashmir">
+    </div>
     <div class="fr">
       <div class="fg"><label>Category *</label>
-        <select id="bCat"><option value="SEO">SEO</option><option value="Web Design">Web Design</option><option value="Local SEO">Local SEO</option><option value="Pricing">Pricing</option><option value="Travel">Travel</option><option value="Tips">Tips</option><option value="Case Study">Case Study</option></select>
+        <select id="bCat"><option value="SEO">SEO</option><option value="Local SEO">Local SEO</option><option value="Web Design">Web Design</option><option value="Pricing">Pricing</option><option value="Travel">Travel</option><option value="Tips">Tips</option><option value="Case Study">Case Study</option></select>
       </div>
       <div class="fg"><label>Date *</label><input type="date" id="bDate"></div>
     </div>
@@ -238,7 +242,33 @@
       <div class="fg"><label>Read Time</label><input type="text" id="bRead" placeholder="e.g. 5 min"></div>
       <div class="fg"><label>Cover Image URL</label><input type="url" id="bImg" placeholder="https://images.unsplash.com/..."></div>
     </div>
-    <div class="fg"><label>Excerpt (shown on blog listing)</label><textarea id="bExcerpt" style="min-height:64px" placeholder="Short summary of the post (1–2 sentences)…"></textarea></div>
+    <div class="fg"><label>Excerpt <span style="font-weight:400;color:var(--slate-2)">(shown on blog listing page)</span></label>
+      <textarea id="bExcerpt" style="min-height:64px" placeholder="Short 1–2 sentence summary shown on the blog listing…"></textarea>
+    </div>
+
+    <!-- ── SEO FIELDS ── -->
+    <div style="background:var(--sky-50);border:1px solid var(--sky-200);border-radius:10px;padding:16px 18px;margin:18px 0 4px">
+      <p style="font-size:13px;font-weight:700;color:var(--sky-700);margin-bottom:14px;text-transform:uppercase;letter-spacing:.8px">🔍 SEO Settings — auto-generated if left blank</p>
+      <div class="fg">
+        <label>SEO Title <span style="font-weight:400;color:var(--slate-2)">(shown in Google search results — max 60 chars)</span></label>
+        <input type="text" id="bSeoTitle" maxlength="60" placeholder="e.g. How to Rank Google Business Profile in Kashmir | MakeMe Top">
+        <p class="ht2" id="seoTitleCount">0 / 60 characters</p>
+      </div>
+      <div class="fg">
+        <label>SEO Description <span style="font-weight:400;color:var(--slate-2)">(shown under title in Google — max 155 chars)</span></label>
+        <textarea id="bSeoDesc" maxlength="155" style="min-height:64px" placeholder="e.g. Learn how to rank your Google Business Profile in Kashmir with SEO tips, local strategies, reviews and optimisation techniques."></textarea>
+        <p class="ht2" id="seoDescCount">0 / 155 characters</p>
+      </div>
+      <div class="fg">
+        <label>SEO Keywords <span style="font-weight:400;color:var(--slate-2)">(comma-separated — auto-generated if blank)</span></label>
+        <input type="text" id="bKeywords" placeholder="e.g. Google Business Profile Kashmir, GBP SEO, Kashmir SEO, local SEO Kashmir">
+      </div>
+      <div class="fg" style="margin-bottom:0">
+        <label>Slug / URL Suffix <span style="font-weight:400;color:var(--slate-2)">(auto-generated from title if blank — for future use)</span></label>
+        <input type="text" id="bSlug" placeholder="e.g. google-business-profile-kashmir">
+        <p class="ht2">Use lowercase letters, numbers and hyphens only. No spaces.</p>
+      </div>
+    </div>
     <div class="fg">
       <label>Content *</label>
       <div class="blog-editor-wrap">
@@ -511,7 +541,7 @@ async function rB(){
 function openBM(id){
   _bid=id||null;
   document.getElementById('bmTitle').textContent=id?'Edit Blog Post':'New Blog Post';
-  ['bTitle','bExcerpt','bRead','bImg'].forEach(k=>document.getElementById(k).value='');
+  ['bTitle','bExcerpt','bRead','bImg','bKeywords','bSeoTitle','bSeoDesc','bSlug'].forEach(k=>document.getElementById(k).value='');
   document.getElementById('bCat').value='SEO';
   document.getElementById('bDate').value=new Date().toISOString().slice(0,10);
   document.getElementById('blogContent').innerHTML='';
@@ -519,7 +549,13 @@ function openBM(id){
   if(id){lB().then(list=>{const b=list.find(x=>x.id===id);if(!b)return;
     document.getElementById('bTitle').value=b.title||'';document.getElementById('bCat').value=b.category||'SEO';
     document.getElementById('bDate').value=b.date||'';document.getElementById('bRead').value=b.readtime||'';
-    document.getElementById('bImg').value=b.image||'';document.getElementById('bExcerpt').value=b.excerpt||'';
+    document.getElementById('bImg').value=b.image||'';
+    document.getElementById('bKeywords').value=b.keywords||'';
+    document.getElementById('bExcerpt').value=b.excerpt||'';
+    document.getElementById('bSeoTitle').value=b.seoTitle||'';
+    document.getElementById('bSeoDesc').value=b.seoDesc||'';
+    document.getElementById('bSlug').value=b.slug||'';
+    updateSeoCounters();
     document.getElementById('blogContent').innerHTML=b.content||'';});}
   openMo('blogMo');
 }
@@ -537,8 +573,24 @@ document.getElementById('saveBlog').addEventListener('click',async()=>{
   const content = hasBlockTags ? editorHTML : (editorHTML ? `<p>${editorHTML}</p>` : '');
   if(!title) return toast('Title required','e');
   if(!content) return toast('Content required — write something!','e');
-  const data={title,content,category:v('bCat'),date:v('bDate'),readtime:v('bRead'),
-    image:v('bImg'),excerpt:v('bExcerpt'),isDynamic:true,updatedAt:serverTimestamp()};
+  // Auto-generate slug from title if not provided
+  const rawSlug = v('bSlug') ||
+    title.toLowerCase().replace(/[^a-z0-9\s-]/g,'').trim().replace(/\s+/g,'-').replace(/-+/g,'-');
+  const data={
+    title,
+    content,
+    category:  v('bCat'),
+    date:      v('bDate'),
+    readtime:  v('bRead'),
+    image:     v('bImg'),
+    excerpt:   v('bExcerpt'),
+    keywords:  v('bKeywords'),
+    seoTitle:  v('bSeoTitle'),   // custom SEO title (overrides title in <title> tag)
+    seoDesc:   v('bSeoDesc'),    // custom meta description
+    slug:      rawSlug,          // URL-friendly slug
+    isDynamic: true,
+    updatedAt: serverTimestamp()
+  };
   const btn=document.getElementById('saveBlog');btn.textContent='Publishing…';btn.disabled=true;
   try{
     if(_bid){await updateDoc(doc(db,'blogs',_bid),data);toast('Post updated ✓','ok');}
@@ -614,6 +666,43 @@ function updateCharCount() {
 }
 // Character counter on input
 document.getElementById('blogContent')?.addEventListener('input', updateCharCount);
+
+// ── SEO FIELD COUNTERS + AUTO-SLUG ──────────────────────────────────
+function updateSeoCounters() {
+  const titleEl = document.getElementById('bSeoTitle');
+  const descEl  = document.getElementById('bSeoDesc');
+  const titleCount = document.getElementById('seoTitleCount');
+  const descCount  = document.getElementById('seoDescCount');
+  if (titleEl && titleCount) {
+    const len = titleEl.value.length;
+    titleCount.textContent = `${len} / 60 characters`;
+    titleCount.style.color = len > 55 ? 'var(--warn)' : len === 60 ? 'var(--danger)' : 'var(--slate-2)';
+  }
+  if (descEl && descCount) {
+    const len = descEl.value.length;
+    descCount.textContent = `${len} / 155 characters`;
+    descCount.style.color = len > 140 ? 'var(--warn)' : len === 155 ? 'var(--danger)' : 'var(--slate-2)';
+  }
+}
+document.getElementById('bSeoTitle')?.addEventListener('input', updateSeoCounters);
+document.getElementById('bSeoDesc')?.addEventListener('input', updateSeoCounters);
+
+// Auto-generate slug from title while typing (if slug field is empty)
+document.getElementById('bTitle')?.addEventListener('input', function() {
+  const slugField = document.getElementById('bSlug');
+  if (slugField && !slugField.dataset.manualEdit) {
+    slugField.value = this.value
+      .toLowerCase()
+      .replace(/[^a-z0-9\s-]/g, '')
+      .trim()
+      .replace(/\s+/g, '-')
+      .replace(/-+/g, '-');
+  }
+});
+// Mark slug as manually edited if user types in it directly
+document.getElementById('bSlug')?.addEventListener('input', function() {
+  this.dataset.manualEdit = this.value ? '1' : '';
+});
 // Keyboard shortcut hint
 document.getElementById('blogContent')?.addEventListener('keydown', (e) => {
   // Allow Ctrl+B, Ctrl+I, Ctrl+U to work naturally via browser

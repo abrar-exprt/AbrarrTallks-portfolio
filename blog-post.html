@@ -20,24 +20,47 @@
   <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
   <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
 
-  <!-- Dynamic SEO — updated by JS after post loads -->
-  <title id="pt">Blog — Abrarr Tallks | Web Designer Srinagar Kashmir</title>
-  <meta id="pd" name="description" content="Blog post by Abrar Ali (Abrarr Tallks) — web designer in Srinagar, Kashmir. CEO of rebrar.in &amp; MakeMe Top Business Profile.">
+  <!-- ═══════════════════════════════════════════════════════
+       DYNAMIC SEO — ALL tags updated by JS after Firestore loads.
+       Fallback values below are for bots that don't run JS (rare).
+       Google's crawler DOES run JS and will see the updated values.
+       ═══════════════════════════════════════════════════════ -->
+  <title id="pt">Blog Post — Abrarr Tallks | Web Designer Srinagar Kashmir</title>
+  <meta id="pd" name="description" content="Blog post by Abrar Ali (Abrarr Tallks) — web designer &amp; SEO expert in Srinagar, Jammu &amp; Kashmir. CEO of rebrar.in &amp; MakeMe Top Business Profile.">
+  <meta id="pk" name="keywords" content="web designer Kashmir, SEO expert Srinagar, Abrar Ali blog, Abrarr Tallks, rebrar.in, MakeMe Top, web design tips India">
   <meta name="author" content="Abrar Ali">
-  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <link id="pc" rel="canonical" href="https://abrartallks-portfolio.co.in/blog-post.html">
+  <link rel="sitemap" type="application/xml" href="/sitemap.xml">
+
+  <!-- Geo tags -->
   <meta name="geo.region" content="IN-JK">
   <meta name="geo.placename" content="Srinagar, Jammu &amp; Kashmir, India">
   <meta name="geo.position" content="34.0837;74.7973">
+  <meta name="ICBM" content="34.0837, 74.7973">
+  <meta name="language" content="English">
+  <meta name="distribution" content="global">
 
-  <!-- Open Graph (updated dynamically) -->
+  <!-- Open Graph — updated dynamically per post -->
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Abrarr Tallks">
-  <meta id="ot" property="og:title" content="Blog — Abrarr Tallks">
-  <meta id="od" property="og:description" content="Blog post by Abrar Ali (Abrarr Tallks).">
-  <meta id="oi" property="og:image" content="https://abrartallks-portfolio.co.in/og-home.jpg">
-  <meta id="ou" property="og:url" content="https://abrartallks-portfolio.co.in/blog-post.html">
+  <meta id="ot"  property="og:title"              content="Blog Post — Abrarr Tallks">
+  <meta id="od"  property="og:description"         content="Blog post by Abrar Ali (Abrarr Tallks).">
+  <meta id="oi"  property="og:image"               content="https://abrartallks-portfolio.co.in/og-home.jpg">
+  <meta id="ou"  property="og:url"                 content="https://abrartallks-portfolio.co.in/blog-post.html">
+  <meta id="oal" property="article:author"          content="Abrar Ali">
+  <meta id="ops" property="article:published_time" content="">
+  <meta id="oms" property="article:modified_time"  content="">
+  <meta id="ose" property="article:section"        content="Web Design">
+  <meta property="og:locale"                       content="en_IN">
+
+  <!-- Twitter Card — updated dynamically per post -->
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@abrarrtallks">
+  <meta id="twt" name="twitter:title"       content="Blog Post — Abrarr Tallks">
+  <meta id="twd" name="twitter:description" content="Blog post by Abrar Ali (Abrarr Tallks).">
+  <meta id="twi" name="twitter:image"       content="https://abrartallks-portfolio.co.in/og-home.jpg">
+  <meta id="twa" name="twitter:creator"     content="@abrarrtallks">
 
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -108,6 +131,7 @@
   /* ── SKELETON ── */
   .skel-line{border-radius:6px;margin-bottom:12px;}
   </style>
+  <link rel="sitemap" type="application/xml" href="/sitemap.xml">
 </head>
 <body>
 
@@ -353,6 +377,56 @@ const CFG = {
   appId:             "1:608768794442:web:4990ae2ded872a203b6bb3"
 };
 
+// ── setMeta: create or update any <meta name=""> tag ─────────────────
+function setMeta(name, content) {
+  if (!content) return;
+  let tag = document.querySelector(`meta[name="${name}"]`);
+  if (!tag) {
+    tag = document.createElement('meta');
+    tag.setAttribute('name', name);
+    document.head.appendChild(tag);
+  }
+  tag.setAttribute('content', content);
+}
+
+// ── setOG: create or update any <meta property=""> tag ───────────────
+function setOG(property, content) {
+  if (!content) return;
+  let tag = document.querySelector(`meta[property="${property}"]`);
+  if (!tag) {
+    tag = document.createElement('meta');
+    tag.setAttribute('property', property);
+    document.head.appendChild(tag);
+  }
+  tag.setAttribute('content', content);
+}
+
+// ── Auto-generate keywords if not set manually ────────────────────────
+function autoKeywords(title, category, tags) {
+  const base = ['web designer Kashmir', 'SEO expert Srinagar', 'Abrar Ali', 'Abrarr Tallks', 'rebrar.in', 'MakeMe Top'];
+  const catMap = {
+    'SEO':        ['SEO tips India', 'Google ranking Kashmir', 'local SEO J&K', 'SEO strategies India'],
+    'Local SEO':  ['local SEO Srinagar', 'Google My Business Kashmir', 'rank on Google J&K', 'GBP SEO Kashmir'],
+    'Web Design': ['web design tips India', 'website designer Kashmir', 'professional web design J&K'],
+    'Pricing':    ['website cost India', 'web design price', 'affordable website India'],
+    'Travel':     ['travel website Kashmir', 'tour operator website J&K', 'Kashmir tourism website'],
+    'Tips':       ['web design tips', 'digital marketing tips Kashmir'],
+    'Case Study': ['web design case study India'],
+  };
+  const catKw   = catMap[category] || catMap['Web Design'];
+  const titleKw = (title||'').toLowerCase().replace(/[^a-z0-9 ]/g,'').split(' ').filter(w=>w.length>3);
+  const tagList = Array.isArray(tags) ? tags : (typeof tags==='string' ? tags.split(',').map(t=>t.trim()) : []);
+  return [...new Set([...base, ...catKw, ...titleKw, ...tagList])].filter(Boolean).slice(0,18).join(', ');
+}
+
+// ── Format date for display ───────────────────────────────────────────
+function formatDate(dateStr) {
+  if (!dateStr) return '';
+  try {
+    return new Date(dateStr).toLocaleDateString('en-IN', { day:'numeric', month:'long', year:'numeric' });
+  } catch { return dateStr; }
+}
+
 (async () => {
   // 1. Validate ID
   const postId = getSafeId();
@@ -393,31 +467,73 @@ const CFG = {
   const safeImg      = esc(normImg(p.image || ''));
   const safeContent  = _sanitize(p.content || '<p>No content.</p>');
 
-  // 5. Update DOM
-  document.getElementById('pt').textContent   = `${p.title} | Abrarr Tallks`;
-  document.getElementById('pd').content       = safeExcerpt;
-  document.getElementById('ot').content       = p.title || '';
-  document.getElementById('od').content       = safeExcerpt;
-  document.getElementById('ou').content       = location.href;
-  if (safeImg) document.getElementById('oi').content = safeImg;
-  document.getElementById('pc').href          = location.href;
+  // ── 5. DERIVED VALUES ────────────────────────────────────────────────
+  const canonicalURL = `https://abrartallks-portfolio.co.in/blog-post.html?id=${encodeURIComponent(postId)}`;
 
-  document.getElementById('bcCat').textContent   = p.category || 'Blog';
-  document.getElementById('postTitle').textContent = p.title || 'Blog Post';
-  document.getElementById('catBadge').textContent = p.category || 'Blog';
-  document.getElementById('postDate').textContent = p.date || '';
+  // Plain text for word count + fallback description
+  const plainText  = (p.content || '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+  const wordCount  = plainText.split(' ').filter(Boolean).length;
+  const readingMin = Math.max(1, Math.ceil(wordCount / 200));
 
-  if (safeRead) {
+  // ── 6. SEO FIELDS: use admin-entered values, fall back to auto-generated ──
+  // Title: seoTitle (admin) → "title | MakeMe Top Business Profile"
+  const finalTitle = p.seoTitle
+    ? p.seoTitle
+    : `${p.title} | MakeMe Top Business Profile`;
+
+  // Description: seoDesc (admin) → excerpt → first 155 chars of plain text
+  const finalDesc = p.seoDesc
+    || p.excerpt
+    || plainText.slice(0, 155) + (plainText.length > 155 ? '…' : '');
+
+  // Keywords: keywords (admin) → auto-generated
+  const finalKeywords = (p.keywords || '').trim()
+    || autoKeywords(p.title, p.category, p.tags);
+
+  // ── 7. UPDATE ALL META TAGS via setMeta / setOG ──────────────────────
+  // <title>
+  document.title = finalTitle;
+  document.getElementById('pt').textContent = finalTitle;
+
+  // Meta name tags
+  setMeta('description', finalDesc);
+  setMeta('keywords',    finalKeywords);
+
+  // Canonical link
+  const canonEl = document.getElementById('pc');
+  if (canonEl) canonEl.setAttribute('href', canonicalURL);
+
+  // Open Graph
+  setOG('og:title',                  p.seoTitle || p.title || '');
+  setOG('og:description',            finalDesc);
+  setOG('og:url',                    canonicalURL);
+  setOG('og:image',                  safeImg || '');
+  setOG('article:author',            'Abrar Ali');
+  setOG('article:section',           p.category || 'Web Design');
+  setOG('article:published_time',    p.date ? new Date(p.date).toISOString() : '');
+  setOG('article:modified_time',     p.updatedAt?.seconds
+    ? new Date(p.updatedAt.seconds * 1000).toISOString()
+    : (p.date ? new Date(p.date).toISOString() : ''));
+
+  // Twitter Card
+  setMeta('twitter:title',       p.seoTitle || p.title || '');
+  setMeta('twitter:description', finalDesc);
+  setMeta('twitter:image',       safeImg || '');
+
+  // ── 8. VISIBLE DOM ────────────────────────────────────────────────────
+  document.getElementById('bcCat').textContent     = p.category || 'Blog';
+  document.getElementById('postTitle').textContent = p.title    || 'Blog Post';
+  document.getElementById('catBadge').textContent  = p.category || 'Blog';
+  document.getElementById('postDate').textContent  = formatDate(p.date);
+
+  if (safeRead || readingMin) {
     document.getElementById('readWrap').style.display = 'inline';
-    document.getElementById('postRead').textContent    = safeRead + ' read';
+    document.getElementById('postRead').textContent   = (safeRead || `${readingMin} min`) + ' read';
   }
 
   if (safeImg) {
     const img = document.getElementById('postCover');
-    img.src   = safeImg;
-    img.alt   = p.title || '';
-    img.style.display = 'block';
-    if (safeImg) document.getElementById('oi').content = safeImg;
+    img.src = safeImg; img.alt = p.title || ''; img.style.display = 'block';
   }
 
   // 6. Render sanitised content + author box
@@ -438,24 +554,91 @@ const CFG = {
   // Author HTML is hardcoded (not from Firestore) so no sanitisation needed
   document.getElementById('postContent').innerHTML = safeContent + authorHTML;
 
-  // 7. Inject Article schema after data is confirmed clean
+  // ── 9. INJECT RICH STRUCTURED DATA (BlogPosting schema) ─────────────
+  // This is what Google uses for rich results, knowledge panels
+  // and article appearance in search — unique per post.
   const schema = {
-    "@context":    "https://schema.org",
-    "@type":       "BlogPosting",
-    "headline":    p.title || '',
-    "description": p.excerpt || p.title || '',
-    "image":       p.image  || '',
-    "datePublished": p.date || '',
-    "author":      { "@type": "Person", "name": "Abrar Ali",
-                     "url": "https://abrartallks-portfolio.co.in/" },
-    "publisher":   { "@type": "Organization", "name": "Abrarr Tallks",
-                     "url": "https://abrartallks-portfolio.co.in/" },
-    "mainEntityOfPage": location.href
+    "@context":           "https://schema.org",
+    "@type":              "BlogPosting",
+    "@id":                canonicalURL,
+    "headline":           p.seoTitle || p.title || '',
+    "name":               p.title || '',
+    "description":        finalDesc,
+    "abstract":           p.excerpt || finalDesc.slice(0, 100),
+    "url":                canonicalURL,
+    "mainEntityOfPage":   { "@type": "WebPage", "@id": canonicalURL },
+    "image": (safeImg && safeImg !== "undefined") ? {
+      "@type":  "ImageObject",
+      "url":    safeImg,
+      "width":  1200,
+      "height": 630
+    } : "https://abrartallks-portfolio.co.in/og-home.jpg",
+    "datePublished":  p.date ? new Date(p.date).toISOString() : '',
+    "dateModified":   p.updatedAt?.seconds
+      ? new Date(p.updatedAt.seconds * 1000).toISOString()
+      : (p.date ? new Date(p.date).toISOString() : ''),
+    "inLanguage":     "en-IN",
+    "keywords":       finalKeywords,
+    "wordCount":      wordCount,
+    "timeRequired":   `PT${readingMin}M`,
+    "articleSection": p.category || 'Web Design',
+    "author": {
+      "@type":    "Person",
+      "name":     "Abrar Ali",
+      "alternateName": "Abrarr Tallks",
+      "url":      "https://abrartallks-portfolio.co.in/about.html",
+      "image":    "https://abrartallks-portfolio.co.in/about-me.webp",
+      "jobTitle": "Web Designer & SEO Expert",
+      "worksFor": [
+        { "@type": "Organization", "name": "rebrar.in",             "url": "https://rebrar.in" },
+        { "@type": "Organization", "name": "MakeMe Top Business Profile", "url": "https://makemetop.in" }
+      ],
+      "address": {
+        "@type":           "PostalAddress",
+        "addressLocality": "Srinagar",
+        "addressRegion":   "Jammu & Kashmir",
+        "addressCountry":  "IN"
+      },
+      "sameAs": [
+        "https://www.instagram.com/_abrarrtallks_",
+        "https://youtube.com/@abrarrtallks",
+        "https://rebrar.in",
+        "https://makemetop.in"
+      ]
+    },
+    "publisher": {
+      "@type":  "Organization",
+      "name":   "Abrarr Tallks",
+      "url":    "https://abrartallks-portfolio.co.in/",
+      "logo": {
+        "@type": "ImageObject",
+        "url":   "https://abrartallks-portfolio.co.in/favicon.png"
+      }
+    },
+    "isPartOf": {
+      "@type": "Blog",
+      "name":  "Abrarr Tallks Blog",
+      "url":   "https://abrartallks-portfolio.co.in/blog.html"
+    },
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home",
+          "item": "https://abrartallks-portfolio.co.in/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog",
+          "item": "https://abrartallks-portfolio.co.in/blog.html" },
+        { "@type": "ListItem", "position": 3, "name": p.title || 'Blog Post',
+          "item": canonicalURL }
+      ]
+    }
   };
   const s = document.createElement('script');
-  s.type = 'application/ld+json';
-  s.textContent = JSON.stringify(schema);
+  s.type        = 'application/ld+json';
+  s.textContent = JSON.stringify(schema, null, 0);
   document.head.appendChild(s);
+
+  // ── 8. UPDATE <html lang> with article language ──────────────────────
+  document.documentElement.setAttribute('lang', 'en');
 
 })();
 </script>
