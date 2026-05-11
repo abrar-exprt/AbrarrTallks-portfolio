@@ -29,8 +29,36 @@
   <meta id="pd" name="description" content="Blog post by Abrar Ali (Abrarr Tallks) — web designer &amp; SEO expert in Srinagar, Jammu &amp; Kashmir. CEO of rebrar.in &amp; MakeMe Top Business Profile.">
   <meta id="pk" name="keywords" content="web designer Kashmir, SEO expert Srinagar, Abrar Ali blog, Abrarr Tallks, rebrar.in, MakeMe Top, web design tips India">
   <meta name="author" content="Abrar Ali">
-  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-  <link id="pc" rel="canonical" href="https://abrartallks-portfolio.co.in/blog-post.html">
+  <meta id="pr" name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <!-- Noindex the bare blog-post.html (no ?id=) — only the ?id= versions should be indexed -->
+  <script>
+    (function() {
+      var id = new URLSearchParams(location.search).get('id');
+      if (!id || !/^[a-zA-Z0-9_\-]{1,128}$/.test(id)) {
+        var robots = document.getElementById('pr');
+        if (robots) robots.setAttribute('content', 'noindex, follow');
+      }
+    })();
+  </script>
+  <link id="pc" rel="canonical" href="">
+  <!-- CRITICAL: Set canonical IMMEDIATELY from ?id= param — runs before page renders.
+       This ensures Google never sees the wrong canonical.
+       Must be inline, must be before any async script. -->
+  <script>
+    (function() {
+      var id = new URLSearchParams(location.search).get('id');
+      if (id && /^[a-zA-Z0-9_\-]{1,128}$/.test(id)) {
+        var url = 'https://abrartallks-portfolio.co.in/blog-post.html?id=' + encodeURIComponent(id);
+        document.getElementById('pc').setAttribute('href', url);
+      } else {
+        // No valid ID — set canonical to base page (404/not-found state)
+        document.getElementById('pc').setAttribute('href', location.href);
+      }
+      // Also pre-set og:url immediately for social crawlers
+      var ogUrl = document.getElementById('ou');
+      if (ogUrl) ogUrl.setAttribute('content', location.href);
+    })();
+  </script>
   <link rel="sitemap" type="application/xml" href="/sitemap.xml">
 
   <!-- Geo tags -->
@@ -47,7 +75,7 @@
   <meta id="ot"  property="og:title"              content="Blog Post — Abrarr Tallks">
   <meta id="od"  property="og:description"         content="Blog post by Abrar Ali (Abrarr Tallks).">
   <meta id="oi"  property="og:image"               content="https://abrartallks-portfolio.co.in/og-home.jpg">
-  <meta id="ou"  property="og:url"                 content="https://abrartallks-portfolio.co.in/blog-post.html">
+  <meta id="ou"  property="og:url"                 content="">
   <meta id="oal" property="article:author"          content="Abrar Ali">
   <meta id="ops" property="article:published_time" content="">
   <meta id="oms" property="article:modified_time"  content="">
