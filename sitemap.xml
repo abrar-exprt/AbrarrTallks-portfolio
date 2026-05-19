@@ -121,19 +121,25 @@
   </url>
 
   <!-- ═══════════════════════════════════════════
-       DYNAMIC BLOG READER — each ?id= post is its own URL
-       Add new blog post URLs here as you publish them
-       ═══════════════════════════════════════════ -->
+       ADMIN-CREATED BLOG POSTS
+       HOW TO ADD: When you publish a blog post from admin.html,
+       click the green "⬇ HTML" button — it downloads a static
+       .html file (e.g. blog-seo-kashmir.html).
+       Upload that file to your hosting root, then add its URL
+       below in this format:
+
   <url>
-    <loc>https://abrartallks-portfolio.co.in/blog-post.html?id=WNuRVZvneRtsHK9AIaBr</loc>
-    <lastmod>2026-05-09</lastmod>
+    <loc>https://abrartallks-portfolio.co.in/YOUR-SLUG-HERE.html</loc>
+    <lastmod>YYYY-MM-DD</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
+       EXAMPLE (paste real slug from downloaded filename):
+       ═══════════════════════════════════════════ -->
   <url>
-    <loc>https://abrartallks-portfolio.co.in/blog-post.html?id=cqSZGx5HPv9kcI9JCjjS</loc>
-    <lastmod>2026-05-09</lastmod>
+    <loc>https://abrartallks-portfolio.co.in/how-to-rank-google-business-profile-kashmir.html</loc>
+    <lastmod>2026-05-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
