@@ -11,92 +11,633 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
-    body{background:var(--bg-2);}
-    /* LOGIN */
-    .login-wrap{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px;background:radial-gradient(800px 500px at 50% 0%,var(--sky-100) 0%,transparent 60%),var(--bg-2);}
-    .login-box{background:#fff;border:1px solid var(--line);border-radius:var(--radius-lg);padding:40px 36px;width:100%;max-width:420px;box-shadow:var(--shadow-lg);}
-    .login-logo{text-align:center;margin-bottom:24px;}
-    .login-logo h1{font-size:26px;} .login-logo h1 span{color:var(--sky-500);}
-    .login-logo p{font-size:13.5px;color:var(--slate);margin-top:4px;}
-    .fg{margin-bottom:16px;}
-    .fg label{display:block;font-size:13px;font-weight:600;color:var(--navy);margin-bottom:6px;}
-    .fg input,.fg textarea,.fg select{width:100%;padding:12px 14px;border:1.5px solid var(--line);border-radius:10px;font-family:inherit;font-size:14.5px;color:var(--navy);background:#fff;outline:none;transition:var(--transition);}
-    .fg input:focus,.fg textarea:focus,.fg select:focus{border-color:var(--sky-400);box-shadow:0 0 0 3px rgba(14,165,233,.12);}
-    .fg textarea{min-height:90px;resize:vertical;}
-    .alert{border-radius:10px;padding:10px 14px;font-size:13.5px;margin-bottom:14px;}
-    .alert-e{background:#fee2e2;color:#991b1b;border:1px solid #fecaca;}
-    .alert-ok{background:#dcfce7;color:#166534;border:1px solid #bbf7d0;}
-    /* SHELL */
-    .shell{min-height:100vh;display:flex;flex-direction:column;}
-    .topbar{background:#fff;border-bottom:1px solid var(--line);padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;position:sticky;top:0;z-index:100;box-shadow:var(--shadow-sm);}
-    .topbar .brand{font-family:'Poppins',sans-serif;font-weight:800;font-size:18px;color:var(--navy);}
-    .topbar .brand span{color:var(--sky-500);}
-    .topbar .right{display:flex;align-items:center;gap:10px;}
-    .chip{font-size:12px;color:var(--slate);background:var(--sky-50);border:1px solid var(--sky-200);padding:5px 12px;border-radius:100px;max-width:220px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
-    /* TABS */
-    .tabs{max-width:1300px;margin:0 auto;padding:16px 24px 0;display:flex;gap:6px;flex-wrap:wrap;}
-    .tab{padding:9px 16px;background:transparent;border:1.5px solid transparent;color:var(--slate);font-family:inherit;font-size:14px;font-weight:600;border-radius:10px;cursor:pointer;transition:var(--transition);}
-    .tab:hover{background:var(--sky-50);color:var(--sky-700);}
-    .tab.on{background:#fff;border-color:var(--line);color:var(--navy);box-shadow:var(--shadow-sm);}
-    /* MAIN */
-    .main{max-width:1300px;margin:0 auto;padding:22px 24px;width:100%;flex-grow:1;}
-    .panel{background:#fff;border:1px solid var(--line);border-radius:var(--radius-lg);padding:26px;margin-bottom:20px;}
-    .ph{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:20px;gap:16px;flex-wrap:wrap;}
-    .ph h2{font-size:20px;} .ph p{font-size:13.5px;color:var(--slate);margin-top:4px;}
-    .fr{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
-    @media(max-width:600px){.fr{grid-template-columns:1fr;}}
-    .btn-s{padding:8px 14px;font-size:13px;border-radius:9px;}
-    .btn-d{background:var(--danger);color:#fff;border:1.5px solid var(--danger);border-radius:9px;padding:7px 12px;font-size:13px;font-family:inherit;cursor:pointer;transition:var(--transition);}
-    .btn-d:hover{background:#b91c1c;}
-    /* TABLE */
-    .tw{overflow-x:auto;}
-    table{width:100%;border-collapse:collapse;min-width:660px;}
-    th,td{padding:11px 13px;border-bottom:1px solid var(--line);text-align:left;vertical-align:middle;}
-    th{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--slate-2);background:var(--bg-2);}
-    td{font-size:14px;color:var(--navy);}
-    .rt{width:52px;height:38px;border-radius:6px;object-fit:cover;background:var(--sky-50);border:1px solid var(--line);display:block;}
-    .ra{display:flex;gap:8px;}
-    .bdg{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:3px 8px;border-radius:100px;}
-    .live{background:#dcfce7;color:#166534;} .draft{background:#fef3c7;color:#92400e;}
-    /* HERO GRID */
-    .hg{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:12px;margin-bottom:18px;}
-    .ht{position:relative;aspect-ratio:16/10;border-radius:10px;overflow:hidden;border:1px solid var(--line);background:var(--bg-2);}
-    .ht img{width:100%;height:100%;object-fit:cover;}
-    .ht .rm{position:absolute;top:5px;right:5px;background:rgba(220,38,38,.92);color:#fff;border:none;width:24px;height:24px;border-radius:50%;cursor:pointer;font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center;}
-    .air{display:flex;gap:10px;} .air input{flex:1;}
-    /* UPDATES */
-    .ui{background:var(--bg-2);border:1px solid var(--line);border-radius:12px;padding:14px;margin-bottom:10px;display:flex;align-items:flex-start;justify-content:space-between;gap:14px;}
-    .ui .info h4{font-size:15px;margin-bottom:4px;} .ui .info .ud{font-size:12px;color:var(--slate-2);margin-bottom:6px;} .ui .info p{font-size:13.5px;color:var(--slate);}
-    /* IMG PREVIEW */
-    .ipv{width:100%;aspect-ratio:16/10;background:var(--bg-2);border:1.5px dashed var(--line-2);border-radius:10px;overflow:hidden;display:flex;align-items:center;justify-content:center;color:var(--slate-3);font-size:13px;margin-top:8px;}
-    .ipv img{width:100%;height:100%;object-fit:cover;}
-    /* MODAL */
-    .mo{position:fixed;inset:0;background:rgba(15,23,42,.65);display:none;align-items:center;justify-content:center;padding:24px;z-index:1000;}
-    .mo.on{display:flex;}
-    .mbox{background:#fff;border-radius:var(--radius-lg);width:100%;max-width:660px;max-height:90vh;overflow-y:auto;padding:28px;box-shadow:var(--shadow-lg);}
-    .mbox h3{font-size:20px;margin-bottom:16px;}
-    .mf{display:flex;gap:10px;justify-content:flex-end;margin-top:18px;}
-    /* FB banner */
-    .fbb{background:#fef3c7;border:1px solid #fcd34d;color:#92400e;padding:12px 16px;border-radius:10px;font-size:13.5px;margin-bottom:16px;}
-    .ht2{font-size:12px;color:var(--slate-2);margin-top:4px;}
-    .ht2 code{background:var(--bg-2);border:1px solid var(--line);padding:1px 5px;border-radius:4px;font-size:11px;}
-    .blog-editor-wrap{border:1.5px solid var(--line);border-radius:10px;overflow:hidden;background:#fff;}
-    .blog-editor-wrap:focus-within{border-color:var(--sky-400);box-shadow:0 0 0 3px rgba(14,165,233,.12);}
-    .blog-toolbar{display:flex;gap:4px;padding:10px 10px 8px;background:var(--bg-2);border-bottom:1px solid var(--line);flex-wrap:wrap;align-items:center;}
-    .blog-toolbar button{padding:5px 11px;border:1px solid var(--line);border-radius:6px;background:#fff;font-size:12.5px;font-family:inherit;cursor:pointer;transition:var(--transition);color:var(--navy);line-height:1.4;}
-    .blog-toolbar button:hover{background:var(--sky-50);border-color:var(--sky-400);color:var(--sky-700);}
-    .blog-toolbar .sep{width:1px;height:20px;background:var(--line);margin:0 4px;flex-shrink:0;}
-    #blogContent{min-height:220px;padding:16px;font-size:15px;line-height:1.8;outline:none;font-family:'Inter',sans-serif;color:var(--navy);}
-    #blogContent:empty::before{content:attr(data-placeholder);color:var(--slate-3);pointer-events:none;}
-    #blogContent h2{font-size:22px;font-weight:700;margin:20px 0 10px;color:var(--navy);}
-    #blogContent h3{font-size:18px;font-weight:600;margin:16px 0 8px;color:var(--navy);}
-    #blogContent p{margin-bottom:12px;}
-    #blogContent ul,#blogContent ol{padding-left:22px;margin-bottom:12px;}
-    #blogContent li{margin-bottom:4px;}
-    #blogContent blockquote{border-left:4px solid var(--sky-400);background:var(--sky-50);padding:10px 16px;border-radius:0 8px 8px 0;margin:12px 0;font-style:italic;}
-    #blogContent a{color:var(--sky-600);}
-    #blogContent strong{font-weight:700;}
-    .char-count{font-size:11px;color:var(--slate-2);padding:6px 14px;text-align:right;background:var(--bg-2);border-top:1px solid var(--line);}
+    /* ============================================================
+       ADMIN PANEL — Premium Sky-Blue + White Theme
+       Matches main site design language exactly
+       ============================================================ */
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', 'Poppins', -apple-system, system-ui, sans-serif;
+      background: var(--bg-2);
+      color: var(--navy);
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+    }
+
+    /* ── LOGIN PAGE ─────────────────────────────────────────── */
+    .login-wrap {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      background:
+        radial-gradient(ellipse 900px 500px at 50% 0%, var(--sky-100) 0%, transparent 65%),
+        var(--bg-2);
+    }
+    .login-box {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 44px 40px;
+      width: 100%;
+      max-width: 440px;
+      box-shadow: 0 20px 60px rgba(14,165,233,.10), 0 4px 16px rgba(0,0,0,.06);
+    }
+    .login-logo { text-align: center; margin-bottom: 32px; }
+    .login-logo h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--navy);
+    }
+    .login-logo h1 span { color: var(--sky-500); }
+    .login-logo p { font-size: 14px; color: var(--slate); margin-top: 6px; }
+    .login-logo .lock-icon {
+      width: 52px; height: 52px;
+      background: var(--sky-50);
+      border: 1px solid var(--sky-200);
+      border-radius: 16px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px;
+      margin: 0 auto 16px;
+    }
+
+    /* ── FORM FIELDS ────────────────────────────────────────── */
+    .fg { margin-bottom: 18px; }
+    .fg label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 7px;
+      letter-spacing: 0.1px;
+    }
+    .fg input,
+    .fg textarea,
+    .fg select {
+      width: 100%;
+      padding: 12px 15px;
+      border: 1.5px solid var(--line);
+      border-radius: 11px;
+      font-family: 'Inter', inherit;
+      font-size: 14.5px;
+      color: var(--navy);
+      background: #fff;
+      outline: none;
+      transition: border-color 180ms, box-shadow 180ms;
+      line-height: 1.5;
+    }
+    .fg input:focus,
+    .fg textarea:focus,
+    .fg select:focus {
+      border-color: var(--sky-400);
+      box-shadow: 0 0 0 3px rgba(14,165,233,.13);
+    }
+    .fg input::placeholder,
+    .fg textarea::placeholder { color: var(--slate-3); }
+    .fg textarea { min-height: 92px; resize: vertical; }
+    .fg select { cursor: pointer; appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%2364748b' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
+      background-repeat: no-repeat; background-position: right 14px center; padding-right: 36px;
+    }
+    .alert {
+      border-radius: 10px;
+      padding: 11px 15px;
+      font-size: 13.5px;
+      margin-bottom: 16px;
+      font-weight: 500;
+      line-height: 1.5;
+    }
+    .alert-e  { background: #fef2f2; color: #991b1b; border: 1px solid #fecaca; }
+    .alert-ok { background: #f0fdf4; color: #166534; border: 1px solid #bbf7d0; }
+    .ht2 {
+      font-size: 12px;
+      color: var(--slate-2);
+      margin-top: 5px;
+      line-height: 1.5;
+    }
+    .ht2 code {
+      background: var(--bg-2);
+      border: 1px solid var(--line);
+      padding: 1px 6px;
+      border-radius: 5px;
+      font-size: 11.5px;
+      font-family: monospace;
+    }
+
+    /* ── ADMIN SHELL ────────────────────────────────────────── */
+    .shell { min-height: 100vh; display: flex; flex-direction: column; }
+
+    /* Top Bar */
+    .topbar {
+      background: #fff;
+      border-bottom: 1px solid var(--line);
+      padding: 0 28px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      box-shadow: 0 1px 0 var(--line), 0 2px 8px rgba(0,0,0,.04);
+    }
+    .topbar .brand {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 800;
+      font-size: 19px;
+      color: var(--navy);
+      letter-spacing: -0.02em;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .topbar .brand span { color: var(--sky-500); }
+    .topbar .brand::before {
+      content: "⚙";
+      font-size: 16px;
+      color: var(--sky-400);
+    }
+    .topbar .right { display: flex; align-items: center; gap: 10px; }
+    .chip {
+      font-size: 12px;
+      color: var(--sky-700);
+      background: var(--sky-50);
+      border: 1px solid var(--sky-200);
+      padding: 5px 13px;
+      border-radius: 100px;
+      max-width: 220px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      font-weight: 500;
+    }
+
+    /* Tab Navigation */
+    .tabs {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 20px 28px 0;
+      display: flex;
+      gap: 4px;
+      flex-wrap: wrap;
+      border-bottom: 1px solid var(--line);
+      background: #fff;
+    }
+    .tab {
+      padding: 10px 18px;
+      background: transparent;
+      border: none;
+      border-bottom: 2.5px solid transparent;
+      color: var(--slate);
+      font-family: 'Inter', inherit;
+      font-size: 14px;
+      font-weight: 600;
+      border-radius: 0;
+      cursor: pointer;
+      transition: color 150ms, border-color 150ms;
+      margin-bottom: -1px;
+      white-space: nowrap;
+    }
+    .tab:hover { color: var(--sky-600); }
+    .tab.on {
+      color: var(--sky-600);
+      border-bottom-color: var(--sky-500);
+      background: transparent;
+    }
+
+    /* Main content area */
+    .main {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 28px;
+      width: 100%;
+      flex-grow: 1;
+    }
+    @media (max-width: 768px) {
+      .main { padding: 16px; }
+      .topbar { padding: 0 16px; }
+      .tabs { padding: 16px 16px 0; }
+    }
+
+    /* Panel card */
+    .panel {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      margin-bottom: 24px;
+      box-shadow: 0 1px 3px rgba(0,0,0,.04);
+    }
+    .ph {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin-bottom: 22px;
+      gap: 16px;
+      flex-wrap: wrap;
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--line);
+    }
+    .ph h2 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--navy);
+      letter-spacing: -0.01em;
+    }
+    .ph p {
+      font-size: 13.5px;
+      color: var(--slate);
+      margin-top: 4px;
+      line-height: 1.6;
+      max-width: 560px;
+    }
+
+    /* Two-column form row */
+    .fr { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    @media (max-width: 640px) { .fr { grid-template-columns: 1fr; } }
+
+    /* Buttons */
+    .btn-s {
+      padding: 9px 16px;
+      font-size: 13px;
+      border-radius: 9px;
+      font-family: inherit;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 150ms;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .btn-d {
+      background: #fef2f2;
+      color: var(--danger);
+      border: 1.5px solid #fecaca;
+      border-radius: 9px;
+      padding: 7px 12px;
+      font-size: 13px;
+      font-family: inherit;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 150ms;
+    }
+    .btn-d:hover { background: var(--danger); color: #fff; border-color: var(--danger); }
+
+    /* Firebase warning banner */
+    .fbb {
+      background: #fffbeb;
+      border: 1px solid #fcd34d;
+      color: #92400e;
+      padding: 14px 18px;
+      border-radius: 12px;
+      font-size: 13.5px;
+      margin-bottom: 20px;
+      line-height: 1.6;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+    .fbb::before { content: "⚠️"; flex-shrink: 0; }
+
+    /* ── TABLES ─────────────────────────────────────────────── */
+    .tw { overflow-x: auto; border-radius: 10px; border: 1px solid var(--line); }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 680px;
+      font-size: 14px;
+    }
+    thead tr { background: var(--bg-2); }
+    th {
+      padding: 11px 16px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--slate-2);
+      text-align: left;
+      border-bottom: 1px solid var(--line);
+      white-space: nowrap;
+    }
+    td {
+      padding: 12px 16px;
+      color: var(--navy);
+      border-bottom: 1px solid var(--line);
+      vertical-align: middle;
+    }
+    tbody tr:last-child td { border-bottom: none; }
+    tbody tr:hover { background: var(--sky-50); }
+    .rt {
+      width: 54px; height: 40px;
+      border-radius: 8px;
+      object-fit: cover;
+      background: var(--sky-50);
+      border: 1px solid var(--line);
+      display: block;
+    }
+    .ra { display: flex; gap: 6px; flex-wrap: wrap; }
+    .bdg {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      padding: 3px 9px;
+      border-radius: 100px;
+    }
+    .live  { background: #dcfce7; color: #15803d; }
+    .draft { background: #fef3c7; color: #b45309; }
+
+    /* ── HERO IMAGE GRID ────────────────────────────────────── */
+    .hg {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+    .ht {
+      position: relative;
+      aspect-ratio: 16/10;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: var(--bg-2);
+      transition: transform 150ms, box-shadow 150ms;
+    }
+    .ht:hover { transform: translateY(-2px); box-shadow: var(--shadow-sm); }
+    .ht img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .ht .rm {
+      position: absolute;
+      top: 7px; right: 7px;
+      background: rgba(220,38,38,.9);
+      color: #fff;
+      border: none;
+      width: 26px; height: 26px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 15px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 150ms;
+      backdrop-filter: blur(4px);
+    }
+    .ht:hover .rm { opacity: 1; }
+    .air { display: flex; gap: 10px; align-items: center; }
+    .air input { flex: 1; }
+
+    /* ── UPDATES LIST ───────────────────────────────────────── */
+    .ui {
+      background: var(--bg-2);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 16px 18px;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      transition: border-color 150ms;
+    }
+    .ui:hover { border-color: var(--sky-300); }
+    .ui .info h4 {
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 5px;
+      color: var(--navy);
+    }
+    .ui .info .ud {
+      font-size: 12px;
+      color: var(--slate-2);
+      margin-bottom: 6px;
+      font-weight: 500;
+    }
+    .ui .info p { font-size: 13.5px; color: var(--slate); line-height: 1.6; }
+
+    /* ── IMAGE PREVIEW ──────────────────────────────────────── */
+    .ipv {
+      width: 100%;
+      aspect-ratio: 16/10;
+      background: var(--bg-2);
+      border: 2px dashed var(--line-2);
+      border-radius: 12px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--slate-3);
+      font-size: 13px;
+      margin-top: 10px;
+      transition: border-color 150ms;
+    }
+    .ipv:has(img) { border-style: solid; border-color: var(--sky-200); }
+    .ipv img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    /* ── MODAL ──────────────────────────────────────────────── */
+    .mo {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, .55);
+      backdrop-filter: blur(4px);
+      display: none;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 32px 20px;
+      z-index: 1000;
+      overflow-y: auto;
+    }
+    .mo.on { display: flex; }
+    .mbox {
+      background: #fff;
+      border-radius: var(--radius-lg);
+      width: 100%;
+      max-width: 680px;
+      padding: 32px;
+      box-shadow: 0 24px 64px rgba(0,0,0,.15);
+      margin: auto;
+      position: relative;
+    }
+    .mbox h3 {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 22px;
+      color: var(--navy);
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--line);
+    }
+    .mf {
+      display: flex;
+      gap: 10px;
+      justify-content: flex-end;
+      margin-top: 22px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+    }
+
+    /* ── BLOG EDITOR ────────────────────────────────────────── */
+    .blog-editor-wrap {
+      border: 1.5px solid var(--line);
+      border-radius: 12px;
+      overflow: hidden;
+      background: #fff;
+      transition: border-color 180ms, box-shadow 180ms;
+    }
+    .blog-editor-wrap:focus-within {
+      border-color: var(--sky-400);
+      box-shadow: 0 0 0 3px rgba(14,165,233,.12);
+    }
+    .blog-toolbar {
+      display: flex;
+      gap: 3px;
+      padding: 10px 12px 9px;
+      background: var(--bg-2);
+      border-bottom: 1px solid var(--line);
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .blog-toolbar button {
+      padding: 5px 11px;
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      background: #fff;
+      font-size: 12.5px;
+      font-family: inherit;
+      cursor: pointer;
+      transition: all 150ms;
+      color: var(--navy);
+      line-height: 1.4;
+      font-weight: 500;
+    }
+    .blog-toolbar button:hover {
+      background: var(--sky-50);
+      border-color: var(--sky-400);
+      color: var(--sky-700);
+    }
+    .blog-toolbar .sep {
+      width: 1px;
+      height: 20px;
+      background: var(--line-2);
+      margin: 0 4px;
+      flex-shrink: 0;
+    }
+    #blogContent {
+      min-height: 240px;
+      padding: 18px 18px;
+      font-size: 15px;
+      line-height: 1.8;
+      outline: none;
+      font-family: 'Inter', sans-serif;
+      color: var(--navy);
+    }
+    #blogContent:empty::before {
+      content: attr(data-placeholder);
+      color: var(--slate-3);
+      pointer-events: none;
+      white-space: pre-line;
+    }
+    #blogContent h2 { font-size: 22px; font-weight: 700; margin: 22px 0 10px; color: var(--navy); }
+    #blogContent h3 { font-size: 18px; font-weight: 600; margin: 18px 0 8px; color: var(--navy); }
+    #blogContent p  { margin-bottom: 12px; }
+    #blogContent ul, #blogContent ol { padding-left: 22px; margin-bottom: 12px; }
+    #blogContent li { margin-bottom: 5px; }
+    #blogContent blockquote {
+      border-left: 4px solid var(--sky-400);
+      background: var(--sky-50);
+      padding: 12px 16px;
+      border-radius: 0 8px 8px 0;
+      margin: 14px 0;
+      font-style: italic;
+      color: var(--navy);
+    }
+    #blogContent a { color: var(--sky-600); }
+    #blogContent strong { font-weight: 700; }
+    .char-count {
+      font-size: 11.5px;
+      color: var(--slate-2);
+      padding: 7px 16px;
+      text-align: right;
+      background: var(--bg-2);
+      border-top: 1px solid var(--line);
+    }
+
+    /* ── SEO FIELDS BOX ─────────────────────────────────────── */
+    .seo-box {
+      background: linear-gradient(135deg, var(--sky-50) 0%, #f0f9ff 100%);
+      border: 1.5px solid var(--sky-200);
+      border-radius: 12px;
+      padding: 20px;
+      margin: 18px 0 4px;
+    }
+    .seo-box-title {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--sky-700);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+    .seo-box-title::before {
+      content: "";
+      width: 18px; height: 2px;
+      background: var(--sky-500);
+      border-radius: 2px;
+    }
+
+    /* ── STATS INPUTS ───────────────────────────────────────── */
+    .stat-card {
+      background: var(--bg-2);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 18px;
+      text-align: center;
+      transition: border-color 150ms;
+    }
+    .stat-card:focus-within { border-color: var(--sky-400); }
+    .stat-card label {
+      display: block;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--slate-2);
+      margin-bottom: 10px;
+    }
+    .stat-card input {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1.5px solid var(--line);
+      border-radius: 10px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--sky-600);
+      text-align: center;
+      background: #fff;
+      outline: none;
+      transition: border-color 150ms, box-shadow 150ms;
+    }
+    .stat-card input:focus {
+      border-color: var(--sky-400);
+      box-shadow: 0 0 0 3px rgba(14,165,233,.12);
+    }
+
+    /* ── RESPONSIVE ─────────────────────────────────────────── */
+    @media (max-width: 640px) {
+      .login-box  { padding: 32px 24px; }
+      .mbox       { padding: 24px 20px; }
+      .panel      { padding: 20px 16px; }
+      .hg         { grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); }
+      .topbar .brand::before { display: none; }
+    }
   </style>
 </head>
 <body>
@@ -105,6 +646,7 @@
 <div class="login-wrap" id="loginWrap">
   <div class="login-box">
     <div class="login-logo">
+      <div class="lock-icon">🔐</div>
       <h1>Abrarr <span>Tallks</span></h1>
       <p>Admin Panel — sign in to manage your portfolio</p>
     </div>
@@ -247,8 +789,8 @@
     </div>
 
     <!-- ── SEO FIELDS ── -->
-    <div style="background:var(--sky-50);border:1px solid var(--sky-200);border-radius:10px;padding:16px 18px;margin:18px 0 4px">
-      <p style="font-size:13px;font-weight:700;color:var(--sky-700);margin-bottom:14px;text-transform:uppercase;letter-spacing:.8px">🔍 SEO Settings — auto-generated if left blank</p>
+    <div class="seo-box">
+      <p class="seo-box-title">SEO Settings — auto-generated if left blank</p>
       <div class="fg">
         <label>SEO Title <span style="font-weight:400;color:var(--slate-2)">(shown in Google search results — max 60 chars)</span></label>
         <input type="text" id="bSeoTitle" maxlength="60" placeholder="e.g. How to Rank Google Business Profile in Kashmir | MakeMe Top">
@@ -605,244 +1147,247 @@ document.getElementById('saveBlog').addEventListener('click',async()=>{
 });
 window.__eb=id=>openBM(id);
 // ── GENERATE + DOWNLOAD STATIC HTML FOR A BLOG POST ─────────────────
-// This creates a fully static .html file with clean URL, proper SEO
-// meta tags, all content baked in — no Firebase needed to read it.
-// Just upload the downloaded file to your hosting root folder.
+// Builds a complete static .html file from Firestore data.
+// Uses string concatenation (NOT template literals) to avoid
+// nested backtick / ${} syntax errors inside the outer script tag.
 window.__dlb = async (id) => {
-  toast('Generating HTML file…');
+  toast('Generating HTML file...');
   const list = await lB();
   const p = list.find(x => x.id === id);
   if (!p) return toast('Post not found', 'e');
 
+  // ── Build slug filename ──
   const slug = (p.slug || p.title.toLowerCase()
     .replace(/[^a-z0-9\s-]/g,'').trim()
     .replace(/\s+/g,'-').replace(/-+/g,'-')) + '.html';
 
   const domain  = 'https://abrartallks-portfolio.co.in';
-  const pageURL = `${domain}/${slug}`;
+  const pageURL = domain + '/' + slug;
   const imgURL  = p.image || '';
 
-  const seoTitle = p.seoTitle || `${p.title} | MakeMe Top Business Profile`;
-  const seoDesc  = p.seoDesc  || p.excerpt || p.title;
+  const seoTitle = p.seoTitle || (p.title + ' | MakeMe Top Business Profile');
+  const seoDesc  = (p.seoDesc  || p.excerpt || p.title).replace(/"/g, '&quot;');
   const seoKw    = p.keywords || autoKw(p.title, p.category);
   const pubDate  = p.date ? new Date(p.date).toISOString() : new Date().toISOString();
-  const modDate  = p.updatedAt?.seconds
+  const modDate  = p.updatedAt && p.updatedAt.seconds
     ? new Date(p.updatedAt.seconds * 1000).toISOString() : pubDate;
-  const readMin  = p.readtime || '5 min';
+  const readMin  = p.readtime ? (p.readtime + ' read') : '';
   const dispDate = p.date
     ? new Date(p.date).toLocaleDateString('en-IN',{day:'numeric',month:'long',year:'numeric'})
     : '';
 
-  function autoKw(title, cat) {
-    const base = ['web designer Kashmir','SEO expert India','Abrar Ali','Abrarr Tallks','MakeMe Top'];
-    const cm = {'SEO':['SEO tips India','Google ranking Kashmir'],'Local SEO':['local SEO Srinagar','GBP Kashmir'],
-                 'Web Design':['web design tips','website designer Kashmir'],'Pricing':['website cost India']};
-    const tw = (title||'').toLowerCase().replace(/[^a-z0-9 ]/g,'').split(' ').filter(w=>w.length>3);
-    return [...new Set([...base,...(cm[cat]||cm['Web Design']),...tw])].slice(0,15).join(', ');
-  }
+  // ── Safe content (escape </script> so it doesn't break the page) ──
+  const safeContent = (p.content || '<p>No content.</p>')
+    .replace(/<\/script>/gi, '<\\/script>');
 
-  // Sanitise content for safe embedding (already sanitised at save time, just escape </script>)
-  const safeContent = (p.content || '<p>No content.</p>').replace(/<\/script>/gi, '<\/script>');
+  // ── Schema JSON ──
+  const plainWords = (p.content || '')
+    .replace(/<[^>]+>/g,' ').split(' ').filter(Boolean).length;
 
-  const schemaJSON = JSON.stringify({
-    "@context":"https://schema.org","@type":"BlogPosting",
-    "@id":pageURL,"headline":p.title,"name":p.title,
-    "description":seoDesc,"url":pageURL,
-    "image":imgURL?{"@type":"ImageObject","url":imgURL,"width":1200,"height":630}:undefined,
-    "datePublished":pubDate,"dateModified":modDate,
-    "inLanguage":"en-IN","keywords":seoKw,
-    "wordCount":(p.content||'').replace(/<[^>]+>/g,' ').split(' ').filter(Boolean).length,
-    "articleSection":p.category||'Web Design',
-    "mainEntityOfPage":{"@type":"WebPage","@id":pageURL},
-    "author":{"@type":"Person","name":"Abrar Ali","alternateName":"Abrarr Tallks",
+  const schema = {
+    "@context":       "https://schema.org",
+    "@type":          "BlogPosting",
+    "@id":            pageURL,
+    "headline":       p.title,
+    "description":    p.seoDesc || p.excerpt || p.title,
+    "url":            pageURL,
+    "datePublished":  pubDate,
+    "dateModified":   modDate,
+    "inLanguage":     "en-IN",
+    "keywords":       seoKw,
+    "wordCount":      plainWords,
+    "articleSection": p.category || 'Web Design',
+    "mainEntityOfPage": { "@type": "WebPage", "@id": pageURL },
+    "image": imgURL ? { "@type":"ImageObject","url":imgURL,"width":1200,"height":630 } : undefined,
+    "author": {
+      "@type":"Person","name":"Abrar Ali","alternateName":"Abrarr Tallks",
       "url":"https://abrartallks-portfolio.co.in/about.html",
-      "worksFor":[{"@type":"Organization","name":"rebrar.in","url":"https://rebrar.in"},
-                  {"@type":"Organization","name":"MakeMe Top Business Profile","url":"https://makemetop.in"}],
-      "sameAs":["https://www.instagram.com/_abrarrtallks_","https://youtube.com/@abrarrtallks","https://rebrar.in","https://makemetop.in"]},
-    "publisher":{"@type":"Organization","name":"Abrarr Tallks",
+      "worksFor":[
+        {"@type":"Organization","name":"rebrar.in","url":"https://rebrar.in"},
+        {"@type":"Organization","name":"MakeMe Top Business Profile","url":"https://makemetop.in"}
+      ],
+      "sameAs":["https://www.instagram.com/_abrarrtallks_","https://youtube.com/@abrarrtallks","https://rebrar.in","https://makemetop.in"]
+    },
+    "publisher":{
+      "@type":"Organization","name":"Abrarr Tallks",
       "url":"https://abrartallks-portfolio.co.in/",
-      "logo":{"@type":"ImageObject","url":"https://abrartallks-portfolio.co.in/favicon.png"}},
-    "breadcrumb":{"@type":"BreadcrumbList","itemListElement":[
-      {"@type":"ListItem","position":1,"name":"Home","item":domain+"/"},
-      {"@type":"ListItem","position":2,"name":"Blog","item":domain+"/blog.html"},
-      {"@type":"ListItem","position":3,"name":p.title,"item":pageURL}]}
-  });
+      "logo":{"@type":"ImageObject","url":"https://abrartallks-portfolio.co.in/favicon.png"}
+    },
+    "breadcrumb":{
+      "@type":"BreadcrumbList","itemListElement":[
+        {"@type":"ListItem","position":1,"name":"Home","item":domain+"/"},
+        {"@type":"ListItem","position":2,"name":"Blog","item":domain+"/blog.html"},
+        {"@type":"ListItem","position":3,"name":p.title,"item":pageURL}
+      ]
+    }
+  };
+  const schemaStr = JSON.stringify(schema);
 
-  const html = `<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="theme-color" content="#0ea5e9">
-  <title>${seoTitle}</title>
-  <meta name="description" content="${seoDesc.replace(/"/g,'&quot;')}">
-  <meta name="keywords" content="${seoKw}">
-  <meta name="author" content="Abrar Ali">
-  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-  <link rel="canonical" href="${pageURL}">
-  <link rel="sitemap" type="application/xml" href="/sitemap.xml">
-  <meta name="geo.region" content="IN-JK">
-  <meta name="geo.placename" content="Srinagar, Jammu &amp; Kashmir, India">
-  <meta name="geo.position" content="34.0837;74.7973">
-  <meta name="ICBM" content="34.0837, 74.7973">
-  <meta name="language" content="English">
-  <meta name="distribution" content="global">
-  <meta property="og:type" content="article">
-  <meta property="og:site_name" content="Abrarr Tallks">
-  <meta property="og:title" content="${(p.seoTitle||p.title).replace(/"/g,'&quot;')}">
-  <meta property="og:description" content="${seoDesc.replace(/"/g,'&quot;')}">
-  <meta property="og:image" content="${imgURL}">
-  <meta property="og:url" content="${pageURL}">
-  <meta property="og:locale" content="en_IN">
-  <meta property="article:author" content="Abrar Ali">
-  <meta property="article:published_time" content="${pubDate}">
-  <meta property="article:modified_time" content="${modDate}">
-  <meta property="article:section" content="${p.category||'Web Design'}">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:site" content="@abrarrtallks">
-  <meta name="twitter:creator" content="@abrarrtallks">
-  <meta name="twitter:title" content="${(p.seoTitle||p.title).replace(/"/g,'&quot;')}">
-  <meta name="twitter:description" content="${seoDesc.replace(/"/g,'&quot;')}">
-  <meta name="twitter:image" content="${imgURL}">
-  <link rel="icon" type="image/png" href="favicon.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-  <script type="application/ld+json">${schemaJSON}</script>
-  <style>
-  .post-hero{padding:130px 24px 48px;background:radial-gradient(800px 360px at 50% 0%,var(--sky-100) 0%,transparent 60%),var(--bg);text-align:center;}
-  .post-hero .bc{display:flex;justify-content:center;gap:8px;font-size:13px;color:var(--slate-2);margin-bottom:14px;}
-  .post-hero .bc a{color:var(--sky-600);font-weight:500;}
-  .post-hero h1{font-size:clamp(26px,4vw,48px);font-weight:800;margin-bottom:16px;letter-spacing:-.025em;max-width:860px;margin-left:auto;margin-right:auto;line-height:1.15;}
-  .post-meta{display:flex;align-items:center;gap:14px;justify-content:center;flex-wrap:wrap;font-size:13.5px;color:var(--slate-2);}
-  .cat-badge{background:var(--sky-100);color:var(--sky-700);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;padding:3px 10px;border-radius:100px;}
-  .post-cover-wrap{max-width:900px;margin:32px auto 0;padding:0 24px;}
-  .post-cover{width:100%;aspect-ratio:16/7;object-fit:cover;border-radius:var(--radius-lg);border:1px solid var(--line);display:block;}
-  .post-layout{max-width:1120px;margin:0 auto;padding:48px 24px 80px;display:grid;grid-template-columns:1fr 300px;gap:52px;align-items:start;}
-  @media(max-width:900px){.post-layout{grid-template-columns:1fr;gap:40px;}}
-  @media(max-width:600px){.post-layout{padding:32px 16px 60px;}}
-  .post-content h2{font-size:26px;font-weight:800;margin:40px 0 14px;color:var(--navy);}
-  .post-content h3{font-size:20px;font-weight:700;margin:30px 0 12px;color:var(--navy);}
-  .post-content h4{font-size:17px;font-weight:700;margin:24px 0 10px;color:var(--navy);}
-  .post-content p{font-size:16px;color:var(--slate);line-height:1.82;margin-bottom:20px;}
-  .post-content strong{color:var(--navy);}
-  .post-content ul,.post-content ol{padding-left:24px;margin-bottom:20px;}
-  .post-content li{font-size:15.5px;color:var(--slate);line-height:1.8;margin-bottom:10px;}
-  .post-content a{color:var(--sky-600);font-weight:500;text-decoration:underline;text-underline-offset:2px;}
-  .post-content blockquote{border-left:4px solid var(--sky-400);background:var(--sky-50);padding:18px 22px;border-radius:0 12px 12px 0;margin:28px 0;font-style:italic;font-size:16px;color:var(--navy);}
-  .post-content pre{background:var(--bg-2);border:1px solid var(--line);border-radius:10px;padding:16px;overflow-x:auto;font-size:13px;margin-bottom:20px;}
-  .post-content code{font-family:monospace;background:var(--bg-2);padding:2px 5px;border-radius:4px;font-size:13px;}
-  .post-content img{max-width:100%;border-radius:10px;margin:16px 0;}
-  .author-box{background:#fff;border:1px solid var(--line);border-radius:var(--radius-lg);padding:24px;margin-top:44px;display:flex;gap:16px;align-items:flex-start;}
-  .author-box .ava{width:54px;height:54px;background:var(--sky-500);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:22px;font-weight:800;flex-shrink:0;}
-  .author-box h4{font-size:16px;margin-bottom:6px;} .author-box p{font-size:14px;color:var(--slate);line-height:1.65;margin:0;} .author-box a{color:var(--sky-600);font-weight:600;}
-  .sidebar{position:sticky;top:90px;}
-  .sc{background:#fff;border:1px solid var(--line);border-radius:var(--radius-lg);padding:22px;margin-bottom:20px;}
-  .sc h4{font-size:15px;font-weight:700;margin-bottom:14px;} .sc p{font-size:14px;color:var(--slate);line-height:1.65;margin-bottom:14px;}
-  .rp{display:flex;gap:12px;align-items:flex-start;margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid var(--line);}
-  .rp:last-child{border-bottom:0;padding-bottom:0;margin-bottom:0;}
-  .rp img{width:54px;height:42px;border-radius:8px;object-fit:cover;flex-shrink:0;}
-  .rp a{font-size:13px;font-weight:600;color:var(--navy);line-height:1.4;text-decoration:none;}
-  .rp a:hover{color:var(--sky-600);}
-  </style>
-</head>
-<body>
-<nav class="navbar" role="navigation">
-  <div class="nav-container">
-    <a href="index.html" class="brand-logo"><span class="brand-main">Abrarr <span>Tallks</span></span><span class="brand-sub">Web Design · Srinagar, J&amp;K</span></a>
-    <div class="nav-links" id="navLinks">
-      <a href="index.html">Home</a><a href="services.html">Services</a><a href="portfolio.html">Portfolio</a>
-      <a href="pricing.html">Pricing</a><a href="blog.html" class="active">Blog</a>
-      <a href="about.html">About</a><a href="contact.html">Contact</a>
-      <a href="https://wa.me/917051078832" target="_blank" rel="noopener" class="nav-cta">Get Quote</a>
-    </div>
-    <button class="menu-btn" id="menuBtn" aria-label="Toggle Menu" aria-expanded="false">&#9776;</button>
-  </div>
-</nav>
+  // ── Build HTML using array join — avoids ALL backtick/template issues ──
+  const H = [];
+  const A = function(s){ H.push(s); };
 
-<header class="post-hero">
-  <nav class="bc" aria-label="Breadcrumb">
-    <a href="index.html">Home</a><span>&rsaquo;</span>
-    <a href="blog.html">Blog</a><span>&rsaquo;</span>
-    <span>${(p.category||'Blog').replace(/</g,'&lt;')}</span>
-  </nav>
-  <h1>${p.title.replace(/</g,'&lt;')}</h1>
-  <div class="post-meta">
-    <span class="cat-badge">${(p.category||'Blog').replace(/</g,'&lt;')}</span>
-    <span>Abrar Ali</span><span>&middot;</span>
-    <span>${dispDate}</span>
-    ${readMin?`<span>&middot;</span><span>${readMin} read</span>`:''}
-  </div>
-</header>
+  A('<!DOCTYPE html>');
+  A('<html lang="en">');
+  A('<head>');
+  A('  <meta charset="UTF-8">');
+  A('  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">');
+  A('  <meta name="theme-color" content="#0ea5e9">');
+  A('  <title>' + seoTitle.replace(/</g,'&lt;') + '</title>');
+  A('  <meta name="description" content="' + seoDesc + '">');
+  A('  <meta name="keywords" content="' + seoKw + '">');
+  A('  <meta name="author" content="Abrar Ali">');
+  A('  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">');
+  A('  <link rel="canonical" href="' + pageURL + '">');
+  A('  <link rel="sitemap" type="application/xml" href="/sitemap.xml">');
+  A('  <meta name="geo.region" content="IN-JK">');
+  A('  <meta name="geo.placename" content="Srinagar, Jammu &amp; Kashmir, India">');
+  A('  <meta name="geo.position" content="34.0837;74.7973">');
+  A('  <meta name="ICBM" content="34.0837, 74.7973">');
+  A('  <meta name="language" content="English">');
+  A('  <meta name="distribution" content="global">');
+  A('  <meta property="og:type" content="article">');
+  A('  <meta property="og:site_name" content="Abrarr Tallks">');
+  A('  <meta property="og:title" content="' + (p.seoTitle||p.title).replace(/"/g,'&quot;') + '">');
+  A('  <meta property="og:description" content="' + seoDesc + '">');
+  A('  <meta property="og:image" content="' + imgURL + '">');
+  A('  <meta property="og:url" content="' + pageURL + '">');
+  A('  <meta property="og:locale" content="en_IN">');
+  A('  <meta property="article:published_time" content="' + pubDate + '">');
+  A('  <meta property="article:modified_time" content="' + modDate + '">');
+  A('  <meta property="article:section" content="' + (p.category||'Web Design') + '">');
+  A('  <meta name="twitter:card" content="summary_large_image">');
+  A('  <meta name="twitter:site" content="@abrarrtallks">');
+  A('  <meta name="twitter:title" content="' + (p.seoTitle||p.title).replace(/"/g,'&quot;') + '">');
+  A('  <meta name="twitter:description" content="' + seoDesc + '">');
+  A('  <meta name="twitter:image" content="' + imgURL + '">');
+  A('  <link rel="icon" type="image/png" href="favicon.png">');
+  A('  <link rel="preconnect" href="https://fonts.googleapis.com">');
+  A('  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>');
+  A('  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">');
+  A('  <link rel="stylesheet" href="style.css">');
+  A('  <script type="application/ld+json">' + schemaStr + '</scr' + 'ipt>');
+  A('  <style>');
+  A('  .post-hero{padding:130px 24px 48px;background:radial-gradient(800px 360px at 50% 0%,var(--sky-100) 0%,transparent 60%),var(--bg);text-align:center;}');
+  A('  .post-hero .bc{display:flex;justify-content:center;gap:8px;font-size:13px;color:var(--slate-2);margin-bottom:14px;}');
+  A('  .post-hero .bc a{color:var(--sky-600);font-weight:500;}');
+  A('  .post-hero h1{font-size:clamp(26px,4vw,48px);font-weight:800;margin-bottom:16px;letter-spacing:-.025em;max-width:860px;margin-left:auto;margin-right:auto;line-height:1.15;}');
+  A('  .post-meta{display:flex;align-items:center;gap:14px;justify-content:center;flex-wrap:wrap;font-size:13.5px;color:var(--slate-2);}');
+  A('  .cat-badge{background:var(--sky-100);color:var(--sky-700);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;padding:3px 10px;border-radius:100px;}');
+  A('  .post-cover-wrap{max-width:900px;margin:32px auto 0;padding:0 24px;}');
+  A('  .post-cover{width:100%;aspect-ratio:16/7;object-fit:cover;border-radius:var(--radius-lg);border:1px solid var(--line);display:block;}');
+  A('  .post-layout{max-width:1120px;margin:0 auto;padding:48px 24px 80px;display:grid;grid-template-columns:1fr 300px;gap:52px;align-items:start;}');
+  A('  @media(max-width:900px){.post-layout{grid-template-columns:1fr;gap:40px;}}');
+  A('  @media(max-width:600px){.post-layout{padding:32px 16px 60px;}}');
+  A('  .post-content h2{font-size:26px;font-weight:800;margin:40px 0 14px;color:var(--navy);}');
+  A('  .post-content h3{font-size:20px;font-weight:700;margin:30px 0 12px;color:var(--navy);}');
+  A('  .post-content p{font-size:16px;color:var(--slate);line-height:1.82;margin-bottom:20px;}');
+  A('  .post-content strong{color:var(--navy);}');
+  A('  .post-content ul,.post-content ol{padding-left:24px;margin-bottom:20px;}');
+  A('  .post-content li{font-size:15.5px;color:var(--slate);line-height:1.8;margin-bottom:10px;}');
+  A('  .post-content a{color:var(--sky-600);font-weight:500;text-decoration:underline;text-underline-offset:2px;}');
+  A('  .post-content blockquote{border-left:4px solid var(--sky-400);background:var(--sky-50);padding:18px 22px;border-radius:0 12px 12px 0;margin:28px 0;font-style:italic;font-size:16px;color:var(--navy);}');
+  A('  .post-content pre{background:var(--bg-2);border:1px solid var(--line);border-radius:10px;padding:16px;overflow-x:auto;font-size:13px;margin-bottom:20px;}');
+  A('  .post-content code{font-family:monospace;background:var(--bg-2);padding:2px 5px;border-radius:4px;font-size:13px;}');
+  A('  .post-content img{max-width:100%;border-radius:10px;margin:16px 0;}');
+  A('  .author-box{background:#fff;border:1px solid var(--line);border-radius:var(--radius-lg);padding:24px;margin-top:44px;display:flex;gap:16px;align-items:flex-start;}');
+  A('  .author-box .ava{width:54px;height:54px;background:var(--sky-500);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:22px;font-weight:800;flex-shrink:0;}');
+  A('  .author-box h4{font-size:16px;margin-bottom:6px;} .author-box p{font-size:14px;color:var(--slate);line-height:1.65;margin:0;} .author-box a{color:var(--sky-600);font-weight:600;}');
+  A('  .sidebar{position:sticky;top:90px;}');
+  A('  .sc{background:#fff;border:1px solid var(--line);border-radius:var(--radius-lg);padding:22px;margin-bottom:20px;}');
+  A('  .sc h4{font-size:15px;font-weight:700;margin-bottom:14px;} .sc p{font-size:14px;color:var(--slate);line-height:1.65;margin-bottom:14px;}');
+  A('  .rp{display:flex;gap:12px;align-items:flex-start;margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid var(--line);}');
+  A('  .rp:last-child{border-bottom:0;padding-bottom:0;margin-bottom:0;}');
+  A('  .rp img{width:54px;height:42px;border-radius:8px;object-fit:cover;flex-shrink:0;}');
+  A('  .rp a{font-size:13px;font-weight:600;color:var(--navy);line-height:1.4;text-decoration:none;}');
+  A('  .rp a:hover{color:var(--sky-600);}');
+  A('  </style>');
+  A('</head>');
+  A('<body>');
+  A('<nav class="navbar" role="navigation">');
+  A('  <div class="nav-container">');
+  A('    <a href="index.html" class="brand-logo"><span class="brand-main">Abrarr <span>Tallks</span></span><span class="brand-sub">Web Design &middot; Srinagar, J&amp;K</span></a>');
+  A('    <div class="nav-links" id="navLinks">');
+  A('      <a href="index.html">Home</a><a href="services.html">Services</a><a href="portfolio.html">Portfolio</a>');
+  A('      <a href="pricing.html">Pricing</a><a href="blog.html" class="active">Blog</a>');
+  A('      <a href="about.html">About</a><a href="contact.html">Contact</a>');
+  A('      <a href="https://wa.me/917051078832" target="_blank" rel="noopener" class="nav-cta">Get Quote</a>');
+  A('    </div>');
+  A('    <button class="menu-btn" id="menuBtn" aria-label="Toggle Menu" aria-expanded="false">&#9776;</button>');
+  A('  </div>');
+  A('</nav>');
+  A('<header class="post-hero">');
+  A('  <nav class="bc" aria-label="Breadcrumb">');
+  A('    <a href="index.html">Home</a><span>&rsaquo;</span>');
+  A('    <a href="blog.html">Blog</a><span>&rsaquo;</span>');
+  A('    <span>' + (p.category||'Blog').replace(/</g,'&lt;') + '</span>');
+  A('  </nav>');
+  A('  <h1>' + p.title.replace(/</g,'&lt;') + '</h1>');
+  A('  <div class="post-meta">');
+  A('    <span class="cat-badge">' + (p.category||'Blog').replace(/</g,'&lt;') + '</span>');
+  A('    <span>Abrar Ali</span><span>&middot;</span>');
+  A('    <span>' + dispDate + '</span>');
+  if (readMin) A('    <span>&middot;</span><span>' + readMin + '</span>');
+  A('  </div>');
+  A('</header>');
+  if (imgURL) {
+    A('<div class="post-cover-wrap">');
+    A('  <img src="' + imgURL + '" alt="' + p.title.replace(/"/g,'&quot;') + '" class="post-cover" loading="eager">');
+    A('</div>');
+  }
+  A('<div class="post-layout">');
+  A('  <article class="post-content">');
+  A('    ' + safeContent);
+  A('    <div class="author-box">');
+  A('      <div class="ava">A</div>');
+  A('      <div>');
+  A('        <h4>Abrar Ali (Abrarr Tallks)</h4>');
+  A('        <p>CEO of <a href="https://rebrar.in" target="_blank" rel="noopener">rebrar.in</a> &amp; <a href="https://makemetop.in" target="_blank" rel="noopener">MakeMe Top Business Profile</a>. 4+ years building modern, SEO-ranked websites for businesses across J&amp;K and India. 📍 Srinagar, J&amp;K — 191101. 📞 +91 7051078832</p>');
+  A('      </div>');
+  A('    </div>');
+  A('  </article>');
+  A('  <aside class="sidebar">');
+  A('    <div class="sc"><h4>💬 Free Website Quote</h4><p>Need a website or SEO? Free quote from Abrar Ali.</p>');
+  A('      <a href="https://wa.me/917051078832?text=Hi%20Abrar%2C%20I%20read%20your%20blog%20and%20want%20a%20quote" target="_blank" rel="noopener" class="btn btn-primary" style="width:100%;justify-content:center">💬 WhatsApp Now</a>');
+  A('    </div>');
+  A('    <div class="sc"><h4>More Articles</h4>');
+  A('      <div class="rp"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=100&q=70" alt=""><div><a href="blog-local-seo-kashmir.html">Rank on Google in Srinagar, Kashmir</a></div></div>');
+  A('      <div class="rp"><img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=100&q=70" alt=""><div><a href="blog-travel-website-kashmir.html">Kashmir Travel Website Must-Haves</a></div></div>');
+  A('      <div class="rp"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=100&q=70" alt=""><div><a href="blog-website-cost-india.html">Website Cost in India 2025</a></div></div>');
+  A('      <div class="rp"><img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=100&q=70" alt=""><div><a href="blog-seo-mistakes-india.html">SEO Mistakes India</a></div></div>');
+  A('    </div>');
+  A('    <div class="sc"><h4>My Companies</h4>');
+  A('      <p style="font-size:13px;margin-bottom:8px"><a href="https://rebrar.in" target="_blank" rel="noopener"><strong>rebrar.in</strong></a> — Web Design Agency</p>');
+  A('      <p style="font-size:13px;margin:0"><a href="https://makemetop.in" target="_blank" rel="noopener"><strong>MakeMe Top</strong></a> — Business Profile &amp; SEO</p>');
+  A('    </div>');
+  A('  </aside>');
+  A('</div>');
+  A('<footer class="main-footer">');
+  A('  <div class="footer-grid">');
+  A('    <div class="footer-col"><h4>Abrarr Tallks</h4><p>Web design &amp; SEO blog by Abrar Ali — CEO <a href="https://rebrar.in" target="_blank" rel="noopener" class="external">rebrar.in</a> &amp; MakeMe Top Business Profile.</p></div>');
+  A('    <div class="footer-col"><h4>Site Map</h4><ul><li><a href="index.html">Home</a></li><li><a href="portfolio.html">Portfolio</a></li><li><a href="services.html">Services</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="blog.html">Blog</a></li><li><a href="contact.html">Contact</a></li></ul></div>');
+  A('    <div class="footer-col"><h4>Articles</h4><ul><li><a href="blog-local-seo-kashmir.html">Local SEO Kashmir</a></li><li><a href="blog-travel-website-kashmir.html">Travel Website Kashmir</a></li><li><a href="blog-website-cost-india.html">Website Cost India</a></li><li><a href="blog-seo-mistakes-india.html">SEO Mistakes India</a></li></ul></div>');
+  A('    <div class="footer-col"><h4>Contact</h4><ul><li>Srinagar, J&amp;K — 191101</li><li><a href="tel:+917051078832">+91 7051078832</a></li></ul></div>');
+  A('    <div class="footer-col"><h4>Legal</h4><ul><li><a href="privacy.html">Privacy Policy</a></li><li><a href="refund.html">Refund Policy</a></li></ul></div>');
+  A('  </div>');
+  A('  <div class="footer-bottom"><p>&copy; 2026 Abrarr Tallks &mdash; Abrar Ali. All Rights Reserved.</p></div>');
+  A('</footer>');
+  A('<a href="https://wa.me/917051078832" class="whatsapp-float" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg></a>');
+  A('<script>(function(){var mb=document.getElementById("menuBtn");var nl=document.getElementById("navLinks");mb.addEventListener("click",function(){var o=nl.classList.toggle("open");mb.setAttribute("aria-expanded",o);mb.textContent=o?"X":"=";});nl.querySelectorAll("a").forEach(function(a){a.addEventListener("click",function(){nl.classList.remove("open");mb.textContent="=";});});window.addEventListener("scroll",function(){document.querySelector(".navbar").classList.toggle("scrolled",window.scrollY>8);},{passive:true});})();<\/script>');
+  A('</body>');
+  A('</html>');
 
-${imgURL?`<div class="post-cover-wrap"><img src="${imgURL}" alt="${p.title.replace(/"/g,'&quot;')}" class="post-cover" loading="eager"></div>`:''}
+  const html = H.join('\n');
 
-<div class="post-layout">
-  <article class="post-content">
-    ${safeContent}
-    <div class="author-box">
-      <div class="ava">A</div>
-      <div>
-        <h4>Abrar Ali (Abrarr Tallks)</h4>
-        <p>CEO of <a href="https://rebrar.in" target="_blank" rel="noopener">rebrar.in</a> &amp; <a href="https://makemetop.in" target="_blank" rel="noopener">MakeMe Top Business Profile</a>. 4+ years building modern, SEO-ranked websites for businesses across Jammu &amp; Kashmir and India. 📍 Srinagar, J&amp;K — 191101. 📞 +91 7051078832</p>
-      </div>
-    </div>
-  </article>
-  <aside class="sidebar">
-    <div class="sc">
-      <h4>💬 Free Website Quote</h4>
-      <p>Need a website or SEO? Get a free custom quote from Abrar Ali.</p>
-      <a href="https://wa.me/917051078832?text=Hi%20Abrar%2C%20I%20read%20your%20blog%20and%20want%20a%20quote" target="_blank" rel="noopener" class="btn btn-primary" style="width:100%;justify-content:center">💬 WhatsApp Now</a>
-    </div>
-    <div class="sc">
-      <h4>More Articles</h4>
-      <div class="rp"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=100&q=70" alt=""><div><a href="blog-local-seo-kashmir.html">Rank on Google in Srinagar, Kashmir</a></div></div>
-      <div class="rp"><img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=100&q=70" alt=""><div><a href="blog-travel-website-kashmir.html">Kashmir Travel Website Must-Haves</a></div></div>
-      <div class="rp"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=100&q=70" alt=""><div><a href="blog-website-cost-india.html">Website Cost in India 2025</a></div></div>
-      <div class="rp"><img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=100&q=70" alt=""><div><a href="blog-seo-mistakes-india.html">SEO Mistakes India</a></div></div>
-    </div>
-    <div class="sc">
-      <h4>My Companies</h4>
-      <p style="font-size:13px;margin-bottom:8px"><a href="https://rebrar.in" target="_blank" rel="noopener"><strong>rebrar.in</strong></a> — Web Design Agency</p>
-      <p style="font-size:13px;margin:0"><a href="https://makemetop.in" target="_blank" rel="noopener"><strong>MakeMe Top</strong></a> — Business Profile &amp; SEO</p>
-    </div>
-  </aside>
-</div>
-
-<footer class="main-footer">
-  <div class="footer-grid">
-    <div class="footer-col"><h4>Abrarr Tallks</h4><p>Web design &amp; SEO blog by Abrar Ali — CEO <a href="https://rebrar.in" target="_blank" rel="noopener" class="external">rebrar.in</a> &amp; MakeMe Top Business Profile.</p></div>
-    <div class="footer-col"><h4>Site Map</h4><ul><li><a href="index.html">Home</a></li><li><a href="portfolio.html">Portfolio</a></li><li><a href="services.html">Services</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="blog.html">Blog</a></li><li><a href="contact.html">Contact</a></li></ul></div>
-    <div class="footer-col"><h4>Articles</h4><ul><li><a href="blog-local-seo-kashmir.html">Local SEO Kashmir</a></li><li><a href="blog-travel-website-kashmir.html">Travel Website Kashmir</a></li><li><a href="blog-website-cost-india.html">Website Cost India</a></li><li><a href="blog-seo-mistakes-india.html">SEO Mistakes India</a></li></ul></div>
-    <div class="footer-col"><h4>Contact</h4><ul><li>📍 Srinagar, J&amp;K — 191101</li><li>📞 <a href="tel:+917051078832">+91 7051078832</a></li></ul></div>
-    <div class="footer-col"><h4>Legal</h4><ul><li><a href="privacy.html">Privacy Policy</a></li><li><a href="refund.html">Refund Policy</a></li></ul></div>
-  </div>
-  <div class="footer-bottom"><p>&copy; 2026 Abrarr Tallks &mdash; Abrar Ali. All Rights Reserved.</p></div>
-</footer>
-<a href="https://wa.me/917051078832" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg></a>
-<script>
-(function(){
-  var mb=document.getElementById('menuBtn');var nl=document.getElementById('navLinks');
-  mb.addEventListener('click',function(){var o=nl.classList.toggle('open');mb.setAttribute('aria-expanded',o);mb.textContent=o?'X':'=';});
-  nl.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){nl.classList.remove('open');mb.textContent='=';});});
-  window.addEventListener('scroll',function(){document.querySelector('.navbar').classList.toggle('scrolled',window.scrollY>8);},{passive:true});
-})();
-</script>
-</body>
-</html>`;
-
-  // Download the file
+  // Download
   const blob = new Blob([html], { type: 'text/html;charset=utf-8' });
-  const url  = URL.createObjectURL(blob);
-  const a    = document.createElement('a');
-  a.href     = url;
-  a.download = slug;
-  document.body.appendChild(a);
-  a.click();
+  const dlUrl = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = dlUrl; a.download = slug;
+  document.body.appendChild(a); a.click();
   document.body.removeChild(a);
-  URL.revokeObjectURL(url);
-  toast(`✅ Downloaded: ${slug} — upload this file to your hosting root!`, 'ok');
+  URL.revokeObjectURL(dlUrl);
+  toast('Downloaded: ' + slug + ' — upload to your hosting root folder!', 'ok');
 };
 
 window.__db=async(id,title)=>{
