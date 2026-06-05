@@ -9,8 +9,8 @@
     SITEMAP — Abrarr Tallks Portfolio
     Website : https://abrartallks-portfolio.co.in/
     Owner   : Abrar Ali — CEO rebrar.in & MakeMe Top Business Profile
-    Updated : 2026-05-05
-    Pages   : 16 URLs indexed | admin.html excluded (noindex)
+    Updated : 2026-06-05
+    Pages   : 28 URLs indexed | admin.html excluded (noindex)
     ================================================================
 
     PRIORITY GUIDE:
@@ -18,7 +18,6 @@
       0.9  — Core money pages (portfolio, services)
       0.8  — Supporting pages (pricing, about, contact, blog index)
       0.7  — Blog posts (SEO content)
-      0.5  — Dynamic/reader pages (blog-post.html)
       0.3  — Legal pages (privacy, refund)
 
     CHANGEFREQ GUIDE:
@@ -33,7 +32,7 @@
        ═══════════════════════════════════════════ -->
   <url>
     <loc>https://abrartallks-portfolio.co.in/</loc>
-    <lastmod>2026-05-11</lastmod>
+    <lastmod>2026-06-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -43,14 +42,14 @@
        ═══════════════════════════════════════════ -->
   <url>
     <loc>https://abrartallks-portfolio.co.in/portfolio.html</loc>
-    <lastmod>2026-05-11</lastmod>
+    <lastmod>2026-06-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://abrartallks-portfolio.co.in/services.html</loc>
-    <lastmod>2026-05-11</lastmod>
+    <lastmod>2026-06-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -60,21 +59,21 @@
        ═══════════════════════════════════════════ -->
   <url>
     <loc>https://abrartallks-portfolio.co.in/pricing.html</loc>
-    <lastmod>2026-05-11</lastmod>
+    <lastmod>2026-06-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://abrartallks-portfolio.co.in/about.html</loc>
-    <lastmod>2026-05-11</lastmod>
+    <lastmod>2026-06-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://abrartallks-portfolio.co.in/contact.html</loc>
-    <lastmod>2026-05-11</lastmod>
+    <lastmod>2026-06-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -84,160 +83,155 @@
        ═══════════════════════════════════════════ -->
   <url>
     <loc>https://abrartallks-portfolio.co.in/blog.html</loc>
-    <lastmod>2026-05-11</lastmod>
+    <lastmod>2026-06-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <!-- ═══════════════════════════════════════════
-       STATIC BLOG POSTS — Priority 0.7
+       BLOG POSTS — Priority 0.7
        ═══════════════════════════════════════════ -->
   <url>
-    <loc>https://abrartallks-portfolio.co.in/blog-local-seo-kashmir.html</loc>
-    <lastmod>2026-05-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://abrartallks-portfolio.co.in/blog-travel-website-kashmir.html</loc>
-    <lastmod>2026-05-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://abrartallks-portfolio.co.in/blog-website-cost-india.html</loc>
-    <lastmod>2026-05-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://abrartallks-portfolio.co.in/blog-seo-mistakes-india.html</loc>
-    <lastmod>2026-05-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <!-- ═══════════════════════════════════════════
-       ADMIN-CREATED BLOG POSTS
-       HOW TO ADD: When you publish a blog post from admin.html,
-       click the green "⬇ HTML" button — it downloads a static
-       .html file (e.g. blog-seo-kashmir.html).
-       Upload that file to your hosting root, then add its URL
-       below in this format:
-
-  <url>
-    <loc>https://abrartallks-portfolio.co.in/YOUR-SLUG-HERE.html</loc>
-    <lastmod>YYYY-MM-DD</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-       EXAMPLE (paste real slug from downloaded filename):
-       ═══════════════════════════════════════════ -->
-  <url>
-    <loc>https://abrartallks-portfolio.co.in/how-to-rank-google-business-profile-kashmir.html</loc>
-    <lastmod>2026-05-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-        
-        <url>
-    <loc>https://abrartallks-portfolio.co.in/why-makeme-top-mbp-is-the-best-travel-directory-in-kashmir.html</loc>
-    <lastmod>2026-05-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-        <url>
-    <loc>https://abrartallks-portfolio.co.in/why-abrar-ali-created-makeme-top-business-profile-kashmir.html</loc>
-    <lastmod>2026-05-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-        <url>
-    <loc>https://abrartallks-portfolio.co.in/why-split-makeme-top-mbp-b2b-kashmir-stay-b2c-kashmirstay.html</loc>
-    <lastmod>2026-05-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-        <url>
-    <loc>https://abrartallks-portfolio.co.in/how-makeme-top-helps-tourism-jammu-kashmir.html</loc>
-    <lastmod>2026-05-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-        <url>
-    <loc>https://abrartallks-portfolio.co.in/what-is-kashmir-stay-ks-kashmirstay-in-explained.html</loc>
-    <lastmod>2026-05-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-         <url>
-    <loc>https://abrartallks-portfolio.co.in/why-i-built-kashmir-stay-makeme-top-abrar-ali-full-story.html</loc>
-    <lastmod>2026-05-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-         <url>
-    <loc>https://abrartallks-portfolio.co.in/how-abrar-ali-became-meta-ads-expert-audience-targeting-india.html</loc>
-    <lastmod>2026-05-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-         <url>
-    <loc>https://abrartallks-portfolio.co.in/why-abrar-ali-abrarr-tallks-best-web-designer-developer-india.html</loc>
-    <lastmod>2026-05-11</lastmod>
+    <loc>https://abrartallks-portfolio.co.in/about-kashmir-stay.html</loc>
+    <lastmod>2026-06-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://abrartallks-portfolio.co.in/about-makeme-top.html</loc>
-    <lastmod>2026-05-11</lastmod>
+    <lastmod>2026-06-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://abrartallks-portfolio.co.in/about-kashmir-stay.html</loc>
-    <lastmod>2026-05-11</lastmod>
+    <loc>https://abrartallks-portfolio.co.in/blog-best-web-designer-india-international-clients.html</loc>
+    <lastmod>2026-06-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+
+  <url>
+    <loc>https://abrartallks-portfolio.co.in/blog-best-web-developer-world-kashmir.html</loc>
+    <lastmod>2026-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://abrartallks-portfolio.co.in/blog-kashmir-stay-founder-abrar-ali.html</loc>
+    <lastmod>2026-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://abrartallks-portfolio.co.in/blog-meta-ads-expert-india-abrar-ali.html</loc>
+    <lastmod>2026-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://abrartallks-portfolio.co.in/blog-rank-1-google-worldwide-2026.html</loc>
+    <lastmod>2026-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://abrartallks-portfolio.co.in/blog-seo-travel-websites-india.html</loc>
+    <lastmod>2026-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://abrartallks-portfolio.co.in/blog-web-designer-maldives-resort.html</loc>
+    <lastmod>2026-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://abrartallks-portfolio.co.in/blog-web-developer-uae-dubai.html</loc>
+    <lastmod>2026-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://abrartallks-portfolio.co.in/how-abrar-ali-became-meta-ads-expert-audience-targeting-india.html</loc>
+    <lastmod>2026-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://abrartallks-portfolio.co.in/how-makeme-top-helps-tourism-jammu-kashmir.html</loc>
+    <lastmod>2026-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://abrartallks-portfolio.co.in/how-makeme-top-makes-easy-stay-kashmir-mbp-ai.html</loc>
+    <lastmod>2026-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://abrartallks-portfolio.co.in/what-is-makeme-top-business-profile-mbp-kashmir.html</loc>
+    <lastmod>2026-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://abrartallks-portfolio.co.in/why-abrar-ali-abrarr-tallks-best-web-designer-developer-india.html</loc>
+    <lastmod>2026-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://abrartallks-portfolio.co.in/why-abrar-ali-created-makeme-top-business-profile-kashmir.html</loc>
+    <lastmod>2026-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://abrartallks-portfolio.co.in/why-i-built-kashmir-stay-makeme-top-abrar-ali-full-story.html</loc>
+    <lastmod>2026-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://abrartallks-portfolio.co.in/why-makeme-top-mbp-is-the-best-travel-directory-in-kashmir.html</loc>
+    <lastmod>2026-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
   <!-- ═══════════════════════════════════════════
        LEGAL PAGES — Priority 0.3
        ═══════════════════════════════════════════ -->
   <url>
     <loc>https://abrartallks-portfolio.co.in/privacy.html</loc>
-    <lastmod>2026-05-11</lastmod>
+    <lastmod>2026-06-05</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
 
   <url>
     <loc>https://abrartallks-portfolio.co.in/refund.html</loc>
-    <lastmod>2026-05-11</lastmod>
+    <lastmod>2026-06-05</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
-
-        
-  <!--
-    EXCLUDED PAGES (intentionally not indexed):
-    - /admin.html     → noindex, login-gated admin panel
-    - /js/shared.js   → JavaScript file, not a page
-    - /js/main.js     → JavaScript file, not a page
-    - /style.css      → Stylesheet, not a page
-    - /firebase-config.js → Config file, not a page
-  -->
 
 </urlset>
