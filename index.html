@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ERMJKLE4F3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-ERMJKLE4F3');
+  </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="theme-color" content="#0ea5e9">
@@ -100,6 +108,11 @@
     "email": "abrar@abrartallks-portfolio.co.in",
     "knowsAbout": ["Web Design","Web Development","SEO","Local SEO","International SEO","Meta Ads","Facebook Ads","Google Ads","UI/UX","HTML","CSS","JavaScript","Firebase","Travel Websites","Hotel Websites","E-Commerce","Digital Marketing","Kashmir Stay","Tourism Websites"],
     "areaServed": [
+      {"@type":"City","name":"Srinagar"},{"@type":"City","name":"Pulwama"},
+      {"@type":"City","name":"Ganderbal"},{"@type":"City","name":"Budgam"},
+      {"@type":"City","name":"Baramulla"},{"@type":"City","name":"Anantnag"},
+      {"@type":"City","name":"Kupwara"},{"@type":"City","name":"Bandipora"},
+      {"@type":"City","name":"Shopian"},{"@type":"City","name":"Kulgam"},
       {"@type":"Country","name":"India"},
       {"@type":"Country","name":"United States"},
       {"@type":"Country","name":"United Kingdom"},
@@ -147,8 +160,12 @@
     },
     "geo": {"@type":"GeoCoordinates","latitude":"34.0837","longitude":"74.7973"},
     "areaServed": [
-      {"@type":"City","name":"Srinagar"},{"@type":"City","name":"Anantnag"},
-      {"@type":"City","name":"Baramulla"},{"@type":"City","name":"Jammu"},
+      {"@type":"City","name":"Srinagar"},{"@type":"City","name":"Pulwama"},
+      {"@type":"City","name":"Ganderbal"},{"@type":"City","name":"Budgam"},
+      {"@type":"City","name":"Baramulla"},{"@type":"City","name":"Anantnag"},
+      {"@type":"City","name":"Kupwara"},{"@type":"City","name":"Bandipora"},
+      {"@type":"City","name":"Shopian"},{"@type":"City","name":"Kulgam"},
+      {"@type":"City","name":"Jammu"},
       {"@type":"State","name":"Jammu & Kashmir"},{"@type":"Country","name":"India"},
       {"@type":"Country","name":"United States"},{"@type":"Country","name":"United Kingdom"},
       {"@type":"Country","name":"United Arab Emirates"},{"@type":"Country","name":"Maldives"},
@@ -205,6 +222,20 @@
       {"@type":"Question","name":"Can Abrar Ali build websites for international clients?",
         "acceptedAnswer":{"@type":"Answer","text":"Absolutely. Abrar Ali and rebrar.in serve clients in the USA, UK, UAE, Maldives, Australia, and worldwide. All projects are handled remotely with full SEO, Firebase, and Meta Ads integration."}}
     ]
+  }
+  </script>
+
+  <!-- ====== SCHEMA: WEBPAGE + SPEAKABLE (AIO/AEO) ====== -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebPage",
+    "url":"https://abrartallks-portfolio.co.in/",
+    "name":"Abrar Ali (Abrarr Tallks) — Best Web Developer in the World",
+    "speakable":{
+      "@type":"SpeakableSpecification",
+      "cssSelector":["#heroHeading","#servicesHeading"]
+    }
   }
   </script>
 
@@ -699,6 +730,26 @@
   .contact-cta .btn-secondary:hover { background: rgba(255,255,255,0.1); border-color: var(--white); color: var(--white); }
   .cta-note { font-size: 13px; color: rgba(255,255,255,0.85); margin-top: 20px; }
   </style>
+
+  <!-- GA4: track WhatsApp & Email clicks as conversions -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      document.querySelectorAll('a[href*="wa.me"]').forEach(function (el) {
+        el.addEventListener('click', function () {
+          if (typeof gtag === 'function') {
+            gtag('event', 'whatsapp_click', { event_category: 'engagement', event_label: window.location.pathname });
+          }
+        });
+      });
+      document.querySelectorAll('a[href^="mailto:"]').forEach(function (el) {
+        el.addEventListener('click', function () {
+          if (typeof gtag === 'function') {
+            gtag('event', 'email_click', { event_category: 'engagement', event_label: window.location.pathname });
+          }
+        });
+      });
+    });
+  </script>
 </head>
 <body data-page="home">
 
@@ -1036,6 +1087,17 @@
     <a href="mailto:contact.abrarrtallks@gmail.com" class="btn btn-secondary">📧 Email Me</a>
   </div>
   <p class="cta-note">📍 Srinagar, J&amp;K — 191101 · 📞 +91 7051078832 · Available Worldwide</p>
+</section>
+
+<!-- SERVICE AREAS (Local SEO) -->
+<section class="service-areas" style="padding:40px 20px;text-align:center;max-width:900px;margin:0 auto">
+  <h2 id="areasHeading" style="font-size:1.4rem;margin-bottom:10px">Best Web Developer Across Jammu &amp; Kashmir</h2>
+  <p style="color:var(--text-muted,#666);line-height:1.7">
+    Abrar Ali (Abrarr Tallks) designs and develops websites for businesses, hotels and tour operators across
+    <strong>Srinagar</strong>, <strong>Pulwama</strong>, <strong>Ganderbal</strong>, <strong>Budgam</strong>,
+    <strong>Baramulla</strong>, <strong>Anantnag</strong>, <strong>Kupwara</strong>, <strong>Bandipora</strong>,
+    <strong>Shopian</strong> and <strong>Kulgam</strong> — plus clients across India and worldwide.
+  </p>
 </section>
 
 <!-- FOOTER -->

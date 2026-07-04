@@ -1,11 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ERMJKLE4F3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-ERMJKLE4F3');
+  </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="theme-color" content="#0ea5e9">
-  <title>Web Design &amp; SEO Services in Srinagar, Kashmir, India — Abrarr Tallks | rebrar.in &amp; MakeMe Top</title>
-  <meta name="description" content="Professional web design, web development, local SEO, e-commerce and hotel/travel website services in Srinagar, Jammu &amp; Kashmir and all of India. CEO: Abrar Ali (Abrarr Tallks) — rebrar.in &amp; MakeMe Top.">
+  <title>Best Web Developer in J&amp;K — Web Design &amp; SEO Services in Srinagar, Pulwama, Ganderbal, Baramulla, Anantnag &amp; Kashmir — Abrarr Tallks</title>
+  <meta name="description" content="Professional web design, web development, local SEO, e-commerce and hotel/travel website services across Jammu & Kashmir — Srinagar, Pulwama, Ganderbal, Budgam, Baramulla, Anantnag, Kupwara, Bandipora, Shopian, Kulgam and all of India. CEO: Abrar Ali (Abrarr Tallks) — rebrar.in & MakeMe Top.">
   <meta name="author" content="Abrar Ali">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
   <link rel="canonical" href="https://abrartallks-portfolio.co.in/services.html">
@@ -40,6 +48,11 @@
       "address":{"@type":"PostalAddress","addressLocality":"Srinagar","addressRegion":"Jammu &amp; Kashmir","postalCode":"191101","addressCountry":"IN"}
     },
     "areaServed":[
+      {"@type":"City","name":"Srinagar"},{"@type":"City","name":"Pulwama"},
+      {"@type":"City","name":"Ganderbal"},{"@type":"City","name":"Budgam"},
+      {"@type":"City","name":"Baramulla"},{"@type":"City","name":"Anantnag"},
+      {"@type":"City","name":"Kupwara"},{"@type":"City","name":"Bandipora"},
+      {"@type":"City","name":"Shopian"},{"@type":"City","name":"Kulgam"},
       {"@type":"State","name":"Jammu &amp; Kashmir"},{"@type":"Country","name":"India"}
     ],
     "hasOfferCatalog":{
@@ -60,6 +73,38 @@
     {"@type":"ListItem","position":1,"name":"Home","item":"https://abrartallks-portfolio.co.in/"},
     {"@type":"ListItem","position":2,"name":"Services","item":"https://abrartallks-portfolio.co.in/services.html"}
   ]}
+  </script>
+
+  <!-- ====== SCHEMA: FAQ (AEO) ====== -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {"@type":"Question","name":"What web design services does Abrar Ali offer in Srinagar?",
+        "acceptedAnswer":{"@type":"Answer","text":"Abrar Ali (Abrarr Tallks) offers business website design, e-commerce development, hotel & travel websites, local SEO, UI/UX design, speed optimisation, Firebase-powered dynamic sites, and course/education websites — all delivered from Srinagar, J&K."}},
+      {"@type":"Question","name":"How long does it take to build a website?",
+        "acceptedAnswer":{"@type":"Answer","text":"Most business websites are delivered through a simple 3-step process — requirements, design, launch — typically within 1-2 weeks depending on the project scope."}},
+      {"@type":"Question","name":"Does Abrar Ali provide local SEO services in J&K?",
+        "acceptedAnswer":{"@type":"Answer","text":"Yes. Local SEO & Google Ranking services are provided through MakeMe Top Business Profile, including on-page SEO audits, Google My Business optimisation, schema markup, and monthly keyword reports for businesses in Jammu & Kashmir and across India."}},
+      {"@type":"Question","name":"Can I get a hotel or travel website with booking features?",
+        "acceptedAnswer":{"@type":"Answer","text":"Yes. Hotel & travel websites include package/room gallery cards, WhatsApp booking systems, TravelAgency/Hotel schema, and SEO optimised for Kashmir tourism keywords."}}
+    ]
+  }
+  </script>
+
+  <!-- ====== SCHEMA: WEBPAGE + SPEAKABLE (AIO/AEO) ====== -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebPage",
+    "url":"https://abrartallks-portfolio.co.in/services.html",
+    "name":"Web Design & SEO Services in Srinagar, Kashmir, India",
+    "speakable":{
+      "@type":"SpeakableSpecification",
+      "cssSelector":["h1","#svcsHeading","p.section-sub"]
+    }
+  }
   </script>
 
   <style>
@@ -102,6 +147,26 @@
   .svc-cta .btn-secondary{background:transparent;border-color:rgba(255,255,255,.4);color:#fff;}
   .svc-cta .btn-secondary:hover{background:rgba(255,255,255,.1);border-color:#fff;color:#fff;}
   </style>
+
+  <!-- GA4: track WhatsApp & Email clicks as conversions -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      document.querySelectorAll('a[href*="wa.me"]').forEach(function (el) {
+        el.addEventListener('click', function () {
+          if (typeof gtag === 'function') {
+            gtag('event', 'whatsapp_click', { event_category: 'engagement', event_label: window.location.pathname });
+          }
+        });
+      });
+      document.querySelectorAll('a[href^="mailto:"]').forEach(function (el) {
+        el.addEventListener('click', function () {
+          if (typeof gtag === 'function') {
+            gtag('event', 'email_click', { event_category: 'engagement', event_label: window.location.pathname });
+          }
+        });
+      });
+    });
+  </script>
 </head>
 <body>
 
@@ -139,7 +204,7 @@
 
       <div class="svc-card">
         <div class="ico">🖥️</div>
-        <h2>Business Website Design</h2>
+        <h3>Business Website Design</h3>
         <p>Modern, fast, SEO-ready business websites for SMEs, agencies and service companies across India. Every site is mobile-first, geo-tagged and built to rank for your local area.</p>
         <ul><li>5–8 Page Multi-Section Sites</li><li>SEO + Schema Markup Included</li><li>WhatsApp &amp; Call Integration</li><li>Local SEO for Srinagar / J&amp;K / India</li></ul>
         <a href="pricing.html" class="svc-link">See Pricing →</a>
@@ -147,7 +212,7 @@
 
       <div class="svc-card">
         <div class="ico">🛒</div>
-        <h2>E-Commerce Development</h2>
+        <h3>E-Commerce Development</h3>
         <p>Feature-rich online stores with product catalogues, cart, Razorpay/PayTM checkout and WhatsApp order flow. Built for Kashmir crafts, dry fruits, clothing and more.</p>
         <ul><li>Full Product Catalogue + Filters</li><li>Payment Gateway Integration</li><li>SEO Product Pages</li><li>Admin Panel to Add Products</li></ul>
         <a href="pricing.html" class="svc-link">See Pricing →</a>
@@ -155,7 +220,7 @@
 
       <div class="svc-card">
         <div class="ico">🏨</div>
-        <h2>Hotel &amp; Travel Website</h2>
+        <h3>Hotel &amp; Travel Website</h3>
         <p>Custom booking-ready websites for hotels, houseboats, tour operators and travel agencies in Kashmir and beyond. Built to rank for local travel and tourism keywords.</p>
         <ul><li>Package / Room Gallery Cards</li><li>WhatsApp Booking System</li><li>TravelAgency / Hotel Schema</li><li>Kashmir Tour SEO Keywords</li></ul>
         <a href="portfolio.html" class="svc-link">View Live Examples →</a>
@@ -163,7 +228,7 @@
 
       <div class="svc-card">
         <div class="ico">📈</div>
-        <h2>Local SEO &amp; Google Ranking</h2>
+        <h3>Local SEO &amp; Google Ranking</h3>
         <p>Rank your business on page 1 of Google in Srinagar, J&K and across India. Complete local SEO through <strong>MakeMe Top Business Profile</strong> — schema, GMB, geo-tags and content strategy.</p>
         <ul><li>On-Page SEO Audit &amp; Fix</li><li>Google My Business Optimisation</li><li>Schema Markup (All Types)</li><li>Monthly Keyword Reports</li></ul>
         <a href="https://makemetop.in" target="_blank" rel="noopener" class="svc-link">Visit MakeMe Top →</a>
@@ -171,7 +236,7 @@
 
       <div class="svc-card">
         <div class="ico">🎨</div>
-        <h2>UI / UX Design</h2>
+        <h3>UI / UX Design</h3>
         <p>Clean, intuitive user interfaces that guide visitors to take action — designed mobile-first with strong typography, whitespace and conversion-focused layouts.</p>
         <ul><li>Wireframe + Full Design</li><li>Premium Typography Systems</li><li>Colour &amp; Brand Identity</li><li>Responsive for All Screen Sizes</li></ul>
         <a href="portfolio.html" class="svc-link">View Portfolio →</a>
@@ -179,7 +244,7 @@
 
       <div class="svc-card">
         <div class="ico">⚡</div>
-        <h2>Website Speed Optimisation</h2>
+        <h3>Website Speed Optimisation</h3>
         <p>Audit and fix your slow website — image compression, lazy loading, code minification and CDN setup to hit green Core Web Vitals scores for better Google ranking.</p>
         <ul><li>Core Web Vitals Audit</li><li>Image Compression &amp; WebP</li><li>Code Minification</li><li>CDN + Caching Setup</li></ul>
         <a href="contact.html" class="svc-link">Get Audit →</a>
@@ -187,7 +252,7 @@
 
       <div class="svc-card">
         <div class="ico">🔥</div>
-        <h2>Firebase &amp; Dynamic Websites</h2>
+        <h3>Firebase &amp; Dynamic Websites</h3>
         <p>Static sites with Firebase-powered admin panels — add, edit and delete content (projects, images, announcements) without touching code. No paid hosting needed.</p>
         <ul><li>Firebase Firestore CRUD</li><li>Email/Password Admin Login</li><li>URL-Only Image System</li><li>Fallback Static Data</li></ul>
         <a href="contact.html" class="svc-link">Enquire →</a>
@@ -195,7 +260,7 @@
 
       <div class="svc-card">
         <div class="ico">🎓</div>
-        <h2>Course &amp; Education Websites</h2>
+        <h3>Course &amp; Education Websites</h3>
         <p>Platforms for coaching institutes, online teachers and course creators — with clean enrollment flows, video embed sections and student testimonials.</p>
         <ul><li>Course Listing Pages</li><li>Enrollment / Enquiry Forms</li><li>WhatsApp Lead Capture</li><li>SEO for Education Keywords</li></ul>
         <a href="pricing.html" class="svc-link">See Pricing →</a>
@@ -241,6 +306,17 @@
       <div style="background:var(--white);border:1px solid var(--line);border-radius:10px;padding:12px 16px;font-size:14px;color:var(--slate)">📍 Chandigarh</div>
     </div>
   </div>
+</section>
+
+<!-- SERVICE AREAS (Local SEO) -->
+<section class="service-areas" style="padding:40px 20px;text-align:center;max-width:900px;margin:0 auto">
+  <h2 id="svcAreasHeading" style="font-size:1.4rem;margin-bottom:10px">Web Design &amp; SEO Services Across J&amp;K Districts</h2>
+  <p style="color:var(--text-muted,#666);line-height:1.7">
+    Website design, e-commerce, local SEO and hotel/travel websites delivered for clients in
+    <strong>Srinagar</strong>, <strong>Pulwama</strong>, <strong>Ganderbal</strong>, <strong>Budgam</strong>,
+    <strong>Baramulla</strong>, <strong>Anantnag</strong>, <strong>Kupwara</strong>, <strong>Bandipora</strong>,
+    <strong>Shopian</strong> and <strong>Kulgam</strong> — and businesses across India.
+  </p>
 </section>
 
 <!-- CTA -->

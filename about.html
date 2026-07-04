@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ERMJKLE4F3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-ERMJKLE4F3');
+  </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="theme-color" content="#0ea5e9">
@@ -92,6 +100,16 @@
       ],
       "knowsAbout": ["Web Design","Web Development","SEO","International SEO","Local SEO","Meta Ads","Facebook Advertising","Instagram Ads","UI/UX","HTML","CSS","JavaScript","Firebase","WordPress","E-Commerce","Kashmir Tourism","Travel Websites","Hotel Websites","Digital Marketing"],
       "areaServed": [
+        {"@type":"City","name":"Srinagar"},
+        {"@type":"City","name":"Pulwama"},
+        {"@type":"City","name":"Ganderbal"},
+        {"@type":"City","name":"Budgam"},
+        {"@type":"City","name":"Baramulla"},
+        {"@type":"City","name":"Anantnag"},
+        {"@type":"City","name":"Kupwara"},
+        {"@type":"City","name":"Bandipora"},
+        {"@type":"City","name":"Shopian"},
+        {"@type":"City","name":"Kulgam"},
         {"@type":"Country","name":"India"},
         {"@type":"Country","name":"United States"},
         {"@type":"Country","name":"United Kingdom"},
@@ -113,6 +131,36 @@
         "https://makemetop.in",
         "https://kashmirstay.in"
       ]
+    }
+  }
+  </script>
+
+  <!-- ====== SCHEMA: FAQ (AEO) ====== -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {"@type":"Question","name":"Who is Abrar Ali (Abrarr Tallks)?",
+        "acceptedAnswer":{"@type":"Answer","text":"Abrar Ali, known professionally as Abrarr Tallks, is a web designer, developer and digital entrepreneur based in Srinagar, Jammu & Kashmir. He is CEO of rebrar.in and MakeMe Top Business Profile, and founder of Kashmir Stay."}},
+      {"@type":"Question","name":"How much experience does Abrar Ali have?",
+        "acceptedAnswer":{"@type":"Answer","text":"Abrar Ali has over 4 years of hands-on experience and has delivered 20+ live websites for hotels, tour operators, e-commerce stores, coaching institutes and service businesses across Jammu & Kashmir and India."}},
+      {"@type":"Question","name":"What companies does Abrar Ali run?",
+        "acceptedAnswer":{"@type":"Answer","text":"Abrar Ali is CEO of rebrar.in, a web design and development agency, and MakeMe Top Business Profile, a digital marketing and SEO company. He is also the founder of Kashmir Stay (kashmirstay.in)."}}
+    ]
+  }
+  </script>
+
+  <!-- ====== SCHEMA: WEBPAGE + SPEAKABLE (AIO/AEO) ====== -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebPage",
+    "url":"https://abrartallks-portfolio.co.in/about.html",
+    "name":"About Abrar Ali (Abrarr Tallks)",
+    "speakable":{
+      "@type":"SpeakableSpecification",
+      "cssSelector":["#aboutHeading",".about-role"]
     }
   }
   </script>
@@ -371,6 +419,26 @@
   .about-cta .btn-secondary { background: transparent; border-color: rgba(255,255,255,0.4); color: var(--white); }
   .about-cta .btn-secondary:hover { background: rgba(255,255,255,0.1); border-color: var(--white); color: var(--white); }
   </style>
+
+  <!-- GA4: track WhatsApp & Email clicks as conversions -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      document.querySelectorAll('a[href*="wa.me"]').forEach(function (el) {
+        el.addEventListener('click', function () {
+          if (typeof gtag === 'function') {
+            gtag('event', 'whatsapp_click', { event_category: 'engagement', event_label: window.location.pathname });
+          }
+        });
+      });
+      document.querySelectorAll('a[href^="mailto:"]').forEach(function (el) {
+        el.addEventListener('click', function () {
+          if (typeof gtag === 'function') {
+            gtag('event', 'email_click', { event_category: 'engagement', event_label: window.location.pathname });
+          }
+        });
+      });
+    });
+  </script>
 </head>
 <body>
 
