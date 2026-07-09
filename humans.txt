@@ -1,0 +1,26 @@
+/* TEAM */
+Developer: Abrar Ali (Abrarr Tallks)
+Role: Web Designer, Web Developer, SEO Expert, Meta Ads Specialist
+Location: Srinagar, Jammu & Kashmir, India — 191101
+WhatsApp: +91 7051078832
+Email: contact.abrarrtallks@gmail.com
+Instagram: https://www.instagram.com/_abrarrtallks_
+YouTube: https://www.youtube.com/@abrarrtallks
+LinkedIn: https://in.linkedin.com/in/abrarr-tallks-b098a6401
+Telegram: https://t.me/abrarrtallks
+From: Srinagar, Jammu & Kashmir, India
+
+/* COMPANIES */
+CEO: rebrar.in — Web design & development agency
+CEO: makemetop.in (MakeMe Top Business Profile) — Digital marketing & SEO agency
+Founder: kashmirstay.in — Kashmir tourism & hospitality booking platform
+
+/* SITE */
+Last update: 2026/07/09
+Language: English, Hindi, Urdu, Kashmiri
+Doctype: HTML5
+Standards: HTML5, CSS3, WCAG 2.1, Schema.org JSON-LD
+
+/* THANKS */
+Thanks for reading — if you're a fellow developer or a business owner
+looking for a website, reach out on WhatsApp above.
