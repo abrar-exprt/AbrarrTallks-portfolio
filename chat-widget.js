@@ -18,7 +18,7 @@
 
   // ==== CONFIG — update this after deploying your Google Apps Script Web App ====
   // Paste the full "…/exec" URL you get after deploying (see apps-script-backend.gs)
-  var CHAT_ENDPOINT = "https://script.google.com/macros/s/AKfycbwBMOD23EeTJDgWOyfW8x0-qgtZ-T1leWz-udb8V-MvBzvBLWYNBhMXKzNeF-5t9cFJlg/exec";
+  var CHAT_ENDPOINT = "https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID/exec";
   var WHATSAPP_URL = "https://api.whatsapp.com/send/?phone=917051078832&text&type=phone_number&app_absent=0";
   // =======================================================================
 
@@ -32,6 +32,43 @@
     try { sessionStorage.setItem(STORAGE_KEY, JSON.stringify(history.slice(-12))); } catch (e) {}
   }
 
+  // ── Notification sound (generated in-browser, no audio file needed) ──
+  // Browsers block audio until the visitor interacts with the page at
+  // least once, so we "unlock" the AudioContext on first tap/click/key.
+  var audioCtx = null;
+  function unlockAudio() {
+    if (!audioCtx) {
+      try { audioCtx = new (window.AudioContext || window.webkitAudioContext)(); } catch (e) {}
+    } else if (audioCtx.state === "suspended") {
+      audioCtx.resume();
+    }
+  }
+  ["pointerdown", "keydown", "touchstart"].forEach(function (evt) {
+    document.addEventListener(evt, unlockAudio, { once: true, passive: true });
+  });
+
+  function playNotifySound() {
+    if (!audioCtx) {
+      try { audioCtx = new (window.AudioContext || window.webkitAudioContext)(); } catch (e) { return; }
+    }
+    if (audioCtx.state === "suspended") { audioCtx.resume(); }
+    try {
+      var now = audioCtx.currentTime;
+      var osc = audioCtx.createOscillator();
+      var gain = audioCtx.createGain();
+      osc.type = "sine";
+      osc.frequency.setValueAtTime(880, now);        // A5
+      osc.frequency.setValueAtTime(1174.66, now + 0.09); // D6 — quick two-note "ding"
+      gain.gain.setValueAtTime(0.0001, now);
+      gain.gain.exponentialRampToValueAtTime(0.16, now + 0.02);
+      gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.4);
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+      osc.start(now);
+      osc.stop(now + 0.42);
+    } catch (e) {}
+  }
+
   var css = "" +
     "#atc-launcher{position:fixed;right:22px;bottom:90px;width:56px;height:56px;border-radius:50%;" +
     "background:#0ea5e9;box-shadow:0 10px 30px -8px rgba(14,165,233,.6);display:flex;align-items:center;" +
@@ -40,11 +77,28 @@
     "#atc-launcher svg{width:26px;height:26px;fill:#fff;}" +
     "#atc-launcher .atc-dot{position:absolute;top:2px;right:2px;width:12px;height:12px;background:#22c55e;" +
     "border:2px solid #fff;border-radius:50%;}" +
-    "#atc-panel{position:fixed;right:22px;bottom:156px;width:340px;max-width:calc(100vw - 32px);height:460px;" +
-    "max-height:calc(100vh - 200px);background:#fff;border-radius:18px;box-shadow:0 20px 60px -16px rgba(15,23,42,.35);" +
-    "display:flex;flex-direction:column;overflow:hidden;z-index:9999;font-family:'Inter',system-ui,sans-serif;" +
-    "opacity:0;transform:translateY(12px) scale(.98);pointer-events:none;transition:opacity .18s,transform .18s;}" +
-    "#atc-panel.open{opacity:1;transform:translateY(0) scale(1);pointer-events:auto;}" +
+    /* Small attention-grabbing notify strip, anchored just above the launcher */
+    "#atc-notify{position:fixed;right:22px;bottom:154px;max-width:230px;background:#fff;color:#0f172a;" +
+    "font-family:'Inter',system-ui,sans-serif;font-size:12.5px;font-weight:600;line-height:1.4;" +
+    "padding:10px 30px 10px 14px;border-radius:12px;box-shadow:0 10px 30px -10px rgba(15,23,42,.3);" +
+    "border:1px solid #e2e8f0;z-index:9997;cursor:pointer;opacity:0;transform:translateY(8px);" +
+    "transition:opacity .25s,transform .25s;pointer-events:none;}" +
+    "#atc-notify.show{opacity:1;transform:translateY(0);pointer-events:auto;}" +
+    "#atc-notify::after{content:'';position:absolute;bottom:-6px;right:26px;width:12px;height:12px;" +
+    "background:#fff;border-right:1px solid #e2e8f0;border-bottom:1px solid #e2e8f0;transform:rotate(45deg);}" +
+    "#atc-notify-close{position:absolute;top:6px;right:8px;width:16px;height:16px;border:none;background:none;" +
+    "color:#94a3b8;font-size:13px;line-height:1;cursor:pointer;padding:0;}" +
+    "#atc-notify-close:hover{color:#334155;}" +
+    /* Backdrop + centered modal panel — same behavior on mobile and desktop */
+    "#atc-overlay{position:fixed;inset:0;background:rgba(15,23,42,.45);z-index:9998;opacity:0;" +
+    "pointer-events:none;transition:opacity .18s;}" +
+    "#atc-overlay.open{opacity:1;pointer-events:auto;}" +
+    "#atc-panel{position:fixed;top:50%;left:50%;transform:translate(-50%,-46%) scale(.98);" +
+    "width:92vw;max-width:400px;height:80vh;max-height:560px;background:#fff;border-radius:20px;" +
+    "box-shadow:0 24px 70px -16px rgba(15,23,42,.45);display:flex;flex-direction:column;overflow:hidden;" +
+    "z-index:9999;font-family:'Inter',system-ui,sans-serif;opacity:0;pointer-events:none;" +
+    "transition:opacity .2s,transform .2s;}" +
+    "#atc-panel.open{opacity:1;transform:translate(-50%,-50%) scale(1);pointer-events:auto;}" +
     "#atc-head{background:linear-gradient(135deg,#0ea5e9,#0369a1);padding:16px 18px;color:#fff;display:flex;" +
     "align-items:center;gap:10px;flex-shrink:0;}" +
     "#atc-head .atc-avatar{width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.2);" +
@@ -75,7 +129,7 @@
     "display:flex;align-items:center;justify-content:center;flex-shrink:0;}" +
     "#atc-send:disabled{opacity:.5;cursor:not-allowed;}" +
     "#atc-send svg{width:16px;height:16px;fill:#fff;}" +
-    "@media(max-width:420px){#atc-panel{right:12px;bottom:150px;} #atc-launcher{right:12px;}}";
+    "@media(max-width:420px){#atc-launcher{right:16px;bottom:84px;} #atc-notify{right:16px;bottom:148px;max-width:200px;} #atc-panel{width:94vw;height:82vh;border-radius:16px;}}";
 
   var style = document.createElement("style");
   style.textContent = css;
@@ -88,6 +142,17 @@
     '<svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.02 2 11c0 2.61 1.24 4.95 3.24 6.6-.1.98-.5 2.5-1.24 3.9 1.6-.2 3.24-.86 4.4-1.6 1.1.3 2.3.1 3.6.1 5.52 0 10-4.02 10-9s-4.48-9-10-9z"/></svg>' +
     '<span class="atc-dot"></span>';
   document.body.appendChild(launcher);
+
+  var notify = document.createElement("div");
+  notify.id = "atc-notify";
+  notify.innerHTML =
+    '👋 Need help? Ask me about services, pricing or areas served!' +
+    '<button id="atc-notify-close" aria-label="Dismiss">✕</button>';
+  document.body.appendChild(notify);
+
+  var overlay = document.createElement("div");
+  overlay.id = "atc-overlay";
+  document.body.appendChild(overlay);
 
   var panel = document.createElement("div");
   panel.id = "atc-panel";
@@ -150,6 +215,8 @@
   function openPanel() {
     isOpen = true;
     panel.classList.add("open");
+    overlay.classList.add("open");
+    hideNotify(true);
     renderHistory();
     setTimeout(function () { input.focus(); }, 150);
   }
@@ -157,12 +224,44 @@
   function closePanel() {
     isOpen = false;
     panel.classList.remove("open");
+    overlay.classList.remove("open");
   }
 
   launcher.addEventListener("click", function () {
     isOpen ? closePanel() : openPanel();
   });
   panel.querySelector("#atc-close").addEventListener("click", closePanel);
+  overlay.addEventListener("click", closePanel);
+
+  // ── Notify strip: appears once per session above the launcher to draw
+  // attention to the chat, unless already dismissed or already chatted. ──
+  var NOTIFY_KEY = "abrarrChatNotifyDismissed";
+  function hideNotify(persist) {
+    notify.classList.remove("show");
+    if (persist) {
+      try { sessionStorage.setItem(NOTIFY_KEY, "1"); } catch (e) {}
+    }
+  }
+  var alreadyDismissed = false;
+  try { alreadyDismissed = sessionStorage.getItem(NOTIFY_KEY) === "1"; } catch (e) {}
+  if (!alreadyDismissed) {
+    setTimeout(function () {
+      if (!isOpen) {
+        notify.classList.add("show");
+        playNotifySound();
+      }
+    }, 3500);
+    // Auto-hide after a while so it doesn't linger forever
+    setTimeout(function () { hideNotify(false); }, 12000);
+  }
+  notify.addEventListener("click", function (e) {
+    if (e.target && e.target.id === "atc-notify-close") {
+      hideNotify(true);
+      return;
+    }
+    hideNotify(true);
+    openPanel();
+  });
 
   panel.querySelectorAll(".atc-chip").forEach(function (chip) {
     chip.addEventListener("click", function () {
@@ -201,6 +300,7 @@
         addMessage("bot", reply);
         history.push({ role: "assistant", content: reply });
         saveHistory();
+        if (!isOpen) playNotifySound();
         if (typeof gtag === "function") {
           gtag("event", "chat_widget_message", { event_category: "engagement" });
         }
@@ -220,10 +320,4 @@
     if (e.key === "Enter") sendMessage();
   });
 
-  document.addEventListener("click", function (e) {
-    if (isOpen && !panel.contains(e.target) && !launcher.contains(e.target)) {
-      // keep panel open on outside click — chat widgets shouldn't
-      // vanish accidentally; user closes via ✕ button.
-    }
-  });
 })();
