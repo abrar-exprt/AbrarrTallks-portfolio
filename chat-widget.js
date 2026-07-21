@@ -18,7 +18,7 @@
 
   // ==== CONFIG — update this after deploying your Google Apps Script Web App ====
   // Paste the full "…/exec" URL you get after deploying (see apps-script-backend.gs)
-  var CHAT_ENDPOINT = "https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID/exec";
+  var CHAT_ENDPOINT = "https://script.google.com/macros/s/AKfycbwBMOD23EeTJDgWOyfW8x0-qgtZ-T1leWz-udb8V-MvBzvBLWYNBhMXKzNeF-5t9cFJlg/exec";
   var WHATSAPP_URL = "https://api.whatsapp.com/send/?phone=917051078832&text&type=phone_number&app_absent=0";
   // =======================================================================
 
