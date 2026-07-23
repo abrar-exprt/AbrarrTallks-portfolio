@@ -1,317 +1,207 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
-  <!-- Main Pages -->
-
   <url>
-    <loc>https://abrartallks-portfolio.co.in/</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://abrartallks-portfolio.co.in//</loc>
+    <lastmod>2026-07-20</lastmod>
+    <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
-
   <url>
-    <loc>https://abrartallks-portfolio.co.in/about.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://abrartallks-portfolio.co.in/services.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://abrartallks-portfolio.co.in/portfolio.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://abrartallks-portfolio.co.in/pricing.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
+    <loc>https://abrartallks-portfolio.co.in//about-kashmir-stay.html</loc>
+    <lastmod>2026-06-02</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
-
   <url>
-    <loc>https://abrartallks-portfolio.co.in/contact.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
+    <loc>https://abrartallks-portfolio.co.in//about-makeme-top.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
-
   <url>
-    <loc>https://abrartallks-portfolio.co.in/blog.html</loc>
-    <lastmod>2026-07-09</lastmod>
+    <loc>https://abrartallks-portfolio.co.in//about.html</loc>
+    <lastmod>2026-07-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
-
   <url>
-    <loc>https://abrartallks-portfolio.co.in/web-designer-jammu-kashmir.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
+    <loc>https://abrartallks-portfolio.co.in//agency.html</loc>
+    <lastmod>2026-07-20</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
-
-  <!-- About -->
-
   <url>
-    <loc>https://abrartallks-portfolio.co.in/about-kashmir-stay.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://abrartallks-portfolio.co.in/about-makeme-top.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <!-- Blogs -->
-
-  <url>
-    <loc>https://abrartallks-portfolio.co.in/blog-best-web-designer-india-international-clients.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://abrartallks-portfolio.co.in/blog-best-web-developer-world-kashmir.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://abrartallks-portfolio.co.in/blog-kashmir-stay-founder-abrar-ali.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://abrartallks-portfolio.co.in/blog-local-seo-kashmir.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://abrartallks-portfolio.co.in/blog-meta-ads-expert-india-abrar-ali.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://abrartallks-portfolio.co.in/blog-rank-1-google-worldwide-2026.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://abrartallks-portfolio.co.in/blog-seo-mistakes-india.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://abrartallks-portfolio.co.in/blog-seo-travel-websites-india.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://abrartallks-portfolio.co.in/blog-travel-website-kashmir.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://abrartallks-portfolio.co.in/blog-web-designer-maldives-resort.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://abrartallks-portfolio.co.in/blog-web-developer-uae-dubai.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://abrartallks-portfolio.co.in/blog-website-cost-india.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- Articles -->
-
-  <url>
-    <loc>https://abrartallks-portfolio.co.in/how-abrar-ali-became-meta-ads-expert-audience-targeting-india.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://abrartallks-portfolio.co.in/how-makeme-top-helps-tourism-jammu-kashmir.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://abrartallks-portfolio.co.in/how-makeme-top-makes-easy-stay-kashmir-mbp-ai.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://abrartallks-portfolio.co.in/what-is-makeme-top-business-profile-mbp-kashmir.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://abrartallks-portfolio.co.in/why-abrar-ali-abrarr-tallks-best-web-designer-developer-india.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://abrartallks-portfolio.co.in/why-abrar-ali-created-makeme-top-business-profile-kashmir.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://abrartallks-portfolio.co.in/why-i-built-kashmir-stay-makeme-top-abrar-ali-full-story.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://abrartallks-portfolio.co.in/why-makeme-top-mbp-is-the-best-travel-directory-in-kashmir.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- BLOG Folder -->
-
-  <url>
-    <loc>https://abrartallks-portfolio.co.in/blog/best-web-developer-in-australia.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://abrartallks-portfolio.co.in/blog/best-web-developer-in-canada.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://abrartallks-portfolio.co.in/blog/best-web-developer-in-jammu-kashmir.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://abrartallks-portfolio.co.in/blog/best-web-developer-in-kashmir-districts.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://abrartallks-portfolio.co.in/blog/best-web-developer-in-maldives.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://abrartallks-portfolio.co.in/blog/best-web-developer-in-singapore.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://abrartallks-portfolio.co.in/blog/best-web-developer-in-the-world.html</loc>
-    <lastmod>2026-07-09</lastmod>
+    <loc>https://abrartallks-portfolio.co.in//blog-best-web-designer-india-international-clients.html</loc>
+    <lastmod>2026-06-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
-
   <url>
-    <loc>https://abrartallks-portfolio.co.in/blog/best-web-developer-in-uae.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
+    <loc>https://abrartallks-portfolio.co.in//blog-best-web-developer-world-kashmir.html</loc>
+    <lastmod>2026-06-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://abrartallks-portfolio.co.in//blog-local-seo-kashmir.html</loc>
+    <lastmod>2026-07-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://abrartallks-portfolio.co.in//blog-meta-ads-expert-india-abrar-ali.html</loc>
+    <lastmod>2026-07-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://abrartallks-portfolio.co.in//blog-post.html</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://abrartallks-portfolio.co.in//blog-rank-1-google-worldwide-2026.html</loc>
+    <lastmod>2026-06-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://abrartallks-portfolio.co.in//blog-seo-mistakes-india.html</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://abrartallks-portfolio.co.in//blog-seo-travel-websites-india.html</loc>
+    <lastmod>2026-06-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://abrartallks-portfolio.co.in//blog-travel-website-kashmir.html</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://abrartallks-portfolio.co.in//blog-web-designer-maldives-resort.html</loc>
+    <lastmod>2026-06-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://abrartallks-portfolio.co.in//blog-website-cost-india.html</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://abrartallks-portfolio.co.in//blog.html</loc>
+    <lastmod>2026-07-20</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
-
   <url>
-    <loc>https://abrartallks-portfolio.co.in/blog/best-web-developer-in-uk.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
+    <loc>https://abrartallks-portfolio.co.in//blog/best-web-developer-in-australia.html</loc>
+    <lastmod>2026-07-21</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
-
   <url>
-    <loc>https://abrartallks-portfolio.co.in/blog/best-web-developer-in-usa.html</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
+    <loc>https://abrartallks-portfolio.co.in//blog/best-web-developer-in-canada.html</loc>
+    <lastmod>2026-07-21</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
-
-  <!-- Legal -->
-
   <url>
-    <loc>https://abrartallks-portfolio.co.in/privacy.html</loc>
+    <loc>https://abrartallks-portfolio.co.in//blog/best-web-developer-in-jammu-kashmir.html</loc>
     <lastmod>2026-07-09</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.5</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
-
   <url>
-    <loc>https://abrartallks-portfolio.co.in/terms.html</loc>
+    <loc>https://abrartallks-portfolio.co.in//blog/best-web-developer-in-kashmir-districts.html</loc>
     <lastmod>2026-07-09</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.5</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
-
   <url>
-    <loc>https://abrartallks-portfolio.co.in/refund.html</loc>
+    <loc>https://abrartallks-portfolio.co.in//blog/best-web-developer-in-the-world.html</loc>
     <lastmod>2026-07-09</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.5</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
-
+  <url>
+    <loc>https://abrartallks-portfolio.co.in//contact.html</loc>
+    <lastmod>2026-07-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://abrartallks-portfolio.co.in//how-abrar-ali-became-meta-ads-expert-audience-targeting-india.html</loc>
+    <lastmod>2026-05-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://abrartallks-portfolio.co.in//how-makeme-top-helps-tourism-jammu-kashmir.html</loc>
+    <lastmod>2026-05-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://abrartallks-portfolio.co.in//portfolio.html</loc>
+    <lastmod>2026-07-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://abrartallks-portfolio.co.in//pricing.html</loc>
+    <lastmod>2026-07-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://abrartallks-portfolio.co.in//privacy.html</loc>
+    <lastmod>2026-07-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://abrartallks-portfolio.co.in//refund.html</loc>
+    <lastmod>2026-05-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://abrartallks-portfolio.co.in//services.html</loc>
+    <lastmod>2026-07-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://abrartallks-portfolio.co.in//terms.html</loc>
+    <lastmod>2026-07-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://abrartallks-portfolio.co.in//web-designer-jammu-kashmir.html</loc>
+    <lastmod>2026-05-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://abrartallks-portfolio.co.in//why-abrar-ali-abrarr-tallks-best-web-designer-developer-india.html</loc>
+    <lastmod>2026-05-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://abrartallks-portfolio.co.in//why-split-makeme-top-mbp-b2b-kashmir-stay-b2c-kashmirstay.html</loc>
+    <lastmod>2026-05-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>
