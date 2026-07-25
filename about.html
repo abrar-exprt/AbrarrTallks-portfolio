@@ -56,6 +56,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="animations.css">
 
   <!-- ====== SCHEMA: PROFILE PAGE ====== -->
   <script type="application/ld+json">
@@ -467,7 +468,7 @@
 <section class="about-hero" aria-labelledby="aboutHeading">
   <div class="about-hero-container">
 
-    <div class="about-avatar">
+    <div class="about-avatar hero-fade-in">
       <img src="about-me.webp"
            onerror="this.src='https://api.dicebear.com/7.x/initials/svg?seed=Abrar+Ali&backgroundColor=0ea5e9&textColor=ffffff'"
            alt="Abrar Ali — Web Designer in Srinagar, J&K"
@@ -480,7 +481,7 @@
       </div>
     </div>
 
-    <div class="about-info">
+    <div class="about-info hero-fade-in delay-1">
       <nav class="breadcrumb" aria-label="Breadcrumb">
         <a href="index.html">Home</a><span>›</span><span>About</span>
       </nav>
@@ -519,7 +520,7 @@
     <p class="eyebrow">Expertise</p>
     <h2 class="section-title" id="skillsHeading">My Skills &amp; <span>Capabilities</span></h2>
     <p class="section-sub">Built over 4+ years of real-world client projects across J&amp;K and India.</p>
-    <div class="skills-grid">
+    <div class="skills-grid reveal-group">
       <div class="skill-item">
         <div class="skill-name">HTML &amp; CSS <span class="skill-pct">98%</span></div>
         <div class="skill-bar"><div class="skill-fill" data-w="98"></div></div>
@@ -562,7 +563,7 @@
     <p class="eyebrow">My Companies</p>
     <h2 class="section-title" id="companiesHeading">Two <span>Web Companies</span>. One Mission.</h2>
     <p class="section-sub">From building websites to ranking them on Google — I lead two active companies serving businesses across India.</p>
-    <div class="companies-cards">
+    <div class="companies-cards reveal-group">
       <div class="co-card">
         <div class="ico">🌐</div>
         <h3>rebrar.in</h3>
@@ -582,7 +583,7 @@
 </section>
 
 <!-- ===== CTA ===== -->
-<section class="about-cta" aria-labelledby="ctaHeading">
+<section class="about-cta reveal" aria-labelledby="ctaHeading">
   <h2 id="ctaHeading">Let's Work <span>Together</span></h2>
   <p>Looking for a professional <strong>web designer in Srinagar, J&amp;K</strong>? Available for projects across India. Let's build something that ranks and converts.</p>
   <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
@@ -733,5 +734,6 @@ const observer = new IntersectionObserver(entries => {
 document.querySelectorAll('.skills-grid').forEach(g => observer.observe(g));
 </script>
 <script src="chat-widget.js" defer></script>
+<script src="animations.js" defer></script>
 </body>
 </html>

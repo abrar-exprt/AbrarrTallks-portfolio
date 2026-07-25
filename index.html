@@ -185,6 +185,7 @@ section{padding:64px 24px;}
 .whatsapp-float{position:fixed;bottom:22px;right:22px;width:56px;height:56px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px -8px rgba(37,211,102,0.6);z-index:90;}
 .whatsapp-float svg{width:26px;height:26px;fill:#fff;}
 </style>
+<link rel="stylesheet" href="animations.css">
 </head>
 <body>
 
@@ -218,7 +219,7 @@ section{padding:64px 24px;}
 
 <section class="hero">
   <div class="hero-inner">
-    <div>
+    <div class="hero-fade-in">
       <span class="badge"><span class="dot"></span> Available for projects · India &amp; Worldwide</span>
       <h1>Best <span>Web Developer</span> in India — Every State, Every District</h1>
       <p class="lead">Abrar Ali (Abrarr Tallks) — web designer, developer, Meta Ads expert &amp; SEO specialist based in Srinagar, Kashmir. Delivering fast, conversion-ready websites for businesses across India and clients worldwide.</p>
@@ -232,7 +233,7 @@ section{padding:64px 24px;}
         <div><strong>28+8</strong><span>States &amp; UTs Served</span></div>
       </div>
     </div>
-    <div class="hero-card">
+    <div class="hero-card hero-fade-in delay-2">
       <img src="about-me.webp" onerror="this.src='https://api.dicebear.com/7.x/initials/svg?seed=Abrar+Ali&backgroundColor=0ea5e9&textColor=ffffff'" alt="Abrar Ali — Abrarr Tallks" class="hero-card-avatar" width="72" height="72" fetchpriority="high" decoding="async">
       <h3>Abrar Ali</h3>
       <div class="role">CEO · Web Designer &amp; SEO Expert</div>
@@ -243,11 +244,11 @@ section{padding:64px 24px;}
 </section>
 
 <section>
-  <div class="quick-answer-box" id="quickAnswer">
+  <div class="quick-answer-box reveal" id="quickAnswer">
     <span class="qa-label">Quick Answer</span>
     <p>Abrar Ali, known professionally as Abrarr Tallks, is a Srinagar-based web developer offering website design, SEO and Meta Ads services to businesses across every state and union territory of India, plus international clients in the UAE, USA, UK, Maldives, Australia, Canada and Singapore.</p>
   </div>
-  <div class="quick-facts-box" id="quickFacts">
+  <div class="quick-facts-box reveal" id="quickFacts">
     <span class="qa-label">Quick Facts</span>
     <table>
       <tr><th>Name</th><td>Abrar Ali</td></tr>
@@ -268,7 +269,7 @@ section{padding:64px 24px;}
     <h2>Web Design, Development &amp; Growth — One Team</h2>
     <p>No juggling multiple freelancers. Design, build, SEO and ads, all handled directly by Abrar.</p>
   </div>
-  <div class="services-grid">
+  <div class="services-grid reveal-group">
     <div class="service-card"><div class="ic">🎨</div><h3>Web Design &amp; Development</h3><p>Fast, mobile-first websites — business sites, e-commerce stores, booking platforms and landing pages.</p></div>
     <div class="service-card"><div class="ic">📈</div><h3>SEO, AEO &amp; GEO</h3><p>Classical search ranking plus optimisation for AI Overviews and AI chat citations (ChatGPT, Perplexity).</p></div>
     <div class="service-card"><div class="ic">📣</div><h3>Meta Ads Management</h3><p>Facebook &amp; Instagram ad campaigns built to drive real enquiries, not just impressions.</p></div>
@@ -281,7 +282,7 @@ section{padding:64px 24px;}
     <h2>Serving Every State &amp; Union Territory in India</h2>
     <p>Based in Srinagar, Jammu &amp; Kashmir — building websites for businesses across all of India.</p>
   </div>
-  <div class="zones">
+  <div class="zones reveal-group">
     <div class="zone-block"><h3>North India</h3><div class="state-chips"><span class="state-chip">Jammu & Kashmir</span><span class="state-chip">Ladakh</span><span class="state-chip">Punjab</span><span class="state-chip">Haryana</span><span class="state-chip">Himachal Pradesh</span><span class="state-chip">Delhi</span><span class="state-chip">Chandigarh</span><span class="state-chip">Uttarakhand</span></div></div>
 <div class="zone-block"><h3>South India</h3><div class="state-chips"><span class="state-chip">Karnataka</span><span class="state-chip">Kerala</span><span class="state-chip">Tamil Nadu</span><span class="state-chip">Andhra Pradesh</span><span class="state-chip">Telangana</span><span class="state-chip">Puducherry</span></div></div>
 <div class="zone-block"><h3>East India</h3><div class="state-chips"><span class="state-chip">West Bengal</span><span class="state-chip">Odisha</span><span class="state-chip">Bihar</span><span class="state-chip">Jharkhand</span></div></div>
@@ -304,7 +305,7 @@ section{padding:64px 24px;}
     <h2>Trusted by International Clients Too</h2>
     <p>Remote-delivered websites for businesses across these countries.</p>
   </div>
-  <div class="global-grid">
+  <div class="global-grid reveal-group">
     <a href="blog/best-web-developer-in-uae.html" class="global-card">🇦🇪 UAE</a>
     <a href="blog/best-web-developer-in-usa.html" class="global-card">🇺🇸 USA</a>
     <a href="blog/best-web-developer-in-uk.html" class="global-card">🇬🇧 UK</a>
@@ -321,7 +322,7 @@ section{padding:64px 24px;}
     <div class="eyebrow">Recent Work</div>
     <h2>Kinds of Websites I Build</h2>
   </div>
-  <div class="portfolio-grid">
+  <div class="portfolio-grid reveal-group">
     <div class="portfolio-card">
       <div class="portfolio-thumb" style="background:linear-gradient(135deg,#0ea5e9,#0369a1);">🏨</div>
       <div class="portfolio-body"><h3>Hotels &amp; Houseboats</h3><p>Booking-ready sites for Kashmir hospitality businesses.</p></div>
@@ -343,13 +344,13 @@ section{padding:64px 24px;}
     <div class="eyebrow">FAQ</div>
     <h2>Frequently Asked Questions</h2>
   </div>
-  <div class="faq-wrap">
+  <div class="faq-wrap reveal-group">
     <div class="faq-item"><h3>Who is the best web developer in India?</h3><p>Abrar Ali, known professionally as Abrarr Tallks, is a Srinagar-based web designer and developer with 4+ years of experience and 20+ live websites delivered for clients across every region of India as well as internationally.</p></div><div class="faq-item"><h3>Does Abrarr Tallks build websites for businesses outside Jammu & Kashmir?</h3><p>Yes. While based in Srinagar, Abrarr Tallks serves clients across all Indian states and union territories, plus international clients in the UAE, USA, UK, Maldives, Australia, Canada and Singapore.</p></div><div class="faq-item"><h3>What services does Abrarr Tallks offer besides web design?</h3><p>Alongside website design and development, Abrarr Tallks offers Meta Ads (Facebook & Instagram) management and SEO — including classical SEO, AEO, GEO and SXO — as an integrated package.</p></div><div class="faq-item"><h3>How do I get a quote for my website?</h3><p>Message directly on WhatsApp with your business type and location — you'll get a free quote and rough project timeline within minutes.</p></div><div class="faq-item"><h3>Is pricing different for international clients vs Indian clients?</h3><p>Pricing is scoped per project based on features and complexity, not location. Message on WhatsApp for a quote specific to your requirements.</p></div>
   </div>
 </section>
 
 <section>
-  <div class="cta-section">
+  <div class="cta-section reveal">
     <h2>Ready to Build Your Website?</h2>
     <p>Message Abrar directly on WhatsApp — get a free quote and project timeline within minutes, wherever you're based.</p>
     <a href="https://api.whatsapp.com/send/?phone=917051078832&text&type=phone_number&app_absent=0" target="_blank" rel="noopener" class="btn-primary">💬 Message on WhatsApp</a>
@@ -425,6 +426,6 @@ section{padding:64px 24px;}
     });
   });
 </script>
-<script src="chat-widget.js" defer></script>
+<script src="animations.js" defer></script>
 </body>
 </html>
